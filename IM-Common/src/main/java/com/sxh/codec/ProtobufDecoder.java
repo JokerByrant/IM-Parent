@@ -59,11 +59,9 @@ public class ProtobufDecoder extends ByteToMessageDecoder {
         // 获取消息内容
         byte[] array;
         if (in.hasArray()) {
-            log.info("从堆缓冲区读数据...");
             ByteBuf slice = in.slice();
             array = slice.array();
         } else {
-            log.info("从直接缓冲区读数据...");
             array = new byte[length];
             in.readBytes(array, 0, length);
         }

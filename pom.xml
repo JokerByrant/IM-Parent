@@ -20,6 +20,7 @@
         <module>IM-Web</module>
         <module>IM-Server</module>
         <module>IM-Common</module>
+        <module>IM-Client-Demo</module>
     </modules>
 
     <properties>
@@ -37,6 +38,10 @@
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 
