@@ -1,0 +1,161 @@
+syntax = "proto3";
+package com.sxh.protobuf;
+
+/*消息的枚举类型*/
+enum HeadType {
+  LOGIN_REQUEST = 0;  //登录
+  LOGIN_RESPONSE = 1;
+  LOGIN_REQUEST_WEB = 2;  //web登录操作
+  LOGOUT_REQUEST = 3;  //退出
+  LOGOUT_RESPONSE = 4;
+  HEART_BEAT = 5;      //心跳
+  SINGLE_REQUEST = 6;  //IM，一对一
+  MULTI_REQUEST = 7; //IM,一对多，群聊
+  MESSAGE_RESPONSE = 8;
+  MESSAGE_NOTIFICATION = 9;  //通知
+  MESSAGE_READ = 10; //消息已读
+  MESSAGE_NOTICE = 11; //通知消息
+}
+
+/*登录信息*/
+message LoginRequest {
+  string userUid = 1;   // 用户唯一id
+  string devId = 2;  // 设备ID
+  string token = 3;       // 用户token
+  uint32 platform = 4;  //客户端平台 windows、mac、android、ios、web
+  string appVersion = 5;   // APP版本号
+}
+/*登录响应*/
+message LoginResponse {
+  bool result = 1;  //true表示发送成功，false表示发送失败
+  uint32 code = 2;  //错误码
+  string info = 3;  //错误描述
+  uint32 expose = 4;  //错误描述是否提示给用户:1 提示;0 不提示
+  string apiAuth = 5; //在web请求接口时的权限验证字段
+}
+/**退出请求**/
+message LogoutRequest {
+  string userUid = 1;   // 用户唯一id
+  string devId = 2;  // 设备ID
+  string token = 3;       // 用户token
+  uint32 platform = 4;  //客户端平台 windows、mac、android、ios、web
+  string appVersion = 5;   // APP版本号
+}
+/*退出响应**/
+message LogoutResponse{
+  bool result = 1;  //true表示发送成功，false表示发送失败
+  uint32 code = 2;  //错误码
+  string info = 3;  //错误描述
+  uint32 platform = 4;  //客户端平台 windows、mac、android、ios、web,退出平台
+  bool initiative = 5; //true主动退出，false被动退出
+}
+/*登录信息WEB端*/
+message LoginWeb {
+  string webUid = 1;  // web端二维码UID
+  string userUid = 2; //用户uid
+  uint32 status = 3;  //登录状态，0：未登录，1：确认登录；2：退出登录
+  uint32 fromUid = 4; //消息来自app,还是web端,0：app,1：web
+  string json = 5; //存储用户的头像、名称等信息
+}
+/*聊天消息,一对一*/
+message SingleChatting {
+  string chatting_uid = 1;
+  string user_uid = 2;
+  string recv_uid = 3;
+  string content = 4;
+  string content_size = 5;
+  string original_path = 6;
+  string content_path = 7;
+  uint32 content_type = 8;
+  uint32 send_type = 9;
+  uint32 is_recall = 10;
+  uint32 pulling_status = 11;
+  string sort_date = 12;
+  string send_time = 13;
+  string update_date = 14;
+  string create_date = 15;
+  string temp_uid = 16;//临时聊天uid
+}
+/*群聊*/
+message ClusterChatting {
+  string chatting_uid = 1;
+  string cluster_uid = 2;
+  string recv_uid = 3;
+  string user_uid = 4;
+  string user_name = 5;
+  string user_logo = 6;
+  string user_position = 7;
+  string user_compy = 8;
+  string content = 9;
+  string content_size = 10;
+  string original_path = 11;
+  string content_path = 12;
+  uint32 content_type = 13;
+  uint32 send_type = 14;
+  uint32 is_recall = 15;
+  uint32 pulling_status = 16;
+  string sort_date = 17;
+  string send_time = 18;
+  string update_date = 19;
+  string create_date = 20;
+}
+/*聊天响应*/
+message MessageResponse {
+  bool result = 1;
+  uint32 code = 2;
+  string info = 3;
+  uint32 expose = 4;
+}
+
+/*消息推送*/
+message MessagePush {
+  uint64 no_id = 1;
+  uint32 msgType = 2;//推送消息类型，1：车名片审核，2:车名片分享、取消分享、删除，3：删除被分享车名片
+  string json = 3;
+  string timestamp = 4;
+}
+
+/*通知,节点上下线、用户上下线*/
+message MessageNotification {
+  uint64 no_id = 1;
+  string json = 2;
+  string timestamp = 3;
+}
+
+/*app和web同时登陆时，读已读消息是同步*/
+message MessageRead{
+  string userUid = 1;
+  uint32 read_type = 2;//0:个人，1：群消息
+  string uid = 3;//个人uid 或者 群uid
+  string platform = 4;
+}
+
+/*心跳*/
+message MessageHeartBeat {
+  uint32   seq = 1;
+  string   uid = 2;
+  string   json =3;
+}
+
+/*顶层消息*/
+//顶层消息是一种嵌套消息，嵌套了各种类型消息
+//逻辑上：根据消息类型 type的值，最多只有一个有效
+message Message {
+  HeadType       type = 1; //通用字段: 消息类型
+  uint64         sequence = 2;  //通用字段：消息序列号
+  string         session_id = 3;   //通用字段：会话id
+  LoginRequest   loginRequest = 4;   //登录请求
+  LoginResponse  loginResponse = 5;   //登录响应
+  LogoutRequest  logoutRequest = 6;   //退出请求
+  LogoutResponse  logoutResponse = 7;   //退出请求
+  LoginWeb       loginWeb = 8;//扫一扫登录web端
+  SingleChatting   singleChatting = 9;    //IM消息请求,一对一
+  ClusterChatting  clusterChatting = 10;  //群聊
+  MessageResponse  messageResponse = 11;      //IM消息响应
+  MessageNotification  notification = 12;        //系统通知
+  MessageHeartBeat     heartBeat = 13;  //心跳
+  MessageRead          msgRead = 14;//消息已读
+  MessagePush      msgPush = 15;//消息推送
+}
+
+
