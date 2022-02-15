@@ -37,76 +37,48 @@ public final class ProtoMsg {
     LOGIN_RESPONSE(1),
     /**
      * <pre>
-     *web登录操作
-     * </pre>
-     *
-     * <code>LOGIN_REQUEST_WEB = 2;</code>
-     */
-    LOGIN_REQUEST_WEB(2),
-    /**
-     * <pre>
      *退出
      * </pre>
      *
-     * <code>LOGOUT_REQUEST = 3;</code>
+     * <code>LOGOUT_REQUEST = 2;</code>
      */
-    LOGOUT_REQUEST(3),
+    LOGOUT_REQUEST(2),
     /**
-     * <code>LOGOUT_RESPONSE = 4;</code>
+     * <code>LOGOUT_RESPONSE = 3;</code>
      */
-    LOGOUT_RESPONSE(4),
+    LOGOUT_RESPONSE(3),
     /**
      * <pre>
      *心跳
      * </pre>
      *
-     * <code>HEART_BEAT = 5;</code>
+     * <code>HEART_BEAT = 4;</code>
      */
-    HEART_BEAT(5),
+    HEART_BEAT(4),
     /**
      * <pre>
      *IM，一对一
      * </pre>
      *
-     * <code>SINGLE_REQUEST = 6;</code>
+     * <code>SINGLE_REQUEST = 5;</code>
      */
-    SINGLE_REQUEST(6),
+    SINGLE_REQUEST(5),
     /**
      * <pre>
      *IM,一对多，群聊
      * </pre>
      *
-     * <code>MULTI_REQUEST = 7;</code>
+     * <code>CLUSTER_REQUEST = 6;</code>
      */
-    MULTI_REQUEST(7),
-    /**
-     * <code>MESSAGE_RESPONSE = 8;</code>
-     */
-    MESSAGE_RESPONSE(8),
+    CLUSTER_REQUEST(6),
     /**
      * <pre>
-     *通知
+     * 聊天响应
      * </pre>
      *
-     * <code>MESSAGE_NOTIFICATION = 9;</code>
+     * <code>MESSAGE_RESPONSE = 7;</code>
      */
-    MESSAGE_NOTIFICATION(9),
-    /**
-     * <pre>
-     *消息已读
-     * </pre>
-     *
-     * <code>MESSAGE_READ = 10;</code>
-     */
-    MESSAGE_READ(10),
-    /**
-     * <pre>
-     *通知消息
-     * </pre>
-     *
-     * <code>MESSAGE_NOTICE = 11;</code>
-     */
-    MESSAGE_NOTICE(11),
+    MESSAGE_RESPONSE(7),
     UNRECOGNIZED(-1),
     ;
 
@@ -124,76 +96,48 @@ public final class ProtoMsg {
     public static final int LOGIN_RESPONSE_VALUE = 1;
     /**
      * <pre>
-     *web登录操作
-     * </pre>
-     *
-     * <code>LOGIN_REQUEST_WEB = 2;</code>
-     */
-    public static final int LOGIN_REQUEST_WEB_VALUE = 2;
-    /**
-     * <pre>
      *退出
      * </pre>
      *
-     * <code>LOGOUT_REQUEST = 3;</code>
+     * <code>LOGOUT_REQUEST = 2;</code>
      */
-    public static final int LOGOUT_REQUEST_VALUE = 3;
+    public static final int LOGOUT_REQUEST_VALUE = 2;
     /**
-     * <code>LOGOUT_RESPONSE = 4;</code>
+     * <code>LOGOUT_RESPONSE = 3;</code>
      */
-    public static final int LOGOUT_RESPONSE_VALUE = 4;
+    public static final int LOGOUT_RESPONSE_VALUE = 3;
     /**
      * <pre>
      *心跳
      * </pre>
      *
-     * <code>HEART_BEAT = 5;</code>
+     * <code>HEART_BEAT = 4;</code>
      */
-    public static final int HEART_BEAT_VALUE = 5;
+    public static final int HEART_BEAT_VALUE = 4;
     /**
      * <pre>
      *IM，一对一
      * </pre>
      *
-     * <code>SINGLE_REQUEST = 6;</code>
+     * <code>SINGLE_REQUEST = 5;</code>
      */
-    public static final int SINGLE_REQUEST_VALUE = 6;
+    public static final int SINGLE_REQUEST_VALUE = 5;
     /**
      * <pre>
      *IM,一对多，群聊
      * </pre>
      *
-     * <code>MULTI_REQUEST = 7;</code>
+     * <code>CLUSTER_REQUEST = 6;</code>
      */
-    public static final int MULTI_REQUEST_VALUE = 7;
-    /**
-     * <code>MESSAGE_RESPONSE = 8;</code>
-     */
-    public static final int MESSAGE_RESPONSE_VALUE = 8;
+    public static final int CLUSTER_REQUEST_VALUE = 6;
     /**
      * <pre>
-     *通知
+     * 聊天响应
      * </pre>
      *
-     * <code>MESSAGE_NOTIFICATION = 9;</code>
+     * <code>MESSAGE_RESPONSE = 7;</code>
      */
-    public static final int MESSAGE_NOTIFICATION_VALUE = 9;
-    /**
-     * <pre>
-     *消息已读
-     * </pre>
-     *
-     * <code>MESSAGE_READ = 10;</code>
-     */
-    public static final int MESSAGE_READ_VALUE = 10;
-    /**
-     * <pre>
-     *通知消息
-     * </pre>
-     *
-     * <code>MESSAGE_NOTICE = 11;</code>
-     */
-    public static final int MESSAGE_NOTICE_VALUE = 11;
+    public static final int MESSAGE_RESPONSE_VALUE = 7;
 
 
     public final int getNumber() {
@@ -222,16 +166,12 @@ public final class ProtoMsg {
       switch (value) {
         case 0: return LOGIN_REQUEST;
         case 1: return LOGIN_RESPONSE;
-        case 2: return LOGIN_REQUEST_WEB;
-        case 3: return LOGOUT_REQUEST;
-        case 4: return LOGOUT_RESPONSE;
-        case 5: return HEART_BEAT;
-        case 6: return SINGLE_REQUEST;
-        case 7: return MULTI_REQUEST;
-        case 8: return MESSAGE_RESPONSE;
-        case 9: return MESSAGE_NOTIFICATION;
-        case 10: return MESSAGE_READ;
-        case 11: return MESSAGE_NOTICE;
+        case 2: return LOGOUT_REQUEST;
+        case 3: return LOGOUT_RESPONSE;
+        case 4: return HEART_BEAT;
+        case 5: return SINGLE_REQUEST;
+        case 6: return CLUSTER_REQUEST;
+        case 7: return MESSAGE_RESPONSE;
         default: return null;
       }
     }
@@ -4846,1170 +4786,6 @@ public final class ProtoMsg {
 
     @java.lang.Override
     public com.sxh.protobuf.ProtoMsg.LogoutResponse getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface LoginWebOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.sxh.protobuf.LoginWeb)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * web端二维码UID
-     * </pre>
-     *
-     * <code>string webUid = 1;</code>
-     * @return The webUid.
-     */
-    java.lang.String getWebUid();
-    /**
-     * <pre>
-     * web端二维码UID
-     * </pre>
-     *
-     * <code>string webUid = 1;</code>
-     * @return The bytes for webUid.
-     */
-    com.google.protobuf.ByteString
-        getWebUidBytes();
-
-    /**
-     * <pre>
-     *用户uid
-     * </pre>
-     *
-     * <code>string userUid = 2;</code>
-     * @return The userUid.
-     */
-    java.lang.String getUserUid();
-    /**
-     * <pre>
-     *用户uid
-     * </pre>
-     *
-     * <code>string userUid = 2;</code>
-     * @return The bytes for userUid.
-     */
-    com.google.protobuf.ByteString
-        getUserUidBytes();
-
-    /**
-     * <pre>
-     *登录状态，0：未登录，1：确认登录；2：退出登录
-     * </pre>
-     *
-     * <code>uint32 status = 3;</code>
-     * @return The status.
-     */
-    int getStatus();
-
-    /**
-     * <pre>
-     *消息来自app,还是web端,0：app,1：web
-     * </pre>
-     *
-     * <code>uint32 fromUid = 4;</code>
-     * @return The fromUid.
-     */
-    int getFromUid();
-
-    /**
-     * <pre>
-     *存储用户的头像、名称等信息
-     * </pre>
-     *
-     * <code>string json = 5;</code>
-     * @return The json.
-     */
-    java.lang.String getJson();
-    /**
-     * <pre>
-     *存储用户的头像、名称等信息
-     * </pre>
-     *
-     * <code>string json = 5;</code>
-     * @return The bytes for json.
-     */
-    com.google.protobuf.ByteString
-        getJsonBytes();
-  }
-  /**
-   * <pre>
-   *登录信息WEB端
-   * </pre>
-   *
-   * Protobuf type {@code com.sxh.protobuf.LoginWeb}
-   */
-  public static final class LoginWeb extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.sxh.protobuf.LoginWeb)
-      LoginWebOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use LoginWeb.newBuilder() to construct.
-    private LoginWeb(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private LoginWeb() {
-      webUid_ = "";
-      userUid_ = "";
-      json_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new LoginWeb();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private LoginWeb(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              webUid_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              userUid_ = s;
-              break;
-            }
-            case 24: {
-
-              status_ = input.readUInt32();
-              break;
-            }
-            case 32: {
-
-              fromUid_ = input.readUInt32();
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              json_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_LoginWeb_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_LoginWeb_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.sxh.protobuf.ProtoMsg.LoginWeb.class, com.sxh.protobuf.ProtoMsg.LoginWeb.Builder.class);
-    }
-
-    public static final int WEBUID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object webUid_;
-    /**
-     * <pre>
-     * web端二维码UID
-     * </pre>
-     *
-     * <code>string webUid = 1;</code>
-     * @return The webUid.
-     */
-    @java.lang.Override
-    public java.lang.String getWebUid() {
-      java.lang.Object ref = webUid_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        webUid_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * web端二维码UID
-     * </pre>
-     *
-     * <code>string webUid = 1;</code>
-     * @return The bytes for webUid.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getWebUidBytes() {
-      java.lang.Object ref = webUid_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        webUid_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int USERUID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object userUid_;
-    /**
-     * <pre>
-     *用户uid
-     * </pre>
-     *
-     * <code>string userUid = 2;</code>
-     * @return The userUid.
-     */
-    @java.lang.Override
-    public java.lang.String getUserUid() {
-      java.lang.Object ref = userUid_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        userUid_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *用户uid
-     * </pre>
-     *
-     * <code>string userUid = 2;</code>
-     * @return The bytes for userUid.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getUserUidBytes() {
-      java.lang.Object ref = userUid_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        userUid_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int STATUS_FIELD_NUMBER = 3;
-    private int status_;
-    /**
-     * <pre>
-     *登录状态，0：未登录，1：确认登录；2：退出登录
-     * </pre>
-     *
-     * <code>uint32 status = 3;</code>
-     * @return The status.
-     */
-    @java.lang.Override
-    public int getStatus() {
-      return status_;
-    }
-
-    public static final int FROMUID_FIELD_NUMBER = 4;
-    private int fromUid_;
-    /**
-     * <pre>
-     *消息来自app,还是web端,0：app,1：web
-     * </pre>
-     *
-     * <code>uint32 fromUid = 4;</code>
-     * @return The fromUid.
-     */
-    @java.lang.Override
-    public int getFromUid() {
-      return fromUid_;
-    }
-
-    public static final int JSON_FIELD_NUMBER = 5;
-    private volatile java.lang.Object json_;
-    /**
-     * <pre>
-     *存储用户的头像、名称等信息
-     * </pre>
-     *
-     * <code>string json = 5;</code>
-     * @return The json.
-     */
-    @java.lang.Override
-    public java.lang.String getJson() {
-      java.lang.Object ref = json_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        json_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *存储用户的头像、名称等信息
-     * </pre>
-     *
-     * <code>string json = 5;</code>
-     * @return The bytes for json.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getJsonBytes() {
-      java.lang.Object ref = json_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        json_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(webUid_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, webUid_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userUid_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userUid_);
-      }
-      if (status_ != 0) {
-        output.writeUInt32(3, status_);
-      }
-      if (fromUid_ != 0) {
-        output.writeUInt32(4, fromUid_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(json_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, json_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(webUid_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, webUid_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userUid_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userUid_);
-      }
-      if (status_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, status_);
-      }
-      if (fromUid_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(4, fromUid_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(json_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, json_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.sxh.protobuf.ProtoMsg.LoginWeb)) {
-        return super.equals(obj);
-      }
-      com.sxh.protobuf.ProtoMsg.LoginWeb other = (com.sxh.protobuf.ProtoMsg.LoginWeb) obj;
-
-      if (!getWebUid()
-          .equals(other.getWebUid())) return false;
-      if (!getUserUid()
-          .equals(other.getUserUid())) return false;
-      if (getStatus()
-          != other.getStatus()) return false;
-      if (getFromUid()
-          != other.getFromUid()) return false;
-      if (!getJson()
-          .equals(other.getJson())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + WEBUID_FIELD_NUMBER;
-      hash = (53 * hash) + getWebUid().hashCode();
-      hash = (37 * hash) + USERUID_FIELD_NUMBER;
-      hash = (53 * hash) + getUserUid().hashCode();
-      hash = (37 * hash) + STATUS_FIELD_NUMBER;
-      hash = (53 * hash) + getStatus();
-      hash = (37 * hash) + FROMUID_FIELD_NUMBER;
-      hash = (53 * hash) + getFromUid();
-      hash = (37 * hash) + JSON_FIELD_NUMBER;
-      hash = (53 * hash) + getJson().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.sxh.protobuf.ProtoMsg.LoginWeb parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.sxh.protobuf.ProtoMsg.LoginWeb parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.LoginWeb parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.sxh.protobuf.ProtoMsg.LoginWeb parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.LoginWeb parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.sxh.protobuf.ProtoMsg.LoginWeb parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.LoginWeb parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.sxh.protobuf.ProtoMsg.LoginWeb parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.LoginWeb parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.sxh.protobuf.ProtoMsg.LoginWeb parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.LoginWeb parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.sxh.protobuf.ProtoMsg.LoginWeb parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.sxh.protobuf.ProtoMsg.LoginWeb prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     *登录信息WEB端
-     * </pre>
-     *
-     * Protobuf type {@code com.sxh.protobuf.LoginWeb}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.sxh.protobuf.LoginWeb)
-        com.sxh.protobuf.ProtoMsg.LoginWebOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_LoginWeb_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_LoginWeb_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.sxh.protobuf.ProtoMsg.LoginWeb.class, com.sxh.protobuf.ProtoMsg.LoginWeb.Builder.class);
-      }
-
-      // Construct using com.sxh.protobuf.ProtoMsg.LoginWeb.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        webUid_ = "";
-
-        userUid_ = "";
-
-        status_ = 0;
-
-        fromUid_ = 0;
-
-        json_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_LoginWeb_descriptor;
-      }
-
-      @java.lang.Override
-      public com.sxh.protobuf.ProtoMsg.LoginWeb getDefaultInstanceForType() {
-        return com.sxh.protobuf.ProtoMsg.LoginWeb.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.sxh.protobuf.ProtoMsg.LoginWeb build() {
-        com.sxh.protobuf.ProtoMsg.LoginWeb result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.sxh.protobuf.ProtoMsg.LoginWeb buildPartial() {
-        com.sxh.protobuf.ProtoMsg.LoginWeb result = new com.sxh.protobuf.ProtoMsg.LoginWeb(this);
-        result.webUid_ = webUid_;
-        result.userUid_ = userUid_;
-        result.status_ = status_;
-        result.fromUid_ = fromUid_;
-        result.json_ = json_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.sxh.protobuf.ProtoMsg.LoginWeb) {
-          return mergeFrom((com.sxh.protobuf.ProtoMsg.LoginWeb)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.sxh.protobuf.ProtoMsg.LoginWeb other) {
-        if (other == com.sxh.protobuf.ProtoMsg.LoginWeb.getDefaultInstance()) return this;
-        if (!other.getWebUid().isEmpty()) {
-          webUid_ = other.webUid_;
-          onChanged();
-        }
-        if (!other.getUserUid().isEmpty()) {
-          userUid_ = other.userUid_;
-          onChanged();
-        }
-        if (other.getStatus() != 0) {
-          setStatus(other.getStatus());
-        }
-        if (other.getFromUid() != 0) {
-          setFromUid(other.getFromUid());
-        }
-        if (!other.getJson().isEmpty()) {
-          json_ = other.json_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.sxh.protobuf.ProtoMsg.LoginWeb parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.sxh.protobuf.ProtoMsg.LoginWeb) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object webUid_ = "";
-      /**
-       * <pre>
-       * web端二维码UID
-       * </pre>
-       *
-       * <code>string webUid = 1;</code>
-       * @return The webUid.
-       */
-      public java.lang.String getWebUid() {
-        java.lang.Object ref = webUid_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          webUid_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * web端二维码UID
-       * </pre>
-       *
-       * <code>string webUid = 1;</code>
-       * @return The bytes for webUid.
-       */
-      public com.google.protobuf.ByteString
-          getWebUidBytes() {
-        java.lang.Object ref = webUid_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          webUid_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * web端二维码UID
-       * </pre>
-       *
-       * <code>string webUid = 1;</code>
-       * @param value The webUid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setWebUid(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        webUid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * web端二维码UID
-       * </pre>
-       *
-       * <code>string webUid = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearWebUid() {
-        
-        webUid_ = getDefaultInstance().getWebUid();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * web端二维码UID
-       * </pre>
-       *
-       * <code>string webUid = 1;</code>
-       * @param value The bytes for webUid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setWebUidBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        webUid_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object userUid_ = "";
-      /**
-       * <pre>
-       *用户uid
-       * </pre>
-       *
-       * <code>string userUid = 2;</code>
-       * @return The userUid.
-       */
-      public java.lang.String getUserUid() {
-        java.lang.Object ref = userUid_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          userUid_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       *用户uid
-       * </pre>
-       *
-       * <code>string userUid = 2;</code>
-       * @return The bytes for userUid.
-       */
-      public com.google.protobuf.ByteString
-          getUserUidBytes() {
-        java.lang.Object ref = userUid_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          userUid_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *用户uid
-       * </pre>
-       *
-       * <code>string userUid = 2;</code>
-       * @param value The userUid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserUid(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        userUid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *用户uid
-       * </pre>
-       *
-       * <code>string userUid = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearUserUid() {
-        
-        userUid_ = getDefaultInstance().getUserUid();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *用户uid
-       * </pre>
-       *
-       * <code>string userUid = 2;</code>
-       * @param value The bytes for userUid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserUidBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        userUid_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int status_ ;
-      /**
-       * <pre>
-       *登录状态，0：未登录，1：确认登录；2：退出登录
-       * </pre>
-       *
-       * <code>uint32 status = 3;</code>
-       * @return The status.
-       */
-      @java.lang.Override
-      public int getStatus() {
-        return status_;
-      }
-      /**
-       * <pre>
-       *登录状态，0：未登录，1：确认登录；2：退出登录
-       * </pre>
-       *
-       * <code>uint32 status = 3;</code>
-       * @param value The status to set.
-       * @return This builder for chaining.
-       */
-      public Builder setStatus(int value) {
-        
-        status_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *登录状态，0：未登录，1：确认登录；2：退出登录
-       * </pre>
-       *
-       * <code>uint32 status = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearStatus() {
-        
-        status_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int fromUid_ ;
-      /**
-       * <pre>
-       *消息来自app,还是web端,0：app,1：web
-       * </pre>
-       *
-       * <code>uint32 fromUid = 4;</code>
-       * @return The fromUid.
-       */
-      @java.lang.Override
-      public int getFromUid() {
-        return fromUid_;
-      }
-      /**
-       * <pre>
-       *消息来自app,还是web端,0：app,1：web
-       * </pre>
-       *
-       * <code>uint32 fromUid = 4;</code>
-       * @param value The fromUid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setFromUid(int value) {
-        
-        fromUid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *消息来自app,还是web端,0：app,1：web
-       * </pre>
-       *
-       * <code>uint32 fromUid = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearFromUid() {
-        
-        fromUid_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object json_ = "";
-      /**
-       * <pre>
-       *存储用户的头像、名称等信息
-       * </pre>
-       *
-       * <code>string json = 5;</code>
-       * @return The json.
-       */
-      public java.lang.String getJson() {
-        java.lang.Object ref = json_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          json_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       *存储用户的头像、名称等信息
-       * </pre>
-       *
-       * <code>string json = 5;</code>
-       * @return The bytes for json.
-       */
-      public com.google.protobuf.ByteString
-          getJsonBytes() {
-        java.lang.Object ref = json_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          json_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *存储用户的头像、名称等信息
-       * </pre>
-       *
-       * <code>string json = 5;</code>
-       * @param value The json to set.
-       * @return This builder for chaining.
-       */
-      public Builder setJson(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        json_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *存储用户的头像、名称等信息
-       * </pre>
-       *
-       * <code>string json = 5;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearJson() {
-        
-        json_ = getDefaultInstance().getJson();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *存储用户的头像、名称等信息
-       * </pre>
-       *
-       * <code>string json = 5;</code>
-       * @param value The bytes for json to set.
-       * @return This builder for chaining.
-       */
-      public Builder setJsonBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        json_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:com.sxh.protobuf.LoginWeb)
-    }
-
-    // @@protoc_insertion_point(class_scope:com.sxh.protobuf.LoginWeb)
-    private static final com.sxh.protobuf.ProtoMsg.LoginWeb DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.sxh.protobuf.ProtoMsg.LoginWeb();
-    }
-
-    public static com.sxh.protobuf.ProtoMsg.LoginWeb getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<LoginWeb>
-        PARSER = new com.google.protobuf.AbstractParser<LoginWeb>() {
-      @java.lang.Override
-      public LoginWeb parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LoginWeb(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<LoginWeb> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<LoginWeb> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.sxh.protobuf.ProtoMsg.LoginWeb getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12450,2692 +11226,6 @@ public final class ProtoMsg {
 
   }
 
-  public interface MessagePushOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.sxh.protobuf.MessagePush)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>uint64 no_id = 1;</code>
-     * @return The noId.
-     */
-    long getNoId();
-
-    /**
-     * <pre>
-     *推送消息类型，1：车名片审核，2:车名片分享、取消分享、删除，3：删除被分享车名片
-     * </pre>
-     *
-     * <code>uint32 msgType = 2;</code>
-     * @return The msgType.
-     */
-    int getMsgType();
-
-    /**
-     * <code>string json = 3;</code>
-     * @return The json.
-     */
-    java.lang.String getJson();
-    /**
-     * <code>string json = 3;</code>
-     * @return The bytes for json.
-     */
-    com.google.protobuf.ByteString
-        getJsonBytes();
-
-    /**
-     * <code>string timestamp = 4;</code>
-     * @return The timestamp.
-     */
-    java.lang.String getTimestamp();
-    /**
-     * <code>string timestamp = 4;</code>
-     * @return The bytes for timestamp.
-     */
-    com.google.protobuf.ByteString
-        getTimestampBytes();
-  }
-  /**
-   * <pre>
-   *消息推送
-   * </pre>
-   *
-   * Protobuf type {@code com.sxh.protobuf.MessagePush}
-   */
-  public static final class MessagePush extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.sxh.protobuf.MessagePush)
-      MessagePushOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use MessagePush.newBuilder() to construct.
-    private MessagePush(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private MessagePush() {
-      json_ = "";
-      timestamp_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new MessagePush();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private MessagePush(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              noId_ = input.readUInt64();
-              break;
-            }
-            case 16: {
-
-              msgType_ = input.readUInt32();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              json_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              timestamp_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_MessagePush_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_MessagePush_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.sxh.protobuf.ProtoMsg.MessagePush.class, com.sxh.protobuf.ProtoMsg.MessagePush.Builder.class);
-    }
-
-    public static final int NO_ID_FIELD_NUMBER = 1;
-    private long noId_;
-    /**
-     * <code>uint64 no_id = 1;</code>
-     * @return The noId.
-     */
-    @java.lang.Override
-    public long getNoId() {
-      return noId_;
-    }
-
-    public static final int MSGTYPE_FIELD_NUMBER = 2;
-    private int msgType_;
-    /**
-     * <pre>
-     *推送消息类型，1：车名片审核，2:车名片分享、取消分享、删除，3：删除被分享车名片
-     * </pre>
-     *
-     * <code>uint32 msgType = 2;</code>
-     * @return The msgType.
-     */
-    @java.lang.Override
-    public int getMsgType() {
-      return msgType_;
-    }
-
-    public static final int JSON_FIELD_NUMBER = 3;
-    private volatile java.lang.Object json_;
-    /**
-     * <code>string json = 3;</code>
-     * @return The json.
-     */
-    @java.lang.Override
-    public java.lang.String getJson() {
-      java.lang.Object ref = json_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        json_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string json = 3;</code>
-     * @return The bytes for json.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getJsonBytes() {
-      java.lang.Object ref = json_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        json_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TIMESTAMP_FIELD_NUMBER = 4;
-    private volatile java.lang.Object timestamp_;
-    /**
-     * <code>string timestamp = 4;</code>
-     * @return The timestamp.
-     */
-    @java.lang.Override
-    public java.lang.String getTimestamp() {
-      java.lang.Object ref = timestamp_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        timestamp_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string timestamp = 4;</code>
-     * @return The bytes for timestamp.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getTimestampBytes() {
-      java.lang.Object ref = timestamp_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        timestamp_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (noId_ != 0L) {
-        output.writeUInt64(1, noId_);
-      }
-      if (msgType_ != 0) {
-        output.writeUInt32(2, msgType_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(json_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, json_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timestamp_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, timestamp_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (noId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, noId_);
-      }
-      if (msgType_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, msgType_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(json_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, json_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timestamp_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, timestamp_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.sxh.protobuf.ProtoMsg.MessagePush)) {
-        return super.equals(obj);
-      }
-      com.sxh.protobuf.ProtoMsg.MessagePush other = (com.sxh.protobuf.ProtoMsg.MessagePush) obj;
-
-      if (getNoId()
-          != other.getNoId()) return false;
-      if (getMsgType()
-          != other.getMsgType()) return false;
-      if (!getJson()
-          .equals(other.getJson())) return false;
-      if (!getTimestamp()
-          .equals(other.getTimestamp())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + NO_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getNoId());
-      hash = (37 * hash) + MSGTYPE_FIELD_NUMBER;
-      hash = (53 * hash) + getMsgType();
-      hash = (37 * hash) + JSON_FIELD_NUMBER;
-      hash = (53 * hash) + getJson().hashCode();
-      hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
-      hash = (53 * hash) + getTimestamp().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.sxh.protobuf.ProtoMsg.MessagePush parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessagePush parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessagePush parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessagePush parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessagePush parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessagePush parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessagePush parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessagePush parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessagePush parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessagePush parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessagePush parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessagePush parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.sxh.protobuf.ProtoMsg.MessagePush prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     *消息推送
-     * </pre>
-     *
-     * Protobuf type {@code com.sxh.protobuf.MessagePush}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.sxh.protobuf.MessagePush)
-        com.sxh.protobuf.ProtoMsg.MessagePushOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_MessagePush_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_MessagePush_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.sxh.protobuf.ProtoMsg.MessagePush.class, com.sxh.protobuf.ProtoMsg.MessagePush.Builder.class);
-      }
-
-      // Construct using com.sxh.protobuf.ProtoMsg.MessagePush.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        noId_ = 0L;
-
-        msgType_ = 0;
-
-        json_ = "";
-
-        timestamp_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_MessagePush_descriptor;
-      }
-
-      @java.lang.Override
-      public com.sxh.protobuf.ProtoMsg.MessagePush getDefaultInstanceForType() {
-        return com.sxh.protobuf.ProtoMsg.MessagePush.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.sxh.protobuf.ProtoMsg.MessagePush build() {
-        com.sxh.protobuf.ProtoMsg.MessagePush result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.sxh.protobuf.ProtoMsg.MessagePush buildPartial() {
-        com.sxh.protobuf.ProtoMsg.MessagePush result = new com.sxh.protobuf.ProtoMsg.MessagePush(this);
-        result.noId_ = noId_;
-        result.msgType_ = msgType_;
-        result.json_ = json_;
-        result.timestamp_ = timestamp_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.sxh.protobuf.ProtoMsg.MessagePush) {
-          return mergeFrom((com.sxh.protobuf.ProtoMsg.MessagePush)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.sxh.protobuf.ProtoMsg.MessagePush other) {
-        if (other == com.sxh.protobuf.ProtoMsg.MessagePush.getDefaultInstance()) return this;
-        if (other.getNoId() != 0L) {
-          setNoId(other.getNoId());
-        }
-        if (other.getMsgType() != 0) {
-          setMsgType(other.getMsgType());
-        }
-        if (!other.getJson().isEmpty()) {
-          json_ = other.json_;
-          onChanged();
-        }
-        if (!other.getTimestamp().isEmpty()) {
-          timestamp_ = other.timestamp_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.sxh.protobuf.ProtoMsg.MessagePush parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.sxh.protobuf.ProtoMsg.MessagePush) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private long noId_ ;
-      /**
-       * <code>uint64 no_id = 1;</code>
-       * @return The noId.
-       */
-      @java.lang.Override
-      public long getNoId() {
-        return noId_;
-      }
-      /**
-       * <code>uint64 no_id = 1;</code>
-       * @param value The noId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setNoId(long value) {
-        
-        noId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint64 no_id = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearNoId() {
-        
-        noId_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private int msgType_ ;
-      /**
-       * <pre>
-       *推送消息类型，1：车名片审核，2:车名片分享、取消分享、删除，3：删除被分享车名片
-       * </pre>
-       *
-       * <code>uint32 msgType = 2;</code>
-       * @return The msgType.
-       */
-      @java.lang.Override
-      public int getMsgType() {
-        return msgType_;
-      }
-      /**
-       * <pre>
-       *推送消息类型，1：车名片审核，2:车名片分享、取消分享、删除，3：删除被分享车名片
-       * </pre>
-       *
-       * <code>uint32 msgType = 2;</code>
-       * @param value The msgType to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMsgType(int value) {
-        
-        msgType_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *推送消息类型，1：车名片审核，2:车名片分享、取消分享、删除，3：删除被分享车名片
-       * </pre>
-       *
-       * <code>uint32 msgType = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearMsgType() {
-        
-        msgType_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object json_ = "";
-      /**
-       * <code>string json = 3;</code>
-       * @return The json.
-       */
-      public java.lang.String getJson() {
-        java.lang.Object ref = json_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          json_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string json = 3;</code>
-       * @return The bytes for json.
-       */
-      public com.google.protobuf.ByteString
-          getJsonBytes() {
-        java.lang.Object ref = json_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          json_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string json = 3;</code>
-       * @param value The json to set.
-       * @return This builder for chaining.
-       */
-      public Builder setJson(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        json_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string json = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearJson() {
-        
-        json_ = getDefaultInstance().getJson();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string json = 3;</code>
-       * @param value The bytes for json to set.
-       * @return This builder for chaining.
-       */
-      public Builder setJsonBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        json_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object timestamp_ = "";
-      /**
-       * <code>string timestamp = 4;</code>
-       * @return The timestamp.
-       */
-      public java.lang.String getTimestamp() {
-        java.lang.Object ref = timestamp_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          timestamp_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string timestamp = 4;</code>
-       * @return The bytes for timestamp.
-       */
-      public com.google.protobuf.ByteString
-          getTimestampBytes() {
-        java.lang.Object ref = timestamp_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          timestamp_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string timestamp = 4;</code>
-       * @param value The timestamp to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTimestamp(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        timestamp_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string timestamp = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearTimestamp() {
-        
-        timestamp_ = getDefaultInstance().getTimestamp();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string timestamp = 4;</code>
-       * @param value The bytes for timestamp to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTimestampBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        timestamp_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:com.sxh.protobuf.MessagePush)
-    }
-
-    // @@protoc_insertion_point(class_scope:com.sxh.protobuf.MessagePush)
-    private static final com.sxh.protobuf.ProtoMsg.MessagePush DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.sxh.protobuf.ProtoMsg.MessagePush();
-    }
-
-    public static com.sxh.protobuf.ProtoMsg.MessagePush getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<MessagePush>
-        PARSER = new com.google.protobuf.AbstractParser<MessagePush>() {
-      @java.lang.Override
-      public MessagePush parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MessagePush(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<MessagePush> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<MessagePush> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.sxh.protobuf.ProtoMsg.MessagePush getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface MessageNotificationOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.sxh.protobuf.MessageNotification)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>uint64 no_id = 1;</code>
-     * @return The noId.
-     */
-    long getNoId();
-
-    /**
-     * <code>string json = 2;</code>
-     * @return The json.
-     */
-    java.lang.String getJson();
-    /**
-     * <code>string json = 2;</code>
-     * @return The bytes for json.
-     */
-    com.google.protobuf.ByteString
-        getJsonBytes();
-
-    /**
-     * <code>string timestamp = 3;</code>
-     * @return The timestamp.
-     */
-    java.lang.String getTimestamp();
-    /**
-     * <code>string timestamp = 3;</code>
-     * @return The bytes for timestamp.
-     */
-    com.google.protobuf.ByteString
-        getTimestampBytes();
-  }
-  /**
-   * <pre>
-   *通知,节点上下线、用户上下线
-   * </pre>
-   *
-   * Protobuf type {@code com.sxh.protobuf.MessageNotification}
-   */
-  public static final class MessageNotification extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.sxh.protobuf.MessageNotification)
-      MessageNotificationOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use MessageNotification.newBuilder() to construct.
-    private MessageNotification(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private MessageNotification() {
-      json_ = "";
-      timestamp_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new MessageNotification();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private MessageNotification(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              noId_ = input.readUInt64();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              json_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              timestamp_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_MessageNotification_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_MessageNotification_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.sxh.protobuf.ProtoMsg.MessageNotification.class, com.sxh.protobuf.ProtoMsg.MessageNotification.Builder.class);
-    }
-
-    public static final int NO_ID_FIELD_NUMBER = 1;
-    private long noId_;
-    /**
-     * <code>uint64 no_id = 1;</code>
-     * @return The noId.
-     */
-    @java.lang.Override
-    public long getNoId() {
-      return noId_;
-    }
-
-    public static final int JSON_FIELD_NUMBER = 2;
-    private volatile java.lang.Object json_;
-    /**
-     * <code>string json = 2;</code>
-     * @return The json.
-     */
-    @java.lang.Override
-    public java.lang.String getJson() {
-      java.lang.Object ref = json_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        json_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string json = 2;</code>
-     * @return The bytes for json.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getJsonBytes() {
-      java.lang.Object ref = json_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        json_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TIMESTAMP_FIELD_NUMBER = 3;
-    private volatile java.lang.Object timestamp_;
-    /**
-     * <code>string timestamp = 3;</code>
-     * @return The timestamp.
-     */
-    @java.lang.Override
-    public java.lang.String getTimestamp() {
-      java.lang.Object ref = timestamp_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        timestamp_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string timestamp = 3;</code>
-     * @return The bytes for timestamp.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getTimestampBytes() {
-      java.lang.Object ref = timestamp_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        timestamp_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (noId_ != 0L) {
-        output.writeUInt64(1, noId_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(json_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, json_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timestamp_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, timestamp_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (noId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, noId_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(json_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, json_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timestamp_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, timestamp_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.sxh.protobuf.ProtoMsg.MessageNotification)) {
-        return super.equals(obj);
-      }
-      com.sxh.protobuf.ProtoMsg.MessageNotification other = (com.sxh.protobuf.ProtoMsg.MessageNotification) obj;
-
-      if (getNoId()
-          != other.getNoId()) return false;
-      if (!getJson()
-          .equals(other.getJson())) return false;
-      if (!getTimestamp()
-          .equals(other.getTimestamp())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + NO_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getNoId());
-      hash = (37 * hash) + JSON_FIELD_NUMBER;
-      hash = (53 * hash) + getJson().hashCode();
-      hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
-      hash = (53 * hash) + getTimestamp().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.sxh.protobuf.ProtoMsg.MessageNotification parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageNotification parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageNotification parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageNotification parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageNotification parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageNotification parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageNotification parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageNotification parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageNotification parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageNotification parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageNotification parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageNotification parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.sxh.protobuf.ProtoMsg.MessageNotification prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     *通知,节点上下线、用户上下线
-     * </pre>
-     *
-     * Protobuf type {@code com.sxh.protobuf.MessageNotification}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.sxh.protobuf.MessageNotification)
-        com.sxh.protobuf.ProtoMsg.MessageNotificationOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_MessageNotification_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_MessageNotification_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.sxh.protobuf.ProtoMsg.MessageNotification.class, com.sxh.protobuf.ProtoMsg.MessageNotification.Builder.class);
-      }
-
-      // Construct using com.sxh.protobuf.ProtoMsg.MessageNotification.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        noId_ = 0L;
-
-        json_ = "";
-
-        timestamp_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_MessageNotification_descriptor;
-      }
-
-      @java.lang.Override
-      public com.sxh.protobuf.ProtoMsg.MessageNotification getDefaultInstanceForType() {
-        return com.sxh.protobuf.ProtoMsg.MessageNotification.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.sxh.protobuf.ProtoMsg.MessageNotification build() {
-        com.sxh.protobuf.ProtoMsg.MessageNotification result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.sxh.protobuf.ProtoMsg.MessageNotification buildPartial() {
-        com.sxh.protobuf.ProtoMsg.MessageNotification result = new com.sxh.protobuf.ProtoMsg.MessageNotification(this);
-        result.noId_ = noId_;
-        result.json_ = json_;
-        result.timestamp_ = timestamp_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.sxh.protobuf.ProtoMsg.MessageNotification) {
-          return mergeFrom((com.sxh.protobuf.ProtoMsg.MessageNotification)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.sxh.protobuf.ProtoMsg.MessageNotification other) {
-        if (other == com.sxh.protobuf.ProtoMsg.MessageNotification.getDefaultInstance()) return this;
-        if (other.getNoId() != 0L) {
-          setNoId(other.getNoId());
-        }
-        if (!other.getJson().isEmpty()) {
-          json_ = other.json_;
-          onChanged();
-        }
-        if (!other.getTimestamp().isEmpty()) {
-          timestamp_ = other.timestamp_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.sxh.protobuf.ProtoMsg.MessageNotification parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.sxh.protobuf.ProtoMsg.MessageNotification) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private long noId_ ;
-      /**
-       * <code>uint64 no_id = 1;</code>
-       * @return The noId.
-       */
-      @java.lang.Override
-      public long getNoId() {
-        return noId_;
-      }
-      /**
-       * <code>uint64 no_id = 1;</code>
-       * @param value The noId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setNoId(long value) {
-        
-        noId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint64 no_id = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearNoId() {
-        
-        noId_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object json_ = "";
-      /**
-       * <code>string json = 2;</code>
-       * @return The json.
-       */
-      public java.lang.String getJson() {
-        java.lang.Object ref = json_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          json_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string json = 2;</code>
-       * @return The bytes for json.
-       */
-      public com.google.protobuf.ByteString
-          getJsonBytes() {
-        java.lang.Object ref = json_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          json_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string json = 2;</code>
-       * @param value The json to set.
-       * @return This builder for chaining.
-       */
-      public Builder setJson(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        json_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string json = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearJson() {
-        
-        json_ = getDefaultInstance().getJson();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string json = 2;</code>
-       * @param value The bytes for json to set.
-       * @return This builder for chaining.
-       */
-      public Builder setJsonBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        json_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object timestamp_ = "";
-      /**
-       * <code>string timestamp = 3;</code>
-       * @return The timestamp.
-       */
-      public java.lang.String getTimestamp() {
-        java.lang.Object ref = timestamp_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          timestamp_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string timestamp = 3;</code>
-       * @return The bytes for timestamp.
-       */
-      public com.google.protobuf.ByteString
-          getTimestampBytes() {
-        java.lang.Object ref = timestamp_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          timestamp_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string timestamp = 3;</code>
-       * @param value The timestamp to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTimestamp(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        timestamp_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string timestamp = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearTimestamp() {
-        
-        timestamp_ = getDefaultInstance().getTimestamp();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string timestamp = 3;</code>
-       * @param value The bytes for timestamp to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTimestampBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        timestamp_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:com.sxh.protobuf.MessageNotification)
-    }
-
-    // @@protoc_insertion_point(class_scope:com.sxh.protobuf.MessageNotification)
-    private static final com.sxh.protobuf.ProtoMsg.MessageNotification DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.sxh.protobuf.ProtoMsg.MessageNotification();
-    }
-
-    public static com.sxh.protobuf.ProtoMsg.MessageNotification getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<MessageNotification>
-        PARSER = new com.google.protobuf.AbstractParser<MessageNotification>() {
-      @java.lang.Override
-      public MessageNotification parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MessageNotification(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<MessageNotification> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<MessageNotification> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.sxh.protobuf.ProtoMsg.MessageNotification getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface MessageReadOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.sxh.protobuf.MessageRead)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string userUid = 1;</code>
-     * @return The userUid.
-     */
-    java.lang.String getUserUid();
-    /**
-     * <code>string userUid = 1;</code>
-     * @return The bytes for userUid.
-     */
-    com.google.protobuf.ByteString
-        getUserUidBytes();
-
-    /**
-     * <pre>
-     *0:个人，1：群消息
-     * </pre>
-     *
-     * <code>uint32 read_type = 2;</code>
-     * @return The readType.
-     */
-    int getReadType();
-
-    /**
-     * <pre>
-     *个人uid 或者 群uid
-     * </pre>
-     *
-     * <code>string uid = 3;</code>
-     * @return The uid.
-     */
-    java.lang.String getUid();
-    /**
-     * <pre>
-     *个人uid 或者 群uid
-     * </pre>
-     *
-     * <code>string uid = 3;</code>
-     * @return The bytes for uid.
-     */
-    com.google.protobuf.ByteString
-        getUidBytes();
-
-    /**
-     * <code>string platform = 4;</code>
-     * @return The platform.
-     */
-    java.lang.String getPlatform();
-    /**
-     * <code>string platform = 4;</code>
-     * @return The bytes for platform.
-     */
-    com.google.protobuf.ByteString
-        getPlatformBytes();
-  }
-  /**
-   * <pre>
-   *app和web同时登陆时，读已读消息是同步
-   * </pre>
-   *
-   * Protobuf type {@code com.sxh.protobuf.MessageRead}
-   */
-  public static final class MessageRead extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.sxh.protobuf.MessageRead)
-      MessageReadOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use MessageRead.newBuilder() to construct.
-    private MessageRead(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private MessageRead() {
-      userUid_ = "";
-      uid_ = "";
-      platform_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new MessageRead();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private MessageRead(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              userUid_ = s;
-              break;
-            }
-            case 16: {
-
-              readType_ = input.readUInt32();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              uid_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              platform_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_MessageRead_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_MessageRead_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.sxh.protobuf.ProtoMsg.MessageRead.class, com.sxh.protobuf.ProtoMsg.MessageRead.Builder.class);
-    }
-
-    public static final int USERUID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object userUid_;
-    /**
-     * <code>string userUid = 1;</code>
-     * @return The userUid.
-     */
-    @java.lang.Override
-    public java.lang.String getUserUid() {
-      java.lang.Object ref = userUid_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        userUid_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string userUid = 1;</code>
-     * @return The bytes for userUid.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getUserUidBytes() {
-      java.lang.Object ref = userUid_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        userUid_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int READ_TYPE_FIELD_NUMBER = 2;
-    private int readType_;
-    /**
-     * <pre>
-     *0:个人，1：群消息
-     * </pre>
-     *
-     * <code>uint32 read_type = 2;</code>
-     * @return The readType.
-     */
-    @java.lang.Override
-    public int getReadType() {
-      return readType_;
-    }
-
-    public static final int UID_FIELD_NUMBER = 3;
-    private volatile java.lang.Object uid_;
-    /**
-     * <pre>
-     *个人uid 或者 群uid
-     * </pre>
-     *
-     * <code>string uid = 3;</code>
-     * @return The uid.
-     */
-    @java.lang.Override
-    public java.lang.String getUid() {
-      java.lang.Object ref = uid_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        uid_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *个人uid 或者 群uid
-     * </pre>
-     *
-     * <code>string uid = 3;</code>
-     * @return The bytes for uid.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getUidBytes() {
-      java.lang.Object ref = uid_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        uid_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int PLATFORM_FIELD_NUMBER = 4;
-    private volatile java.lang.Object platform_;
-    /**
-     * <code>string platform = 4;</code>
-     * @return The platform.
-     */
-    @java.lang.Override
-    public java.lang.String getPlatform() {
-      java.lang.Object ref = platform_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        platform_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string platform = 4;</code>
-     * @return The bytes for platform.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getPlatformBytes() {
-      java.lang.Object ref = platform_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        platform_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userUid_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userUid_);
-      }
-      if (readType_ != 0) {
-        output.writeUInt32(2, readType_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uid_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, uid_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(platform_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, platform_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userUid_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userUid_);
-      }
-      if (readType_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, readType_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uid_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, uid_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(platform_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, platform_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.sxh.protobuf.ProtoMsg.MessageRead)) {
-        return super.equals(obj);
-      }
-      com.sxh.protobuf.ProtoMsg.MessageRead other = (com.sxh.protobuf.ProtoMsg.MessageRead) obj;
-
-      if (!getUserUid()
-          .equals(other.getUserUid())) return false;
-      if (getReadType()
-          != other.getReadType()) return false;
-      if (!getUid()
-          .equals(other.getUid())) return false;
-      if (!getPlatform()
-          .equals(other.getPlatform())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + USERUID_FIELD_NUMBER;
-      hash = (53 * hash) + getUserUid().hashCode();
-      hash = (37 * hash) + READ_TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + getReadType();
-      hash = (37 * hash) + UID_FIELD_NUMBER;
-      hash = (53 * hash) + getUid().hashCode();
-      hash = (37 * hash) + PLATFORM_FIELD_NUMBER;
-      hash = (53 * hash) + getPlatform().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.sxh.protobuf.ProtoMsg.MessageRead parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageRead parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageRead parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageRead parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageRead parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageRead parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageRead parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageRead parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageRead parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageRead parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageRead parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.sxh.protobuf.ProtoMsg.MessageRead parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.sxh.protobuf.ProtoMsg.MessageRead prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     *app和web同时登陆时，读已读消息是同步
-     * </pre>
-     *
-     * Protobuf type {@code com.sxh.protobuf.MessageRead}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.sxh.protobuf.MessageRead)
-        com.sxh.protobuf.ProtoMsg.MessageReadOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_MessageRead_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_MessageRead_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.sxh.protobuf.ProtoMsg.MessageRead.class, com.sxh.protobuf.ProtoMsg.MessageRead.Builder.class);
-      }
-
-      // Construct using com.sxh.protobuf.ProtoMsg.MessageRead.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        userUid_ = "";
-
-        readType_ = 0;
-
-        uid_ = "";
-
-        platform_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.sxh.protobuf.ProtoMsg.internal_static_com_sxh_protobuf_MessageRead_descriptor;
-      }
-
-      @java.lang.Override
-      public com.sxh.protobuf.ProtoMsg.MessageRead getDefaultInstanceForType() {
-        return com.sxh.protobuf.ProtoMsg.MessageRead.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.sxh.protobuf.ProtoMsg.MessageRead build() {
-        com.sxh.protobuf.ProtoMsg.MessageRead result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.sxh.protobuf.ProtoMsg.MessageRead buildPartial() {
-        com.sxh.protobuf.ProtoMsg.MessageRead result = new com.sxh.protobuf.ProtoMsg.MessageRead(this);
-        result.userUid_ = userUid_;
-        result.readType_ = readType_;
-        result.uid_ = uid_;
-        result.platform_ = platform_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.sxh.protobuf.ProtoMsg.MessageRead) {
-          return mergeFrom((com.sxh.protobuf.ProtoMsg.MessageRead)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.sxh.protobuf.ProtoMsg.MessageRead other) {
-        if (other == com.sxh.protobuf.ProtoMsg.MessageRead.getDefaultInstance()) return this;
-        if (!other.getUserUid().isEmpty()) {
-          userUid_ = other.userUid_;
-          onChanged();
-        }
-        if (other.getReadType() != 0) {
-          setReadType(other.getReadType());
-        }
-        if (!other.getUid().isEmpty()) {
-          uid_ = other.uid_;
-          onChanged();
-        }
-        if (!other.getPlatform().isEmpty()) {
-          platform_ = other.platform_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.sxh.protobuf.ProtoMsg.MessageRead parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.sxh.protobuf.ProtoMsg.MessageRead) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object userUid_ = "";
-      /**
-       * <code>string userUid = 1;</code>
-       * @return The userUid.
-       */
-      public java.lang.String getUserUid() {
-        java.lang.Object ref = userUid_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          userUid_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string userUid = 1;</code>
-       * @return The bytes for userUid.
-       */
-      public com.google.protobuf.ByteString
-          getUserUidBytes() {
-        java.lang.Object ref = userUid_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          userUid_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string userUid = 1;</code>
-       * @param value The userUid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserUid(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        userUid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string userUid = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearUserUid() {
-        
-        userUid_ = getDefaultInstance().getUserUid();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string userUid = 1;</code>
-       * @param value The bytes for userUid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserUidBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        userUid_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int readType_ ;
-      /**
-       * <pre>
-       *0:个人，1：群消息
-       * </pre>
-       *
-       * <code>uint32 read_type = 2;</code>
-       * @return The readType.
-       */
-      @java.lang.Override
-      public int getReadType() {
-        return readType_;
-      }
-      /**
-       * <pre>
-       *0:个人，1：群消息
-       * </pre>
-       *
-       * <code>uint32 read_type = 2;</code>
-       * @param value The readType to set.
-       * @return This builder for chaining.
-       */
-      public Builder setReadType(int value) {
-        
-        readType_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *0:个人，1：群消息
-       * </pre>
-       *
-       * <code>uint32 read_type = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearReadType() {
-        
-        readType_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object uid_ = "";
-      /**
-       * <pre>
-       *个人uid 或者 群uid
-       * </pre>
-       *
-       * <code>string uid = 3;</code>
-       * @return The uid.
-       */
-      public java.lang.String getUid() {
-        java.lang.Object ref = uid_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          uid_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       *个人uid 或者 群uid
-       * </pre>
-       *
-       * <code>string uid = 3;</code>
-       * @return The bytes for uid.
-       */
-      public com.google.protobuf.ByteString
-          getUidBytes() {
-        java.lang.Object ref = uid_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          uid_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *个人uid 或者 群uid
-       * </pre>
-       *
-       * <code>string uid = 3;</code>
-       * @param value The uid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUid(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        uid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *个人uid 或者 群uid
-       * </pre>
-       *
-       * <code>string uid = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearUid() {
-        
-        uid_ = getDefaultInstance().getUid();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *个人uid 或者 群uid
-       * </pre>
-       *
-       * <code>string uid = 3;</code>
-       * @param value The bytes for uid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUidBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        uid_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object platform_ = "";
-      /**
-       * <code>string platform = 4;</code>
-       * @return The platform.
-       */
-      public java.lang.String getPlatform() {
-        java.lang.Object ref = platform_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          platform_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string platform = 4;</code>
-       * @return The bytes for platform.
-       */
-      public com.google.protobuf.ByteString
-          getPlatformBytes() {
-        java.lang.Object ref = platform_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          platform_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string platform = 4;</code>
-       * @param value The platform to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPlatform(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        platform_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string platform = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearPlatform() {
-        
-        platform_ = getDefaultInstance().getPlatform();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string platform = 4;</code>
-       * @param value The bytes for platform to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPlatformBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        platform_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:com.sxh.protobuf.MessageRead)
-    }
-
-    // @@protoc_insertion_point(class_scope:com.sxh.protobuf.MessageRead)
-    private static final com.sxh.protobuf.ProtoMsg.MessageRead DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.sxh.protobuf.ProtoMsg.MessageRead();
-    }
-
-    public static com.sxh.protobuf.ProtoMsg.MessageRead getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<MessageRead>
-        PARSER = new com.google.protobuf.AbstractParser<MessageRead>() {
-      @java.lang.Override
-      public MessageRead parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MessageRead(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<MessageRead> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<MessageRead> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.sxh.protobuf.ProtoMsg.MessageRead getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface MessageHeartBeatOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.sxh.protobuf.MessageHeartBeat)
       com.google.protobuf.MessageOrBuilder {
@@ -16095,37 +12185,10 @@ public final class ProtoMsg {
 
     /**
      * <pre>
-     *扫一扫登录web端
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.LoginWeb loginWeb = 8;</code>
-     * @return Whether the loginWeb field is set.
-     */
-    boolean hasLoginWeb();
-    /**
-     * <pre>
-     *扫一扫登录web端
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.LoginWeb loginWeb = 8;</code>
-     * @return The loginWeb.
-     */
-    com.sxh.protobuf.ProtoMsg.LoginWeb getLoginWeb();
-    /**
-     * <pre>
-     *扫一扫登录web端
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.LoginWeb loginWeb = 8;</code>
-     */
-    com.sxh.protobuf.ProtoMsg.LoginWebOrBuilder getLoginWebOrBuilder();
-
-    /**
-     * <pre>
      *IM消息请求,一对一
      * </pre>
      *
-     * <code>.com.sxh.protobuf.SingleChatting singleChatting = 9;</code>
+     * <code>.com.sxh.protobuf.SingleChatting singleChatting = 8;</code>
      * @return Whether the singleChatting field is set.
      */
     boolean hasSingleChatting();
@@ -16134,7 +12197,7 @@ public final class ProtoMsg {
      *IM消息请求,一对一
      * </pre>
      *
-     * <code>.com.sxh.protobuf.SingleChatting singleChatting = 9;</code>
+     * <code>.com.sxh.protobuf.SingleChatting singleChatting = 8;</code>
      * @return The singleChatting.
      */
     com.sxh.protobuf.ProtoMsg.SingleChatting getSingleChatting();
@@ -16143,7 +12206,7 @@ public final class ProtoMsg {
      *IM消息请求,一对一
      * </pre>
      *
-     * <code>.com.sxh.protobuf.SingleChatting singleChatting = 9;</code>
+     * <code>.com.sxh.protobuf.SingleChatting singleChatting = 8;</code>
      */
     com.sxh.protobuf.ProtoMsg.SingleChattingOrBuilder getSingleChattingOrBuilder();
 
@@ -16152,7 +12215,7 @@ public final class ProtoMsg {
      *群聊
      * </pre>
      *
-     * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 10;</code>
+     * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 9;</code>
      * @return Whether the clusterChatting field is set.
      */
     boolean hasClusterChatting();
@@ -16161,7 +12224,7 @@ public final class ProtoMsg {
      *群聊
      * </pre>
      *
-     * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 10;</code>
+     * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 9;</code>
      * @return The clusterChatting.
      */
     com.sxh.protobuf.ProtoMsg.ClusterChatting getClusterChatting();
@@ -16170,7 +12233,7 @@ public final class ProtoMsg {
      *群聊
      * </pre>
      *
-     * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 10;</code>
+     * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 9;</code>
      */
     com.sxh.protobuf.ProtoMsg.ClusterChattingOrBuilder getClusterChattingOrBuilder();
 
@@ -16179,7 +12242,7 @@ public final class ProtoMsg {
      *IM消息响应
      * </pre>
      *
-     * <code>.com.sxh.protobuf.MessageResponse messageResponse = 11;</code>
+     * <code>.com.sxh.protobuf.MessageResponse messageResponse = 10;</code>
      * @return Whether the messageResponse field is set.
      */
     boolean hasMessageResponse();
@@ -16188,7 +12251,7 @@ public final class ProtoMsg {
      *IM消息响应
      * </pre>
      *
-     * <code>.com.sxh.protobuf.MessageResponse messageResponse = 11;</code>
+     * <code>.com.sxh.protobuf.MessageResponse messageResponse = 10;</code>
      * @return The messageResponse.
      */
     com.sxh.protobuf.ProtoMsg.MessageResponse getMessageResponse();
@@ -16197,43 +12260,16 @@ public final class ProtoMsg {
      *IM消息响应
      * </pre>
      *
-     * <code>.com.sxh.protobuf.MessageResponse messageResponse = 11;</code>
+     * <code>.com.sxh.protobuf.MessageResponse messageResponse = 10;</code>
      */
     com.sxh.protobuf.ProtoMsg.MessageResponseOrBuilder getMessageResponseOrBuilder();
-
-    /**
-     * <pre>
-     *系统通知
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.MessageNotification notification = 12;</code>
-     * @return Whether the notification field is set.
-     */
-    boolean hasNotification();
-    /**
-     * <pre>
-     *系统通知
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.MessageNotification notification = 12;</code>
-     * @return The notification.
-     */
-    com.sxh.protobuf.ProtoMsg.MessageNotification getNotification();
-    /**
-     * <pre>
-     *系统通知
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.MessageNotification notification = 12;</code>
-     */
-    com.sxh.protobuf.ProtoMsg.MessageNotificationOrBuilder getNotificationOrBuilder();
 
     /**
      * <pre>
      *心跳
      * </pre>
      *
-     * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 13;</code>
+     * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 11;</code>
      * @return Whether the heartBeat field is set.
      */
     boolean hasHeartBeat();
@@ -16242,7 +12278,7 @@ public final class ProtoMsg {
      *心跳
      * </pre>
      *
-     * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 13;</code>
+     * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 11;</code>
      * @return The heartBeat.
      */
     com.sxh.protobuf.ProtoMsg.MessageHeartBeat getHeartBeat();
@@ -16251,63 +12287,9 @@ public final class ProtoMsg {
      *心跳
      * </pre>
      *
-     * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 13;</code>
+     * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 11;</code>
      */
     com.sxh.protobuf.ProtoMsg.MessageHeartBeatOrBuilder getHeartBeatOrBuilder();
-
-    /**
-     * <pre>
-     *消息已读
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.MessageRead msgRead = 14;</code>
-     * @return Whether the msgRead field is set.
-     */
-    boolean hasMsgRead();
-    /**
-     * <pre>
-     *消息已读
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.MessageRead msgRead = 14;</code>
-     * @return The msgRead.
-     */
-    com.sxh.protobuf.ProtoMsg.MessageRead getMsgRead();
-    /**
-     * <pre>
-     *消息已读
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.MessageRead msgRead = 14;</code>
-     */
-    com.sxh.protobuf.ProtoMsg.MessageReadOrBuilder getMsgReadOrBuilder();
-
-    /**
-     * <pre>
-     *消息推送
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.MessagePush msgPush = 15;</code>
-     * @return Whether the msgPush field is set.
-     */
-    boolean hasMsgPush();
-    /**
-     * <pre>
-     *消息推送
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.MessagePush msgPush = 15;</code>
-     * @return The msgPush.
-     */
-    com.sxh.protobuf.ProtoMsg.MessagePush getMsgPush();
-    /**
-     * <pre>
-     *消息推送
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.MessagePush msgPush = 15;</code>
-     */
-    com.sxh.protobuf.ProtoMsg.MessagePushOrBuilder getMsgPushOrBuilder();
   }
   /**
    * <pre>
@@ -16431,19 +12413,6 @@ public final class ProtoMsg {
               break;
             }
             case 66: {
-              com.sxh.protobuf.ProtoMsg.LoginWeb.Builder subBuilder = null;
-              if (loginWeb_ != null) {
-                subBuilder = loginWeb_.toBuilder();
-              }
-              loginWeb_ = input.readMessage(com.sxh.protobuf.ProtoMsg.LoginWeb.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(loginWeb_);
-                loginWeb_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 74: {
               com.sxh.protobuf.ProtoMsg.SingleChatting.Builder subBuilder = null;
               if (singleChatting_ != null) {
                 subBuilder = singleChatting_.toBuilder();
@@ -16456,7 +12425,7 @@ public final class ProtoMsg {
 
               break;
             }
-            case 82: {
+            case 74: {
               com.sxh.protobuf.ProtoMsg.ClusterChatting.Builder subBuilder = null;
               if (clusterChatting_ != null) {
                 subBuilder = clusterChatting_.toBuilder();
@@ -16469,7 +12438,7 @@ public final class ProtoMsg {
 
               break;
             }
-            case 90: {
+            case 82: {
               com.sxh.protobuf.ProtoMsg.MessageResponse.Builder subBuilder = null;
               if (messageResponse_ != null) {
                 subBuilder = messageResponse_.toBuilder();
@@ -16482,20 +12451,7 @@ public final class ProtoMsg {
 
               break;
             }
-            case 98: {
-              com.sxh.protobuf.ProtoMsg.MessageNotification.Builder subBuilder = null;
-              if (notification_ != null) {
-                subBuilder = notification_.toBuilder();
-              }
-              notification_ = input.readMessage(com.sxh.protobuf.ProtoMsg.MessageNotification.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(notification_);
-                notification_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 106: {
+            case 90: {
               com.sxh.protobuf.ProtoMsg.MessageHeartBeat.Builder subBuilder = null;
               if (heartBeat_ != null) {
                 subBuilder = heartBeat_.toBuilder();
@@ -16504,32 +12460,6 @@ public final class ProtoMsg {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(heartBeat_);
                 heartBeat_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 114: {
-              com.sxh.protobuf.ProtoMsg.MessageRead.Builder subBuilder = null;
-              if (msgRead_ != null) {
-                subBuilder = msgRead_.toBuilder();
-              }
-              msgRead_ = input.readMessage(com.sxh.protobuf.ProtoMsg.MessageRead.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(msgRead_);
-                msgRead_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 122: {
-              com.sxh.protobuf.ProtoMsg.MessagePush.Builder subBuilder = null;
-              if (msgPush_ != null) {
-                subBuilder = msgPush_.toBuilder();
-              }
-              msgPush_ = input.readMessage(com.sxh.protobuf.ProtoMsg.MessagePush.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(msgPush_);
-                msgPush_ = subBuilder.buildPartial();
               }
 
               break;
@@ -16806,52 +12736,14 @@ public final class ProtoMsg {
       return getLogoutResponse();
     }
 
-    public static final int LOGINWEB_FIELD_NUMBER = 8;
-    private com.sxh.protobuf.ProtoMsg.LoginWeb loginWeb_;
-    /**
-     * <pre>
-     *扫一扫登录web端
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.LoginWeb loginWeb = 8;</code>
-     * @return Whether the loginWeb field is set.
-     */
-    @java.lang.Override
-    public boolean hasLoginWeb() {
-      return loginWeb_ != null;
-    }
-    /**
-     * <pre>
-     *扫一扫登录web端
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.LoginWeb loginWeb = 8;</code>
-     * @return The loginWeb.
-     */
-    @java.lang.Override
-    public com.sxh.protobuf.ProtoMsg.LoginWeb getLoginWeb() {
-      return loginWeb_ == null ? com.sxh.protobuf.ProtoMsg.LoginWeb.getDefaultInstance() : loginWeb_;
-    }
-    /**
-     * <pre>
-     *扫一扫登录web端
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.LoginWeb loginWeb = 8;</code>
-     */
-    @java.lang.Override
-    public com.sxh.protobuf.ProtoMsg.LoginWebOrBuilder getLoginWebOrBuilder() {
-      return getLoginWeb();
-    }
-
-    public static final int SINGLECHATTING_FIELD_NUMBER = 9;
+    public static final int SINGLECHATTING_FIELD_NUMBER = 8;
     private com.sxh.protobuf.ProtoMsg.SingleChatting singleChatting_;
     /**
      * <pre>
      *IM消息请求,一对一
      * </pre>
      *
-     * <code>.com.sxh.protobuf.SingleChatting singleChatting = 9;</code>
+     * <code>.com.sxh.protobuf.SingleChatting singleChatting = 8;</code>
      * @return Whether the singleChatting field is set.
      */
     @java.lang.Override
@@ -16863,7 +12755,7 @@ public final class ProtoMsg {
      *IM消息请求,一对一
      * </pre>
      *
-     * <code>.com.sxh.protobuf.SingleChatting singleChatting = 9;</code>
+     * <code>.com.sxh.protobuf.SingleChatting singleChatting = 8;</code>
      * @return The singleChatting.
      */
     @java.lang.Override
@@ -16875,21 +12767,21 @@ public final class ProtoMsg {
      *IM消息请求,一对一
      * </pre>
      *
-     * <code>.com.sxh.protobuf.SingleChatting singleChatting = 9;</code>
+     * <code>.com.sxh.protobuf.SingleChatting singleChatting = 8;</code>
      */
     @java.lang.Override
     public com.sxh.protobuf.ProtoMsg.SingleChattingOrBuilder getSingleChattingOrBuilder() {
       return getSingleChatting();
     }
 
-    public static final int CLUSTERCHATTING_FIELD_NUMBER = 10;
+    public static final int CLUSTERCHATTING_FIELD_NUMBER = 9;
     private com.sxh.protobuf.ProtoMsg.ClusterChatting clusterChatting_;
     /**
      * <pre>
      *群聊
      * </pre>
      *
-     * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 10;</code>
+     * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 9;</code>
      * @return Whether the clusterChatting field is set.
      */
     @java.lang.Override
@@ -16901,7 +12793,7 @@ public final class ProtoMsg {
      *群聊
      * </pre>
      *
-     * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 10;</code>
+     * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 9;</code>
      * @return The clusterChatting.
      */
     @java.lang.Override
@@ -16913,21 +12805,21 @@ public final class ProtoMsg {
      *群聊
      * </pre>
      *
-     * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 10;</code>
+     * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 9;</code>
      */
     @java.lang.Override
     public com.sxh.protobuf.ProtoMsg.ClusterChattingOrBuilder getClusterChattingOrBuilder() {
       return getClusterChatting();
     }
 
-    public static final int MESSAGERESPONSE_FIELD_NUMBER = 11;
+    public static final int MESSAGERESPONSE_FIELD_NUMBER = 10;
     private com.sxh.protobuf.ProtoMsg.MessageResponse messageResponse_;
     /**
      * <pre>
      *IM消息响应
      * </pre>
      *
-     * <code>.com.sxh.protobuf.MessageResponse messageResponse = 11;</code>
+     * <code>.com.sxh.protobuf.MessageResponse messageResponse = 10;</code>
      * @return Whether the messageResponse field is set.
      */
     @java.lang.Override
@@ -16939,7 +12831,7 @@ public final class ProtoMsg {
      *IM消息响应
      * </pre>
      *
-     * <code>.com.sxh.protobuf.MessageResponse messageResponse = 11;</code>
+     * <code>.com.sxh.protobuf.MessageResponse messageResponse = 10;</code>
      * @return The messageResponse.
      */
     @java.lang.Override
@@ -16951,59 +12843,21 @@ public final class ProtoMsg {
      *IM消息响应
      * </pre>
      *
-     * <code>.com.sxh.protobuf.MessageResponse messageResponse = 11;</code>
+     * <code>.com.sxh.protobuf.MessageResponse messageResponse = 10;</code>
      */
     @java.lang.Override
     public com.sxh.protobuf.ProtoMsg.MessageResponseOrBuilder getMessageResponseOrBuilder() {
       return getMessageResponse();
     }
 
-    public static final int NOTIFICATION_FIELD_NUMBER = 12;
-    private com.sxh.protobuf.ProtoMsg.MessageNotification notification_;
-    /**
-     * <pre>
-     *系统通知
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.MessageNotification notification = 12;</code>
-     * @return Whether the notification field is set.
-     */
-    @java.lang.Override
-    public boolean hasNotification() {
-      return notification_ != null;
-    }
-    /**
-     * <pre>
-     *系统通知
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.MessageNotification notification = 12;</code>
-     * @return The notification.
-     */
-    @java.lang.Override
-    public com.sxh.protobuf.ProtoMsg.MessageNotification getNotification() {
-      return notification_ == null ? com.sxh.protobuf.ProtoMsg.MessageNotification.getDefaultInstance() : notification_;
-    }
-    /**
-     * <pre>
-     *系统通知
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.MessageNotification notification = 12;</code>
-     */
-    @java.lang.Override
-    public com.sxh.protobuf.ProtoMsg.MessageNotificationOrBuilder getNotificationOrBuilder() {
-      return getNotification();
-    }
-
-    public static final int HEARTBEAT_FIELD_NUMBER = 13;
+    public static final int HEARTBEAT_FIELD_NUMBER = 11;
     private com.sxh.protobuf.ProtoMsg.MessageHeartBeat heartBeat_;
     /**
      * <pre>
      *心跳
      * </pre>
      *
-     * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 13;</code>
+     * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 11;</code>
      * @return Whether the heartBeat field is set.
      */
     @java.lang.Override
@@ -17015,7 +12869,7 @@ public final class ProtoMsg {
      *心跳
      * </pre>
      *
-     * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 13;</code>
+     * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 11;</code>
      * @return The heartBeat.
      */
     @java.lang.Override
@@ -17027,87 +12881,11 @@ public final class ProtoMsg {
      *心跳
      * </pre>
      *
-     * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 13;</code>
+     * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 11;</code>
      */
     @java.lang.Override
     public com.sxh.protobuf.ProtoMsg.MessageHeartBeatOrBuilder getHeartBeatOrBuilder() {
       return getHeartBeat();
-    }
-
-    public static final int MSGREAD_FIELD_NUMBER = 14;
-    private com.sxh.protobuf.ProtoMsg.MessageRead msgRead_;
-    /**
-     * <pre>
-     *消息已读
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.MessageRead msgRead = 14;</code>
-     * @return Whether the msgRead field is set.
-     */
-    @java.lang.Override
-    public boolean hasMsgRead() {
-      return msgRead_ != null;
-    }
-    /**
-     * <pre>
-     *消息已读
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.MessageRead msgRead = 14;</code>
-     * @return The msgRead.
-     */
-    @java.lang.Override
-    public com.sxh.protobuf.ProtoMsg.MessageRead getMsgRead() {
-      return msgRead_ == null ? com.sxh.protobuf.ProtoMsg.MessageRead.getDefaultInstance() : msgRead_;
-    }
-    /**
-     * <pre>
-     *消息已读
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.MessageRead msgRead = 14;</code>
-     */
-    @java.lang.Override
-    public com.sxh.protobuf.ProtoMsg.MessageReadOrBuilder getMsgReadOrBuilder() {
-      return getMsgRead();
-    }
-
-    public static final int MSGPUSH_FIELD_NUMBER = 15;
-    private com.sxh.protobuf.ProtoMsg.MessagePush msgPush_;
-    /**
-     * <pre>
-     *消息推送
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.MessagePush msgPush = 15;</code>
-     * @return Whether the msgPush field is set.
-     */
-    @java.lang.Override
-    public boolean hasMsgPush() {
-      return msgPush_ != null;
-    }
-    /**
-     * <pre>
-     *消息推送
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.MessagePush msgPush = 15;</code>
-     * @return The msgPush.
-     */
-    @java.lang.Override
-    public com.sxh.protobuf.ProtoMsg.MessagePush getMsgPush() {
-      return msgPush_ == null ? com.sxh.protobuf.ProtoMsg.MessagePush.getDefaultInstance() : msgPush_;
-    }
-    /**
-     * <pre>
-     *消息推送
-     * </pre>
-     *
-     * <code>.com.sxh.protobuf.MessagePush msgPush = 15;</code>
-     */
-    @java.lang.Override
-    public com.sxh.protobuf.ProtoMsg.MessagePushOrBuilder getMsgPushOrBuilder() {
-      return getMsgPush();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -17145,29 +12923,17 @@ public final class ProtoMsg {
       if (logoutResponse_ != null) {
         output.writeMessage(7, getLogoutResponse());
       }
-      if (loginWeb_ != null) {
-        output.writeMessage(8, getLoginWeb());
-      }
       if (singleChatting_ != null) {
-        output.writeMessage(9, getSingleChatting());
+        output.writeMessage(8, getSingleChatting());
       }
       if (clusterChatting_ != null) {
-        output.writeMessage(10, getClusterChatting());
+        output.writeMessage(9, getClusterChatting());
       }
       if (messageResponse_ != null) {
-        output.writeMessage(11, getMessageResponse());
-      }
-      if (notification_ != null) {
-        output.writeMessage(12, getNotification());
+        output.writeMessage(10, getMessageResponse());
       }
       if (heartBeat_ != null) {
-        output.writeMessage(13, getHeartBeat());
-      }
-      if (msgRead_ != null) {
-        output.writeMessage(14, getMsgRead());
-      }
-      if (msgPush_ != null) {
-        output.writeMessage(15, getMsgPush());
+        output.writeMessage(11, getHeartBeat());
       }
       unknownFields.writeTo(output);
     }
@@ -17205,37 +12971,21 @@ public final class ProtoMsg {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, getLogoutResponse());
       }
-      if (loginWeb_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(8, getLoginWeb());
-      }
       if (singleChatting_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, getSingleChatting());
+          .computeMessageSize(8, getSingleChatting());
       }
       if (clusterChatting_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(10, getClusterChatting());
+          .computeMessageSize(9, getClusterChatting());
       }
       if (messageResponse_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(11, getMessageResponse());
-      }
-      if (notification_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(12, getNotification());
+          .computeMessageSize(10, getMessageResponse());
       }
       if (heartBeat_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(13, getHeartBeat());
-      }
-      if (msgRead_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(14, getMsgRead());
-      }
-      if (msgPush_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(15, getMsgPush());
+          .computeMessageSize(11, getHeartBeat());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -17277,11 +13027,6 @@ public final class ProtoMsg {
         if (!getLogoutResponse()
             .equals(other.getLogoutResponse())) return false;
       }
-      if (hasLoginWeb() != other.hasLoginWeb()) return false;
-      if (hasLoginWeb()) {
-        if (!getLoginWeb()
-            .equals(other.getLoginWeb())) return false;
-      }
       if (hasSingleChatting() != other.hasSingleChatting()) return false;
       if (hasSingleChatting()) {
         if (!getSingleChatting()
@@ -17297,25 +13042,10 @@ public final class ProtoMsg {
         if (!getMessageResponse()
             .equals(other.getMessageResponse())) return false;
       }
-      if (hasNotification() != other.hasNotification()) return false;
-      if (hasNotification()) {
-        if (!getNotification()
-            .equals(other.getNotification())) return false;
-      }
       if (hasHeartBeat() != other.hasHeartBeat()) return false;
       if (hasHeartBeat()) {
         if (!getHeartBeat()
             .equals(other.getHeartBeat())) return false;
-      }
-      if (hasMsgRead() != other.hasMsgRead()) return false;
-      if (hasMsgRead()) {
-        if (!getMsgRead()
-            .equals(other.getMsgRead())) return false;
-      }
-      if (hasMsgPush() != other.hasMsgPush()) return false;
-      if (hasMsgPush()) {
-        if (!getMsgPush()
-            .equals(other.getMsgPush())) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -17351,10 +13081,6 @@ public final class ProtoMsg {
         hash = (37 * hash) + LOGOUTRESPONSE_FIELD_NUMBER;
         hash = (53 * hash) + getLogoutResponse().hashCode();
       }
-      if (hasLoginWeb()) {
-        hash = (37 * hash) + LOGINWEB_FIELD_NUMBER;
-        hash = (53 * hash) + getLoginWeb().hashCode();
-      }
       if (hasSingleChatting()) {
         hash = (37 * hash) + SINGLECHATTING_FIELD_NUMBER;
         hash = (53 * hash) + getSingleChatting().hashCode();
@@ -17367,21 +13093,9 @@ public final class ProtoMsg {
         hash = (37 * hash) + MESSAGERESPONSE_FIELD_NUMBER;
         hash = (53 * hash) + getMessageResponse().hashCode();
       }
-      if (hasNotification()) {
-        hash = (37 * hash) + NOTIFICATION_FIELD_NUMBER;
-        hash = (53 * hash) + getNotification().hashCode();
-      }
       if (hasHeartBeat()) {
         hash = (37 * hash) + HEARTBEAT_FIELD_NUMBER;
         hash = (53 * hash) + getHeartBeat().hashCode();
-      }
-      if (hasMsgRead()) {
-        hash = (37 * hash) + MSGREAD_FIELD_NUMBER;
-        hash = (53 * hash) + getMsgRead().hashCode();
-      }
-      if (hasMsgPush()) {
-        hash = (37 * hash) + MSGPUSH_FIELD_NUMBER;
-        hash = (53 * hash) + getMsgPush().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -17551,12 +13265,6 @@ public final class ProtoMsg {
           logoutResponse_ = null;
           logoutResponseBuilder_ = null;
         }
-        if (loginWebBuilder_ == null) {
-          loginWeb_ = null;
-        } else {
-          loginWeb_ = null;
-          loginWebBuilder_ = null;
-        }
         if (singleChattingBuilder_ == null) {
           singleChatting_ = null;
         } else {
@@ -17575,29 +13283,11 @@ public final class ProtoMsg {
           messageResponse_ = null;
           messageResponseBuilder_ = null;
         }
-        if (notificationBuilder_ == null) {
-          notification_ = null;
-        } else {
-          notification_ = null;
-          notificationBuilder_ = null;
-        }
         if (heartBeatBuilder_ == null) {
           heartBeat_ = null;
         } else {
           heartBeat_ = null;
           heartBeatBuilder_ = null;
-        }
-        if (msgReadBuilder_ == null) {
-          msgRead_ = null;
-        } else {
-          msgRead_ = null;
-          msgReadBuilder_ = null;
-        }
-        if (msgPushBuilder_ == null) {
-          msgPush_ = null;
-        } else {
-          msgPush_ = null;
-          msgPushBuilder_ = null;
         }
         return this;
       }
@@ -17648,11 +13338,6 @@ public final class ProtoMsg {
         } else {
           result.logoutResponse_ = logoutResponseBuilder_.build();
         }
-        if (loginWebBuilder_ == null) {
-          result.loginWeb_ = loginWeb_;
-        } else {
-          result.loginWeb_ = loginWebBuilder_.build();
-        }
         if (singleChattingBuilder_ == null) {
           result.singleChatting_ = singleChatting_;
         } else {
@@ -17668,25 +13353,10 @@ public final class ProtoMsg {
         } else {
           result.messageResponse_ = messageResponseBuilder_.build();
         }
-        if (notificationBuilder_ == null) {
-          result.notification_ = notification_;
-        } else {
-          result.notification_ = notificationBuilder_.build();
-        }
         if (heartBeatBuilder_ == null) {
           result.heartBeat_ = heartBeat_;
         } else {
           result.heartBeat_ = heartBeatBuilder_.build();
-        }
-        if (msgReadBuilder_ == null) {
-          result.msgRead_ = msgRead_;
-        } else {
-          result.msgRead_ = msgReadBuilder_.build();
-        }
-        if (msgPushBuilder_ == null) {
-          result.msgPush_ = msgPush_;
-        } else {
-          result.msgPush_ = msgPushBuilder_.build();
         }
         onBuilt();
         return result;
@@ -17758,9 +13428,6 @@ public final class ProtoMsg {
         if (other.hasLogoutResponse()) {
           mergeLogoutResponse(other.getLogoutResponse());
         }
-        if (other.hasLoginWeb()) {
-          mergeLoginWeb(other.getLoginWeb());
-        }
         if (other.hasSingleChatting()) {
           mergeSingleChatting(other.getSingleChatting());
         }
@@ -17770,17 +13437,8 @@ public final class ProtoMsg {
         if (other.hasMessageResponse()) {
           mergeMessageResponse(other.getMessageResponse());
         }
-        if (other.hasNotification()) {
-          mergeNotification(other.getNotification());
-        }
         if (other.hasHeartBeat()) {
           mergeHeartBeat(other.getHeartBeat());
-        }
-        if (other.hasMsgRead()) {
-          mergeMsgRead(other.getMsgRead());
-        }
-        if (other.hasMsgPush()) {
-          mergeMsgPush(other.getMsgPush());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -18644,161 +14302,6 @@ public final class ProtoMsg {
         return logoutResponseBuilder_;
       }
 
-      private com.sxh.protobuf.ProtoMsg.LoginWeb loginWeb_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.sxh.protobuf.ProtoMsg.LoginWeb, com.sxh.protobuf.ProtoMsg.LoginWeb.Builder, com.sxh.protobuf.ProtoMsg.LoginWebOrBuilder> loginWebBuilder_;
-      /**
-       * <pre>
-       *扫一扫登录web端
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.LoginWeb loginWeb = 8;</code>
-       * @return Whether the loginWeb field is set.
-       */
-      public boolean hasLoginWeb() {
-        return loginWebBuilder_ != null || loginWeb_ != null;
-      }
-      /**
-       * <pre>
-       *扫一扫登录web端
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.LoginWeb loginWeb = 8;</code>
-       * @return The loginWeb.
-       */
-      public com.sxh.protobuf.ProtoMsg.LoginWeb getLoginWeb() {
-        if (loginWebBuilder_ == null) {
-          return loginWeb_ == null ? com.sxh.protobuf.ProtoMsg.LoginWeb.getDefaultInstance() : loginWeb_;
-        } else {
-          return loginWebBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       *扫一扫登录web端
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.LoginWeb loginWeb = 8;</code>
-       */
-      public Builder setLoginWeb(com.sxh.protobuf.ProtoMsg.LoginWeb value) {
-        if (loginWebBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          loginWeb_ = value;
-          onChanged();
-        } else {
-          loginWebBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       *扫一扫登录web端
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.LoginWeb loginWeb = 8;</code>
-       */
-      public Builder setLoginWeb(
-          com.sxh.protobuf.ProtoMsg.LoginWeb.Builder builderForValue) {
-        if (loginWebBuilder_ == null) {
-          loginWeb_ = builderForValue.build();
-          onChanged();
-        } else {
-          loginWebBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       *扫一扫登录web端
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.LoginWeb loginWeb = 8;</code>
-       */
-      public Builder mergeLoginWeb(com.sxh.protobuf.ProtoMsg.LoginWeb value) {
-        if (loginWebBuilder_ == null) {
-          if (loginWeb_ != null) {
-            loginWeb_ =
-              com.sxh.protobuf.ProtoMsg.LoginWeb.newBuilder(loginWeb_).mergeFrom(value).buildPartial();
-          } else {
-            loginWeb_ = value;
-          }
-          onChanged();
-        } else {
-          loginWebBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       *扫一扫登录web端
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.LoginWeb loginWeb = 8;</code>
-       */
-      public Builder clearLoginWeb() {
-        if (loginWebBuilder_ == null) {
-          loginWeb_ = null;
-          onChanged();
-        } else {
-          loginWeb_ = null;
-          loginWebBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       *扫一扫登录web端
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.LoginWeb loginWeb = 8;</code>
-       */
-      public com.sxh.protobuf.ProtoMsg.LoginWeb.Builder getLoginWebBuilder() {
-        
-        onChanged();
-        return getLoginWebFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       *扫一扫登录web端
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.LoginWeb loginWeb = 8;</code>
-       */
-      public com.sxh.protobuf.ProtoMsg.LoginWebOrBuilder getLoginWebOrBuilder() {
-        if (loginWebBuilder_ != null) {
-          return loginWebBuilder_.getMessageOrBuilder();
-        } else {
-          return loginWeb_ == null ?
-              com.sxh.protobuf.ProtoMsg.LoginWeb.getDefaultInstance() : loginWeb_;
-        }
-      }
-      /**
-       * <pre>
-       *扫一扫登录web端
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.LoginWeb loginWeb = 8;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.sxh.protobuf.ProtoMsg.LoginWeb, com.sxh.protobuf.ProtoMsg.LoginWeb.Builder, com.sxh.protobuf.ProtoMsg.LoginWebOrBuilder> 
-          getLoginWebFieldBuilder() {
-        if (loginWebBuilder_ == null) {
-          loginWebBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.sxh.protobuf.ProtoMsg.LoginWeb, com.sxh.protobuf.ProtoMsg.LoginWeb.Builder, com.sxh.protobuf.ProtoMsg.LoginWebOrBuilder>(
-                  getLoginWeb(),
-                  getParentForChildren(),
-                  isClean());
-          loginWeb_ = null;
-        }
-        return loginWebBuilder_;
-      }
-
       private com.sxh.protobuf.ProtoMsg.SingleChatting singleChatting_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.sxh.protobuf.ProtoMsg.SingleChatting, com.sxh.protobuf.ProtoMsg.SingleChatting.Builder, com.sxh.protobuf.ProtoMsg.SingleChattingOrBuilder> singleChattingBuilder_;
@@ -18807,7 +14310,7 @@ public final class ProtoMsg {
        *IM消息请求,一对一
        * </pre>
        *
-       * <code>.com.sxh.protobuf.SingleChatting singleChatting = 9;</code>
+       * <code>.com.sxh.protobuf.SingleChatting singleChatting = 8;</code>
        * @return Whether the singleChatting field is set.
        */
       public boolean hasSingleChatting() {
@@ -18818,7 +14321,7 @@ public final class ProtoMsg {
        *IM消息请求,一对一
        * </pre>
        *
-       * <code>.com.sxh.protobuf.SingleChatting singleChatting = 9;</code>
+       * <code>.com.sxh.protobuf.SingleChatting singleChatting = 8;</code>
        * @return The singleChatting.
        */
       public com.sxh.protobuf.ProtoMsg.SingleChatting getSingleChatting() {
@@ -18833,7 +14336,7 @@ public final class ProtoMsg {
        *IM消息请求,一对一
        * </pre>
        *
-       * <code>.com.sxh.protobuf.SingleChatting singleChatting = 9;</code>
+       * <code>.com.sxh.protobuf.SingleChatting singleChatting = 8;</code>
        */
       public Builder setSingleChatting(com.sxh.protobuf.ProtoMsg.SingleChatting value) {
         if (singleChattingBuilder_ == null) {
@@ -18853,7 +14356,7 @@ public final class ProtoMsg {
        *IM消息请求,一对一
        * </pre>
        *
-       * <code>.com.sxh.protobuf.SingleChatting singleChatting = 9;</code>
+       * <code>.com.sxh.protobuf.SingleChatting singleChatting = 8;</code>
        */
       public Builder setSingleChatting(
           com.sxh.protobuf.ProtoMsg.SingleChatting.Builder builderForValue) {
@@ -18871,7 +14374,7 @@ public final class ProtoMsg {
        *IM消息请求,一对一
        * </pre>
        *
-       * <code>.com.sxh.protobuf.SingleChatting singleChatting = 9;</code>
+       * <code>.com.sxh.protobuf.SingleChatting singleChatting = 8;</code>
        */
       public Builder mergeSingleChatting(com.sxh.protobuf.ProtoMsg.SingleChatting value) {
         if (singleChattingBuilder_ == null) {
@@ -18893,7 +14396,7 @@ public final class ProtoMsg {
        *IM消息请求,一对一
        * </pre>
        *
-       * <code>.com.sxh.protobuf.SingleChatting singleChatting = 9;</code>
+       * <code>.com.sxh.protobuf.SingleChatting singleChatting = 8;</code>
        */
       public Builder clearSingleChatting() {
         if (singleChattingBuilder_ == null) {
@@ -18911,7 +14414,7 @@ public final class ProtoMsg {
        *IM消息请求,一对一
        * </pre>
        *
-       * <code>.com.sxh.protobuf.SingleChatting singleChatting = 9;</code>
+       * <code>.com.sxh.protobuf.SingleChatting singleChatting = 8;</code>
        */
       public com.sxh.protobuf.ProtoMsg.SingleChatting.Builder getSingleChattingBuilder() {
         
@@ -18923,7 +14426,7 @@ public final class ProtoMsg {
        *IM消息请求,一对一
        * </pre>
        *
-       * <code>.com.sxh.protobuf.SingleChatting singleChatting = 9;</code>
+       * <code>.com.sxh.protobuf.SingleChatting singleChatting = 8;</code>
        */
       public com.sxh.protobuf.ProtoMsg.SingleChattingOrBuilder getSingleChattingOrBuilder() {
         if (singleChattingBuilder_ != null) {
@@ -18938,7 +14441,7 @@ public final class ProtoMsg {
        *IM消息请求,一对一
        * </pre>
        *
-       * <code>.com.sxh.protobuf.SingleChatting singleChatting = 9;</code>
+       * <code>.com.sxh.protobuf.SingleChatting singleChatting = 8;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.sxh.protobuf.ProtoMsg.SingleChatting, com.sxh.protobuf.ProtoMsg.SingleChatting.Builder, com.sxh.protobuf.ProtoMsg.SingleChattingOrBuilder> 
@@ -18962,7 +14465,7 @@ public final class ProtoMsg {
        *群聊
        * </pre>
        *
-       * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 10;</code>
+       * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 9;</code>
        * @return Whether the clusterChatting field is set.
        */
       public boolean hasClusterChatting() {
@@ -18973,7 +14476,7 @@ public final class ProtoMsg {
        *群聊
        * </pre>
        *
-       * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 10;</code>
+       * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 9;</code>
        * @return The clusterChatting.
        */
       public com.sxh.protobuf.ProtoMsg.ClusterChatting getClusterChatting() {
@@ -18988,7 +14491,7 @@ public final class ProtoMsg {
        *群聊
        * </pre>
        *
-       * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 10;</code>
+       * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 9;</code>
        */
       public Builder setClusterChatting(com.sxh.protobuf.ProtoMsg.ClusterChatting value) {
         if (clusterChattingBuilder_ == null) {
@@ -19008,7 +14511,7 @@ public final class ProtoMsg {
        *群聊
        * </pre>
        *
-       * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 10;</code>
+       * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 9;</code>
        */
       public Builder setClusterChatting(
           com.sxh.protobuf.ProtoMsg.ClusterChatting.Builder builderForValue) {
@@ -19026,7 +14529,7 @@ public final class ProtoMsg {
        *群聊
        * </pre>
        *
-       * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 10;</code>
+       * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 9;</code>
        */
       public Builder mergeClusterChatting(com.sxh.protobuf.ProtoMsg.ClusterChatting value) {
         if (clusterChattingBuilder_ == null) {
@@ -19048,7 +14551,7 @@ public final class ProtoMsg {
        *群聊
        * </pre>
        *
-       * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 10;</code>
+       * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 9;</code>
        */
       public Builder clearClusterChatting() {
         if (clusterChattingBuilder_ == null) {
@@ -19066,7 +14569,7 @@ public final class ProtoMsg {
        *群聊
        * </pre>
        *
-       * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 10;</code>
+       * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 9;</code>
        */
       public com.sxh.protobuf.ProtoMsg.ClusterChatting.Builder getClusterChattingBuilder() {
         
@@ -19078,7 +14581,7 @@ public final class ProtoMsg {
        *群聊
        * </pre>
        *
-       * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 10;</code>
+       * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 9;</code>
        */
       public com.sxh.protobuf.ProtoMsg.ClusterChattingOrBuilder getClusterChattingOrBuilder() {
         if (clusterChattingBuilder_ != null) {
@@ -19093,7 +14596,7 @@ public final class ProtoMsg {
        *群聊
        * </pre>
        *
-       * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 10;</code>
+       * <code>.com.sxh.protobuf.ClusterChatting clusterChatting = 9;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.sxh.protobuf.ProtoMsg.ClusterChatting, com.sxh.protobuf.ProtoMsg.ClusterChatting.Builder, com.sxh.protobuf.ProtoMsg.ClusterChattingOrBuilder> 
@@ -19117,7 +14620,7 @@ public final class ProtoMsg {
        *IM消息响应
        * </pre>
        *
-       * <code>.com.sxh.protobuf.MessageResponse messageResponse = 11;</code>
+       * <code>.com.sxh.protobuf.MessageResponse messageResponse = 10;</code>
        * @return Whether the messageResponse field is set.
        */
       public boolean hasMessageResponse() {
@@ -19128,7 +14631,7 @@ public final class ProtoMsg {
        *IM消息响应
        * </pre>
        *
-       * <code>.com.sxh.protobuf.MessageResponse messageResponse = 11;</code>
+       * <code>.com.sxh.protobuf.MessageResponse messageResponse = 10;</code>
        * @return The messageResponse.
        */
       public com.sxh.protobuf.ProtoMsg.MessageResponse getMessageResponse() {
@@ -19143,7 +14646,7 @@ public final class ProtoMsg {
        *IM消息响应
        * </pre>
        *
-       * <code>.com.sxh.protobuf.MessageResponse messageResponse = 11;</code>
+       * <code>.com.sxh.protobuf.MessageResponse messageResponse = 10;</code>
        */
       public Builder setMessageResponse(com.sxh.protobuf.ProtoMsg.MessageResponse value) {
         if (messageResponseBuilder_ == null) {
@@ -19163,7 +14666,7 @@ public final class ProtoMsg {
        *IM消息响应
        * </pre>
        *
-       * <code>.com.sxh.protobuf.MessageResponse messageResponse = 11;</code>
+       * <code>.com.sxh.protobuf.MessageResponse messageResponse = 10;</code>
        */
       public Builder setMessageResponse(
           com.sxh.protobuf.ProtoMsg.MessageResponse.Builder builderForValue) {
@@ -19181,7 +14684,7 @@ public final class ProtoMsg {
        *IM消息响应
        * </pre>
        *
-       * <code>.com.sxh.protobuf.MessageResponse messageResponse = 11;</code>
+       * <code>.com.sxh.protobuf.MessageResponse messageResponse = 10;</code>
        */
       public Builder mergeMessageResponse(com.sxh.protobuf.ProtoMsg.MessageResponse value) {
         if (messageResponseBuilder_ == null) {
@@ -19203,7 +14706,7 @@ public final class ProtoMsg {
        *IM消息响应
        * </pre>
        *
-       * <code>.com.sxh.protobuf.MessageResponse messageResponse = 11;</code>
+       * <code>.com.sxh.protobuf.MessageResponse messageResponse = 10;</code>
        */
       public Builder clearMessageResponse() {
         if (messageResponseBuilder_ == null) {
@@ -19221,7 +14724,7 @@ public final class ProtoMsg {
        *IM消息响应
        * </pre>
        *
-       * <code>.com.sxh.protobuf.MessageResponse messageResponse = 11;</code>
+       * <code>.com.sxh.protobuf.MessageResponse messageResponse = 10;</code>
        */
       public com.sxh.protobuf.ProtoMsg.MessageResponse.Builder getMessageResponseBuilder() {
         
@@ -19233,7 +14736,7 @@ public final class ProtoMsg {
        *IM消息响应
        * </pre>
        *
-       * <code>.com.sxh.protobuf.MessageResponse messageResponse = 11;</code>
+       * <code>.com.sxh.protobuf.MessageResponse messageResponse = 10;</code>
        */
       public com.sxh.protobuf.ProtoMsg.MessageResponseOrBuilder getMessageResponseOrBuilder() {
         if (messageResponseBuilder_ != null) {
@@ -19248,7 +14751,7 @@ public final class ProtoMsg {
        *IM消息响应
        * </pre>
        *
-       * <code>.com.sxh.protobuf.MessageResponse messageResponse = 11;</code>
+       * <code>.com.sxh.protobuf.MessageResponse messageResponse = 10;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.sxh.protobuf.ProtoMsg.MessageResponse, com.sxh.protobuf.ProtoMsg.MessageResponse.Builder, com.sxh.protobuf.ProtoMsg.MessageResponseOrBuilder> 
@@ -19264,161 +14767,6 @@ public final class ProtoMsg {
         return messageResponseBuilder_;
       }
 
-      private com.sxh.protobuf.ProtoMsg.MessageNotification notification_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.sxh.protobuf.ProtoMsg.MessageNotification, com.sxh.protobuf.ProtoMsg.MessageNotification.Builder, com.sxh.protobuf.ProtoMsg.MessageNotificationOrBuilder> notificationBuilder_;
-      /**
-       * <pre>
-       *系统通知
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessageNotification notification = 12;</code>
-       * @return Whether the notification field is set.
-       */
-      public boolean hasNotification() {
-        return notificationBuilder_ != null || notification_ != null;
-      }
-      /**
-       * <pre>
-       *系统通知
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessageNotification notification = 12;</code>
-       * @return The notification.
-       */
-      public com.sxh.protobuf.ProtoMsg.MessageNotification getNotification() {
-        if (notificationBuilder_ == null) {
-          return notification_ == null ? com.sxh.protobuf.ProtoMsg.MessageNotification.getDefaultInstance() : notification_;
-        } else {
-          return notificationBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       *系统通知
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessageNotification notification = 12;</code>
-       */
-      public Builder setNotification(com.sxh.protobuf.ProtoMsg.MessageNotification value) {
-        if (notificationBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          notification_ = value;
-          onChanged();
-        } else {
-          notificationBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       *系统通知
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessageNotification notification = 12;</code>
-       */
-      public Builder setNotification(
-          com.sxh.protobuf.ProtoMsg.MessageNotification.Builder builderForValue) {
-        if (notificationBuilder_ == null) {
-          notification_ = builderForValue.build();
-          onChanged();
-        } else {
-          notificationBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       *系统通知
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessageNotification notification = 12;</code>
-       */
-      public Builder mergeNotification(com.sxh.protobuf.ProtoMsg.MessageNotification value) {
-        if (notificationBuilder_ == null) {
-          if (notification_ != null) {
-            notification_ =
-              com.sxh.protobuf.ProtoMsg.MessageNotification.newBuilder(notification_).mergeFrom(value).buildPartial();
-          } else {
-            notification_ = value;
-          }
-          onChanged();
-        } else {
-          notificationBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       *系统通知
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessageNotification notification = 12;</code>
-       */
-      public Builder clearNotification() {
-        if (notificationBuilder_ == null) {
-          notification_ = null;
-          onChanged();
-        } else {
-          notification_ = null;
-          notificationBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       *系统通知
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessageNotification notification = 12;</code>
-       */
-      public com.sxh.protobuf.ProtoMsg.MessageNotification.Builder getNotificationBuilder() {
-        
-        onChanged();
-        return getNotificationFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       *系统通知
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessageNotification notification = 12;</code>
-       */
-      public com.sxh.protobuf.ProtoMsg.MessageNotificationOrBuilder getNotificationOrBuilder() {
-        if (notificationBuilder_ != null) {
-          return notificationBuilder_.getMessageOrBuilder();
-        } else {
-          return notification_ == null ?
-              com.sxh.protobuf.ProtoMsg.MessageNotification.getDefaultInstance() : notification_;
-        }
-      }
-      /**
-       * <pre>
-       *系统通知
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessageNotification notification = 12;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.sxh.protobuf.ProtoMsg.MessageNotification, com.sxh.protobuf.ProtoMsg.MessageNotification.Builder, com.sxh.protobuf.ProtoMsg.MessageNotificationOrBuilder> 
-          getNotificationFieldBuilder() {
-        if (notificationBuilder_ == null) {
-          notificationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.sxh.protobuf.ProtoMsg.MessageNotification, com.sxh.protobuf.ProtoMsg.MessageNotification.Builder, com.sxh.protobuf.ProtoMsg.MessageNotificationOrBuilder>(
-                  getNotification(),
-                  getParentForChildren(),
-                  isClean());
-          notification_ = null;
-        }
-        return notificationBuilder_;
-      }
-
       private com.sxh.protobuf.ProtoMsg.MessageHeartBeat heartBeat_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.sxh.protobuf.ProtoMsg.MessageHeartBeat, com.sxh.protobuf.ProtoMsg.MessageHeartBeat.Builder, com.sxh.protobuf.ProtoMsg.MessageHeartBeatOrBuilder> heartBeatBuilder_;
@@ -19427,7 +14775,7 @@ public final class ProtoMsg {
        *心跳
        * </pre>
        *
-       * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 13;</code>
+       * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 11;</code>
        * @return Whether the heartBeat field is set.
        */
       public boolean hasHeartBeat() {
@@ -19438,7 +14786,7 @@ public final class ProtoMsg {
        *心跳
        * </pre>
        *
-       * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 13;</code>
+       * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 11;</code>
        * @return The heartBeat.
        */
       public com.sxh.protobuf.ProtoMsg.MessageHeartBeat getHeartBeat() {
@@ -19453,7 +14801,7 @@ public final class ProtoMsg {
        *心跳
        * </pre>
        *
-       * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 13;</code>
+       * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 11;</code>
        */
       public Builder setHeartBeat(com.sxh.protobuf.ProtoMsg.MessageHeartBeat value) {
         if (heartBeatBuilder_ == null) {
@@ -19473,7 +14821,7 @@ public final class ProtoMsg {
        *心跳
        * </pre>
        *
-       * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 13;</code>
+       * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 11;</code>
        */
       public Builder setHeartBeat(
           com.sxh.protobuf.ProtoMsg.MessageHeartBeat.Builder builderForValue) {
@@ -19491,7 +14839,7 @@ public final class ProtoMsg {
        *心跳
        * </pre>
        *
-       * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 13;</code>
+       * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 11;</code>
        */
       public Builder mergeHeartBeat(com.sxh.protobuf.ProtoMsg.MessageHeartBeat value) {
         if (heartBeatBuilder_ == null) {
@@ -19513,7 +14861,7 @@ public final class ProtoMsg {
        *心跳
        * </pre>
        *
-       * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 13;</code>
+       * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 11;</code>
        */
       public Builder clearHeartBeat() {
         if (heartBeatBuilder_ == null) {
@@ -19531,7 +14879,7 @@ public final class ProtoMsg {
        *心跳
        * </pre>
        *
-       * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 13;</code>
+       * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 11;</code>
        */
       public com.sxh.protobuf.ProtoMsg.MessageHeartBeat.Builder getHeartBeatBuilder() {
         
@@ -19543,7 +14891,7 @@ public final class ProtoMsg {
        *心跳
        * </pre>
        *
-       * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 13;</code>
+       * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 11;</code>
        */
       public com.sxh.protobuf.ProtoMsg.MessageHeartBeatOrBuilder getHeartBeatOrBuilder() {
         if (heartBeatBuilder_ != null) {
@@ -19558,7 +14906,7 @@ public final class ProtoMsg {
        *心跳
        * </pre>
        *
-       * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 13;</code>
+       * <code>.com.sxh.protobuf.MessageHeartBeat heartBeat = 11;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.sxh.protobuf.ProtoMsg.MessageHeartBeat, com.sxh.protobuf.ProtoMsg.MessageHeartBeat.Builder, com.sxh.protobuf.ProtoMsg.MessageHeartBeatOrBuilder> 
@@ -19572,316 +14920,6 @@ public final class ProtoMsg {
           heartBeat_ = null;
         }
         return heartBeatBuilder_;
-      }
-
-      private com.sxh.protobuf.ProtoMsg.MessageRead msgRead_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.sxh.protobuf.ProtoMsg.MessageRead, com.sxh.protobuf.ProtoMsg.MessageRead.Builder, com.sxh.protobuf.ProtoMsg.MessageReadOrBuilder> msgReadBuilder_;
-      /**
-       * <pre>
-       *消息已读
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessageRead msgRead = 14;</code>
-       * @return Whether the msgRead field is set.
-       */
-      public boolean hasMsgRead() {
-        return msgReadBuilder_ != null || msgRead_ != null;
-      }
-      /**
-       * <pre>
-       *消息已读
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessageRead msgRead = 14;</code>
-       * @return The msgRead.
-       */
-      public com.sxh.protobuf.ProtoMsg.MessageRead getMsgRead() {
-        if (msgReadBuilder_ == null) {
-          return msgRead_ == null ? com.sxh.protobuf.ProtoMsg.MessageRead.getDefaultInstance() : msgRead_;
-        } else {
-          return msgReadBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       *消息已读
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessageRead msgRead = 14;</code>
-       */
-      public Builder setMsgRead(com.sxh.protobuf.ProtoMsg.MessageRead value) {
-        if (msgReadBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          msgRead_ = value;
-          onChanged();
-        } else {
-          msgReadBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       *消息已读
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessageRead msgRead = 14;</code>
-       */
-      public Builder setMsgRead(
-          com.sxh.protobuf.ProtoMsg.MessageRead.Builder builderForValue) {
-        if (msgReadBuilder_ == null) {
-          msgRead_ = builderForValue.build();
-          onChanged();
-        } else {
-          msgReadBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       *消息已读
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessageRead msgRead = 14;</code>
-       */
-      public Builder mergeMsgRead(com.sxh.protobuf.ProtoMsg.MessageRead value) {
-        if (msgReadBuilder_ == null) {
-          if (msgRead_ != null) {
-            msgRead_ =
-              com.sxh.protobuf.ProtoMsg.MessageRead.newBuilder(msgRead_).mergeFrom(value).buildPartial();
-          } else {
-            msgRead_ = value;
-          }
-          onChanged();
-        } else {
-          msgReadBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       *消息已读
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessageRead msgRead = 14;</code>
-       */
-      public Builder clearMsgRead() {
-        if (msgReadBuilder_ == null) {
-          msgRead_ = null;
-          onChanged();
-        } else {
-          msgRead_ = null;
-          msgReadBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       *消息已读
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessageRead msgRead = 14;</code>
-       */
-      public com.sxh.protobuf.ProtoMsg.MessageRead.Builder getMsgReadBuilder() {
-        
-        onChanged();
-        return getMsgReadFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       *消息已读
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessageRead msgRead = 14;</code>
-       */
-      public com.sxh.protobuf.ProtoMsg.MessageReadOrBuilder getMsgReadOrBuilder() {
-        if (msgReadBuilder_ != null) {
-          return msgReadBuilder_.getMessageOrBuilder();
-        } else {
-          return msgRead_ == null ?
-              com.sxh.protobuf.ProtoMsg.MessageRead.getDefaultInstance() : msgRead_;
-        }
-      }
-      /**
-       * <pre>
-       *消息已读
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessageRead msgRead = 14;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.sxh.protobuf.ProtoMsg.MessageRead, com.sxh.protobuf.ProtoMsg.MessageRead.Builder, com.sxh.protobuf.ProtoMsg.MessageReadOrBuilder> 
-          getMsgReadFieldBuilder() {
-        if (msgReadBuilder_ == null) {
-          msgReadBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.sxh.protobuf.ProtoMsg.MessageRead, com.sxh.protobuf.ProtoMsg.MessageRead.Builder, com.sxh.protobuf.ProtoMsg.MessageReadOrBuilder>(
-                  getMsgRead(),
-                  getParentForChildren(),
-                  isClean());
-          msgRead_ = null;
-        }
-        return msgReadBuilder_;
-      }
-
-      private com.sxh.protobuf.ProtoMsg.MessagePush msgPush_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.sxh.protobuf.ProtoMsg.MessagePush, com.sxh.protobuf.ProtoMsg.MessagePush.Builder, com.sxh.protobuf.ProtoMsg.MessagePushOrBuilder> msgPushBuilder_;
-      /**
-       * <pre>
-       *消息推送
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessagePush msgPush = 15;</code>
-       * @return Whether the msgPush field is set.
-       */
-      public boolean hasMsgPush() {
-        return msgPushBuilder_ != null || msgPush_ != null;
-      }
-      /**
-       * <pre>
-       *消息推送
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessagePush msgPush = 15;</code>
-       * @return The msgPush.
-       */
-      public com.sxh.protobuf.ProtoMsg.MessagePush getMsgPush() {
-        if (msgPushBuilder_ == null) {
-          return msgPush_ == null ? com.sxh.protobuf.ProtoMsg.MessagePush.getDefaultInstance() : msgPush_;
-        } else {
-          return msgPushBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       *消息推送
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessagePush msgPush = 15;</code>
-       */
-      public Builder setMsgPush(com.sxh.protobuf.ProtoMsg.MessagePush value) {
-        if (msgPushBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          msgPush_ = value;
-          onChanged();
-        } else {
-          msgPushBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       *消息推送
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessagePush msgPush = 15;</code>
-       */
-      public Builder setMsgPush(
-          com.sxh.protobuf.ProtoMsg.MessagePush.Builder builderForValue) {
-        if (msgPushBuilder_ == null) {
-          msgPush_ = builderForValue.build();
-          onChanged();
-        } else {
-          msgPushBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       *消息推送
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessagePush msgPush = 15;</code>
-       */
-      public Builder mergeMsgPush(com.sxh.protobuf.ProtoMsg.MessagePush value) {
-        if (msgPushBuilder_ == null) {
-          if (msgPush_ != null) {
-            msgPush_ =
-              com.sxh.protobuf.ProtoMsg.MessagePush.newBuilder(msgPush_).mergeFrom(value).buildPartial();
-          } else {
-            msgPush_ = value;
-          }
-          onChanged();
-        } else {
-          msgPushBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       *消息推送
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessagePush msgPush = 15;</code>
-       */
-      public Builder clearMsgPush() {
-        if (msgPushBuilder_ == null) {
-          msgPush_ = null;
-          onChanged();
-        } else {
-          msgPush_ = null;
-          msgPushBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       *消息推送
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessagePush msgPush = 15;</code>
-       */
-      public com.sxh.protobuf.ProtoMsg.MessagePush.Builder getMsgPushBuilder() {
-        
-        onChanged();
-        return getMsgPushFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       *消息推送
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessagePush msgPush = 15;</code>
-       */
-      public com.sxh.protobuf.ProtoMsg.MessagePushOrBuilder getMsgPushOrBuilder() {
-        if (msgPushBuilder_ != null) {
-          return msgPushBuilder_.getMessageOrBuilder();
-        } else {
-          return msgPush_ == null ?
-              com.sxh.protobuf.ProtoMsg.MessagePush.getDefaultInstance() : msgPush_;
-        }
-      }
-      /**
-       * <pre>
-       *消息推送
-       * </pre>
-       *
-       * <code>.com.sxh.protobuf.MessagePush msgPush = 15;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.sxh.protobuf.ProtoMsg.MessagePush, com.sxh.protobuf.ProtoMsg.MessagePush.Builder, com.sxh.protobuf.ProtoMsg.MessagePushOrBuilder> 
-          getMsgPushFieldBuilder() {
-        if (msgPushBuilder_ == null) {
-          msgPushBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.sxh.protobuf.ProtoMsg.MessagePush, com.sxh.protobuf.ProtoMsg.MessagePush.Builder, com.sxh.protobuf.ProtoMsg.MessagePushOrBuilder>(
-                  getMsgPush(),
-                  getParentForChildren(),
-                  isClean());
-          msgPush_ = null;
-        }
-        return msgPushBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -19957,11 +14995,6 @@ public final class ProtoMsg {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_sxh_protobuf_LogoutResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_sxh_protobuf_LoginWeb_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_sxh_protobuf_LoginWeb_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_sxh_protobuf_SingleChatting_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -19976,21 +15009,6 @@ public final class ProtoMsg {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_sxh_protobuf_MessageResponse_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_sxh_protobuf_MessagePush_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_sxh_protobuf_MessagePush_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_sxh_protobuf_MessageNotification_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_sxh_protobuf_MessageNotification_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_sxh_protobuf_MessageRead_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_sxh_protobuf_MessageRead_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_sxh_protobuf_MessageHeartBeat_descriptor;
   private static final 
@@ -20020,64 +15038,48 @@ public final class ProtoMsg {
       "\n\005token\030\003 \001(\t\022\020\n\010platform\030\004 \001(\r\022\022\n\nappVe" +
       "rsion\030\005 \001(\t\"b\n\016LogoutResponse\022\016\n\006result\030" +
       "\001 \001(\010\022\014\n\004code\030\002 \001(\r\022\014\n\004info\030\003 \001(\t\022\020\n\010pla" +
-      "tform\030\004 \001(\r\022\022\n\ninitiative\030\005 \001(\010\"Z\n\010Login" +
-      "Web\022\016\n\006webUid\030\001 \001(\t\022\017\n\007userUid\030\002 \001(\t\022\016\n\006" +
-      "status\030\003 \001(\r\022\017\n\007fromUid\030\004 \001(\r\022\014\n\004json\030\005 " +
-      "\001(\t\"\324\002\n\016SingleChatting\022\024\n\014chatting_uid\030\001" +
-      " \001(\t\022\020\n\010user_uid\030\002 \001(\t\022\020\n\010recv_uid\030\003 \001(\t" +
-      "\022\017\n\007content\030\004 \001(\t\022\024\n\014content_size\030\005 \001(\t\022" +
-      "\025\n\roriginal_path\030\006 \001(\t\022\024\n\014content_path\030\007" +
-      " \001(\t\022\024\n\014content_type\030\010 \001(\r\022\021\n\tsend_type\030" +
-      "\t \001(\r\022\021\n\tis_recall\030\n \001(\r\022\026\n\016pulling_stat" +
-      "us\030\013 \001(\r\022\021\n\tsort_date\030\014 \001(\t\022\021\n\tsend_time" +
-      "\030\r \001(\t\022\023\n\013update_date\030\016 \001(\t\022\023\n\013create_da" +
-      "te\030\017 \001(\t\022\020\n\010temp_uid\030\020 \001(\t\"\251\003\n\017ClusterCh" +
-      "atting\022\024\n\014chatting_uid\030\001 \001(\t\022\023\n\013cluster_" +
-      "uid\030\002 \001(\t\022\020\n\010recv_uid\030\003 \001(\t\022\020\n\010user_uid\030" +
-      "\004 \001(\t\022\021\n\tuser_name\030\005 \001(\t\022\021\n\tuser_logo\030\006 " +
-      "\001(\t\022\025\n\ruser_position\030\007 \001(\t\022\022\n\nuser_compy" +
-      "\030\010 \001(\t\022\017\n\007content\030\t \001(\t\022\024\n\014content_size\030" +
-      "\n \001(\t\022\025\n\roriginal_path\030\013 \001(\t\022\024\n\014content_" +
-      "path\030\014 \001(\t\022\024\n\014content_type\030\r \001(\r\022\021\n\tsend" +
-      "_type\030\016 \001(\r\022\021\n\tis_recall\030\017 \001(\r\022\026\n\016pullin" +
-      "g_status\030\020 \001(\r\022\021\n\tsort_date\030\021 \001(\t\022\021\n\tsen" +
-      "d_time\030\022 \001(\t\022\023\n\013update_date\030\023 \001(\t\022\023\n\013cre" +
-      "ate_date\030\024 \001(\t\"M\n\017MessageResponse\022\016\n\006res" +
-      "ult\030\001 \001(\010\022\014\n\004code\030\002 \001(\r\022\014\n\004info\030\003 \001(\t\022\016\n" +
-      "\006expose\030\004 \001(\r\"N\n\013MessagePush\022\r\n\005no_id\030\001 " +
-      "\001(\004\022\017\n\007msgType\030\002 \001(\r\022\014\n\004json\030\003 \001(\t\022\021\n\tti" +
-      "mestamp\030\004 \001(\t\"E\n\023MessageNotification\022\r\n\005" +
-      "no_id\030\001 \001(\004\022\014\n\004json\030\002 \001(\t\022\021\n\ttimestamp\030\003" +
-      " \001(\t\"P\n\013MessageRead\022\017\n\007userUid\030\001 \001(\t\022\021\n\t" +
-      "read_type\030\002 \001(\r\022\013\n\003uid\030\003 \001(\t\022\020\n\010platform" +
-      "\030\004 \001(\t\":\n\020MessageHeartBeat\022\013\n\003seq\030\001 \001(\r\022" +
-      "\013\n\003uid\030\002 \001(\t\022\014\n\004json\030\003 \001(\t\"\355\005\n\007Message\022(" +
-      "\n\004type\030\001 \001(\0162\032.com.sxh.protobuf.HeadType" +
-      "\022\020\n\010sequence\030\002 \001(\004\022\022\n\nsession_id\030\003 \001(\t\0224" +
-      "\n\014loginRequest\030\004 \001(\0132\036.com.sxh.protobuf." +
-      "LoginRequest\0226\n\rloginResponse\030\005 \001(\0132\037.co" +
-      "m.sxh.protobuf.LoginResponse\0226\n\rlogoutRe" +
-      "quest\030\006 \001(\0132\037.com.sxh.protobuf.LogoutReq" +
-      "uest\0228\n\016logoutResponse\030\007 \001(\0132 .com.sxh.p" +
-      "rotobuf.LogoutResponse\022,\n\010loginWeb\030\010 \001(\013" +
-      "2\032.com.sxh.protobuf.LoginWeb\0228\n\016singleCh" +
-      "atting\030\t \001(\0132 .com.sxh.protobuf.SingleCh" +
-      "atting\022:\n\017clusterChatting\030\n \001(\0132!.com.sx" +
-      "h.protobuf.ClusterChatting\022:\n\017messageRes" +
-      "ponse\030\013 \001(\0132!.com.sxh.protobuf.MessageRe" +
-      "sponse\022;\n\014notification\030\014 \001(\0132%.com.sxh.p" +
-      "rotobuf.MessageNotification\0225\n\theartBeat" +
-      "\030\r \001(\0132\".com.sxh.protobuf.MessageHeartBe" +
-      "at\022.\n\007msgRead\030\016 \001(\0132\035.com.sxh.protobuf.M" +
-      "essageRead\022.\n\007msgPush\030\017 \001(\0132\035.com.sxh.pr" +
-      "otobuf.MessagePush*\376\001\n\010HeadType\022\021\n\rLOGIN" +
-      "_REQUEST\020\000\022\022\n\016LOGIN_RESPONSE\020\001\022\025\n\021LOGIN_" +
-      "REQUEST_WEB\020\002\022\022\n\016LOGOUT_REQUEST\020\003\022\023\n\017LOG" +
-      "OUT_RESPONSE\020\004\022\016\n\nHEART_BEAT\020\005\022\022\n\016SINGLE" +
-      "_REQUEST\020\006\022\021\n\rMULTI_REQUEST\020\007\022\024\n\020MESSAGE" +
-      "_RESPONSE\020\010\022\030\n\024MESSAGE_NOTIFICATION\020\t\022\020\n" +
-      "\014MESSAGE_READ\020\n\022\022\n\016MESSAGE_NOTICE\020\013b\006pro" +
-      "to3"
+      "tform\030\004 \001(\r\022\022\n\ninitiative\030\005 \001(\010\"\324\002\n\016Sing" +
+      "leChatting\022\024\n\014chatting_uid\030\001 \001(\t\022\020\n\010user" +
+      "_uid\030\002 \001(\t\022\020\n\010recv_uid\030\003 \001(\t\022\017\n\007content\030" +
+      "\004 \001(\t\022\024\n\014content_size\030\005 \001(\t\022\025\n\roriginal_" +
+      "path\030\006 \001(\t\022\024\n\014content_path\030\007 \001(\t\022\024\n\014cont" +
+      "ent_type\030\010 \001(\r\022\021\n\tsend_type\030\t \001(\r\022\021\n\tis_" +
+      "recall\030\n \001(\r\022\026\n\016pulling_status\030\013 \001(\r\022\021\n\t" +
+      "sort_date\030\014 \001(\t\022\021\n\tsend_time\030\r \001(\t\022\023\n\013up" +
+      "date_date\030\016 \001(\t\022\023\n\013create_date\030\017 \001(\t\022\020\n\010" +
+      "temp_uid\030\020 \001(\t\"\251\003\n\017ClusterChatting\022\024\n\014ch" +
+      "atting_uid\030\001 \001(\t\022\023\n\013cluster_uid\030\002 \001(\t\022\020\n" +
+      "\010recv_uid\030\003 \001(\t\022\020\n\010user_uid\030\004 \001(\t\022\021\n\tuse" +
+      "r_name\030\005 \001(\t\022\021\n\tuser_logo\030\006 \001(\t\022\025\n\ruser_" +
+      "position\030\007 \001(\t\022\022\n\nuser_compy\030\010 \001(\t\022\017\n\007co" +
+      "ntent\030\t \001(\t\022\024\n\014content_size\030\n \001(\t\022\025\n\rori" +
+      "ginal_path\030\013 \001(\t\022\024\n\014content_path\030\014 \001(\t\022\024" +
+      "\n\014content_type\030\r \001(\r\022\021\n\tsend_type\030\016 \001(\r\022" +
+      "\021\n\tis_recall\030\017 \001(\r\022\026\n\016pulling_status\030\020 \001" +
+      "(\r\022\021\n\tsort_date\030\021 \001(\t\022\021\n\tsend_time\030\022 \001(\t" +
+      "\022\023\n\013update_date\030\023 \001(\t\022\023\n\013create_date\030\024 \001" +
+      "(\t\"M\n\017MessageResponse\022\016\n\006result\030\001 \001(\010\022\014\n" +
+      "\004code\030\002 \001(\r\022\014\n\004info\030\003 \001(\t\022\016\n\006expose\030\004 \001(" +
+      "\r\":\n\020MessageHeartBeat\022\013\n\003seq\030\001 \001(\r\022\013\n\003ui" +
+      "d\030\002 \001(\t\022\014\n\004json\030\003 \001(\t\"\242\004\n\007Message\022(\n\004typ" +
+      "e\030\001 \001(\0162\032.com.sxh.protobuf.HeadType\022\020\n\010s" +
+      "equence\030\002 \001(\004\022\022\n\nsession_id\030\003 \001(\t\0224\n\014log" +
+      "inRequest\030\004 \001(\0132\036.com.sxh.protobuf.Login" +
+      "Request\0226\n\rloginResponse\030\005 \001(\0132\037.com.sxh" +
+      ".protobuf.LoginResponse\0226\n\rlogoutRequest" +
+      "\030\006 \001(\0132\037.com.sxh.protobuf.LogoutRequest\022" +
+      "8\n\016logoutResponse\030\007 \001(\0132 .com.sxh.protob" +
+      "uf.LogoutResponse\0228\n\016singleChatting\030\010 \001(" +
+      "\0132 .com.sxh.protobuf.SingleChatting\022:\n\017c" +
+      "lusterChatting\030\t \001(\0132!.com.sxh.protobuf." +
+      "ClusterChatting\022:\n\017messageResponse\030\n \001(\013" +
+      "2!.com.sxh.protobuf.MessageResponse\0225\n\th" +
+      "eartBeat\030\013 \001(\0132\".com.sxh.protobuf.Messag" +
+      "eHeartBeat*\251\001\n\010HeadType\022\021\n\rLOGIN_REQUEST" +
+      "\020\000\022\022\n\016LOGIN_RESPONSE\020\001\022\022\n\016LOGOUT_REQUEST" +
+      "\020\002\022\023\n\017LOGOUT_RESPONSE\020\003\022\016\n\nHEART_BEAT\020\004\022" +
+      "\022\n\016SINGLE_REQUEST\020\005\022\023\n\017CLUSTER_REQUEST\020\006" +
+      "\022\024\n\020MESSAGE_RESPONSE\020\007b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -20107,60 +15109,36 @@ public final class ProtoMsg {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_sxh_protobuf_LogoutResponse_descriptor,
         new java.lang.String[] { "Result", "Code", "Info", "Platform", "Initiative", });
-    internal_static_com_sxh_protobuf_LoginWeb_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_com_sxh_protobuf_LoginWeb_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_sxh_protobuf_LoginWeb_descriptor,
-        new java.lang.String[] { "WebUid", "UserUid", "Status", "FromUid", "Json", });
     internal_static_com_sxh_protobuf_SingleChatting_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_com_sxh_protobuf_SingleChatting_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_sxh_protobuf_SingleChatting_descriptor,
         new java.lang.String[] { "ChattingUid", "UserUid", "RecvUid", "Content", "ContentSize", "OriginalPath", "ContentPath", "ContentType", "SendType", "IsRecall", "PullingStatus", "SortDate", "SendTime", "UpdateDate", "CreateDate", "TempUid", });
     internal_static_com_sxh_protobuf_ClusterChatting_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_com_sxh_protobuf_ClusterChatting_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_sxh_protobuf_ClusterChatting_descriptor,
         new java.lang.String[] { "ChattingUid", "ClusterUid", "RecvUid", "UserUid", "UserName", "UserLogo", "UserPosition", "UserCompy", "Content", "ContentSize", "OriginalPath", "ContentPath", "ContentType", "SendType", "IsRecall", "PullingStatus", "SortDate", "SendTime", "UpdateDate", "CreateDate", });
     internal_static_com_sxh_protobuf_MessageResponse_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_com_sxh_protobuf_MessageResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_sxh_protobuf_MessageResponse_descriptor,
         new java.lang.String[] { "Result", "Code", "Info", "Expose", });
-    internal_static_com_sxh_protobuf_MessagePush_descriptor =
-      getDescriptor().getMessageTypes().get(8);
-    internal_static_com_sxh_protobuf_MessagePush_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_sxh_protobuf_MessagePush_descriptor,
-        new java.lang.String[] { "NoId", "MsgType", "Json", "Timestamp", });
-    internal_static_com_sxh_protobuf_MessageNotification_descriptor =
-      getDescriptor().getMessageTypes().get(9);
-    internal_static_com_sxh_protobuf_MessageNotification_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_sxh_protobuf_MessageNotification_descriptor,
-        new java.lang.String[] { "NoId", "Json", "Timestamp", });
-    internal_static_com_sxh_protobuf_MessageRead_descriptor =
-      getDescriptor().getMessageTypes().get(10);
-    internal_static_com_sxh_protobuf_MessageRead_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_sxh_protobuf_MessageRead_descriptor,
-        new java.lang.String[] { "UserUid", "ReadType", "Uid", "Platform", });
     internal_static_com_sxh_protobuf_MessageHeartBeat_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_com_sxh_protobuf_MessageHeartBeat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_sxh_protobuf_MessageHeartBeat_descriptor,
         new java.lang.String[] { "Seq", "Uid", "Json", });
     internal_static_com_sxh_protobuf_Message_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_com_sxh_protobuf_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_sxh_protobuf_Message_descriptor,
-        new java.lang.String[] { "Type", "Sequence", "SessionId", "LoginRequest", "LoginResponse", "LogoutRequest", "LogoutResponse", "LoginWeb", "SingleChatting", "ClusterChatting", "MessageResponse", "Notification", "HeartBeat", "MsgRead", "MsgPush", });
+        new java.lang.String[] { "Type", "Sequence", "SessionId", "LoginRequest", "LoginResponse", "LogoutRequest", "LogoutResponse", "SingleChatting", "ClusterChatting", "MessageResponse", "HeartBeat", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

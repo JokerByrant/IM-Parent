@@ -20,7 +20,6 @@
         <module>IM-Web</module>
         <module>IM-Server</module>
         <module>IM-Common</module>
-        <module>IM-Client-Demo</module>
     </modules>
 
     <properties>

@@ -18,6 +18,8 @@ public class SingleChatHandler extends SimpleChannelInboundHandler<ProtoMsg.Mess
     protected void channelRead0(ChannelHandlerContext ctx, ProtoMsg.Message msg) throws Exception {
         if (msg.getType().equals(ProtoMsg.HeadType.SINGLE_REQUEST)) {
             log.info("处理单聊消息...");
+        } else {
+            super.channelRead(ctx, msg);
         }
     }
 }

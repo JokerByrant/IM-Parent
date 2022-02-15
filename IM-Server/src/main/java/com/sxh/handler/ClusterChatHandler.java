@@ -15,8 +15,10 @@ import org.springframework.stereotype.Component;
 public class ClusterChatHandler extends SimpleChannelInboundHandler<ProtoMsg.Message> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, ProtoMsg.Message msg) throws Exception {
-        if (msg.getType().equals(ProtoMsg.HeadType.MULTI_REQUEST)) {
+        if (msg.getType().equals(ProtoMsg.HeadType.CLUSTER_REQUEST)) {
             log.info("处理群聊消息...");
+        } else {
+            super.channelRead(ctx, msg);
         }
     }
 }
