@@ -28,9 +28,7 @@ public class LoginHandler extends SimpleChannelInboundHandler<ProtoMsg.Message> 
                 existChannel.channel().writeAndFlush(ProtoMsgBuild.logoutResponseMsg(ResultCodeEnum.NO_TOKEN, false, loginRequest.getPlatform()));
             }
             UserSessions.onlineUsers.put(loginRequest.getUserUid(), ctx);
-            // todo 获取用户登录成功后的token信息
-            String apiAuth = null;
-            ctx.channel().writeAndFlush(ProtoMsgBuild.loginResponseMsg(ResultCodeEnum.SUCCESS, apiAuth));
+            ctx.channel().writeAndFlush(ProtoMsgBuild.loginResponseMsg(ResultCodeEnum.SUCCESS));
         } else {
             super.channelRead(ctx, msg);
         }

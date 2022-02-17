@@ -301,26 +301,6 @@ public final class ProtoMsg {
      * @return The platform.
      */
     int getPlatform();
-
-    /**
-     * <pre>
-     * APP版本号
-     * </pre>
-     *
-     * <code>string appVersion = 5;</code>
-     * @return The appVersion.
-     */
-    java.lang.String getAppVersion();
-    /**
-     * <pre>
-     * APP版本号
-     * </pre>
-     *
-     * <code>string appVersion = 5;</code>
-     * @return The bytes for appVersion.
-     */
-    com.google.protobuf.ByteString
-        getAppVersionBytes();
   }
   /**
    * <pre>
@@ -342,7 +322,6 @@ public final class ProtoMsg {
       userUid_ = "";
       devId_ = "";
       token_ = "";
-      appVersion_ = "";
     }
 
     @java.lang.Override
@@ -396,12 +375,6 @@ public final class ProtoMsg {
             case 32: {
 
               platform_ = input.readUInt32();
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              appVersion_ = s;
               break;
             }
             default: {
@@ -589,52 +562,6 @@ public final class ProtoMsg {
       return platform_;
     }
 
-    public static final int APPVERSION_FIELD_NUMBER = 5;
-    private volatile java.lang.Object appVersion_;
-    /**
-     * <pre>
-     * APP版本号
-     * </pre>
-     *
-     * <code>string appVersion = 5;</code>
-     * @return The appVersion.
-     */
-    @java.lang.Override
-    public java.lang.String getAppVersion() {
-      java.lang.Object ref = appVersion_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        appVersion_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * APP版本号
-     * </pre>
-     *
-     * <code>string appVersion = 5;</code>
-     * @return The bytes for appVersion.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getAppVersionBytes() {
-      java.lang.Object ref = appVersion_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        appVersion_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -661,9 +588,6 @@ public final class ProtoMsg {
       if (platform_ != 0) {
         output.writeUInt32(4, platform_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appVersion_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, appVersion_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -685,9 +609,6 @@ public final class ProtoMsg {
       if (platform_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, platform_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appVersion_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, appVersion_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -712,8 +633,6 @@ public final class ProtoMsg {
           .equals(other.getToken())) return false;
       if (getPlatform()
           != other.getPlatform()) return false;
-      if (!getAppVersion()
-          .equals(other.getAppVersion())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -733,8 +652,6 @@ public final class ProtoMsg {
       hash = (53 * hash) + getToken().hashCode();
       hash = (37 * hash) + PLATFORM_FIELD_NUMBER;
       hash = (53 * hash) + getPlatform();
-      hash = (37 * hash) + APPVERSION_FIELD_NUMBER;
-      hash = (53 * hash) + getAppVersion().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -880,8 +797,6 @@ public final class ProtoMsg {
 
         platform_ = 0;
 
-        appVersion_ = "";
-
         return this;
       }
 
@@ -912,7 +827,6 @@ public final class ProtoMsg {
         result.devId_ = devId_;
         result.token_ = token_;
         result.platform_ = platform_;
-        result.appVersion_ = appVersion_;
         onBuilt();
         return result;
       }
@@ -975,10 +889,6 @@ public final class ProtoMsg {
         }
         if (other.getPlatform() != 0) {
           setPlatform(other.getPlatform());
-        }
-        if (!other.getAppVersion().isEmpty()) {
-          appVersion_ = other.appVersion_;
-          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1339,102 +1249,6 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-
-      private java.lang.Object appVersion_ = "";
-      /**
-       * <pre>
-       * APP版本号
-       * </pre>
-       *
-       * <code>string appVersion = 5;</code>
-       * @return The appVersion.
-       */
-      public java.lang.String getAppVersion() {
-        java.lang.Object ref = appVersion_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          appVersion_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * APP版本号
-       * </pre>
-       *
-       * <code>string appVersion = 5;</code>
-       * @return The bytes for appVersion.
-       */
-      public com.google.protobuf.ByteString
-          getAppVersionBytes() {
-        java.lang.Object ref = appVersion_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          appVersion_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * APP版本号
-       * </pre>
-       *
-       * <code>string appVersion = 5;</code>
-       * @param value The appVersion to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAppVersion(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        appVersion_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * APP版本号
-       * </pre>
-       *
-       * <code>string appVersion = 5;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearAppVersion() {
-        
-        appVersion_ = getDefaultInstance().getAppVersion();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * APP版本号
-       * </pre>
-       *
-       * <code>string appVersion = 5;</code>
-       * @param value The bytes for appVersion to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAppVersionBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        appVersion_ = value;
-        onChanged();
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1531,36 +1345,6 @@ public final class ProtoMsg {
      */
     com.google.protobuf.ByteString
         getInfoBytes();
-
-    /**
-     * <pre>
-     *错误描述是否提示给用户:1 提示;0 不提示
-     * </pre>
-     *
-     * <code>uint32 expose = 4;</code>
-     * @return The expose.
-     */
-    int getExpose();
-
-    /**
-     * <pre>
-     *在web请求接口时的权限验证字段
-     * </pre>
-     *
-     * <code>string apiAuth = 5;</code>
-     * @return The apiAuth.
-     */
-    java.lang.String getApiAuth();
-    /**
-     * <pre>
-     *在web请求接口时的权限验证字段
-     * </pre>
-     *
-     * <code>string apiAuth = 5;</code>
-     * @return The bytes for apiAuth.
-     */
-    com.google.protobuf.ByteString
-        getApiAuthBytes();
   }
   /**
    * <pre>
@@ -1580,7 +1364,6 @@ public final class ProtoMsg {
     }
     private LoginResponse() {
       info_ = "";
-      apiAuth_ = "";
     }
 
     @java.lang.Override
@@ -1627,17 +1410,6 @@ public final class ProtoMsg {
               java.lang.String s = input.readStringRequireUtf8();
 
               info_ = s;
-              break;
-            }
-            case 32: {
-
-              expose_ = input.readUInt32();
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              apiAuth_ = s;
               break;
             }
             default: {
@@ -1748,67 +1520,6 @@ public final class ProtoMsg {
       }
     }
 
-    public static final int EXPOSE_FIELD_NUMBER = 4;
-    private int expose_;
-    /**
-     * <pre>
-     *错误描述是否提示给用户:1 提示;0 不提示
-     * </pre>
-     *
-     * <code>uint32 expose = 4;</code>
-     * @return The expose.
-     */
-    @java.lang.Override
-    public int getExpose() {
-      return expose_;
-    }
-
-    public static final int APIAUTH_FIELD_NUMBER = 5;
-    private volatile java.lang.Object apiAuth_;
-    /**
-     * <pre>
-     *在web请求接口时的权限验证字段
-     * </pre>
-     *
-     * <code>string apiAuth = 5;</code>
-     * @return The apiAuth.
-     */
-    @java.lang.Override
-    public java.lang.String getApiAuth() {
-      java.lang.Object ref = apiAuth_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        apiAuth_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *在web请求接口时的权限验证字段
-     * </pre>
-     *
-     * <code>string apiAuth = 5;</code>
-     * @return The bytes for apiAuth.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getApiAuthBytes() {
-      java.lang.Object ref = apiAuth_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        apiAuth_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1832,12 +1543,6 @@ public final class ProtoMsg {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, info_);
       }
-      if (expose_ != 0) {
-        output.writeUInt32(4, expose_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(apiAuth_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, apiAuth_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -1857,13 +1562,6 @@ public final class ProtoMsg {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, info_);
-      }
-      if (expose_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(4, expose_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(apiAuth_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, apiAuth_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1886,10 +1584,6 @@ public final class ProtoMsg {
           != other.getCode()) return false;
       if (!getInfo()
           .equals(other.getInfo())) return false;
-      if (getExpose()
-          != other.getExpose()) return false;
-      if (!getApiAuth()
-          .equals(other.getApiAuth())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1908,10 +1602,6 @@ public final class ProtoMsg {
       hash = (53 * hash) + getCode();
       hash = (37 * hash) + INFO_FIELD_NUMBER;
       hash = (53 * hash) + getInfo().hashCode();
-      hash = (37 * hash) + EXPOSE_FIELD_NUMBER;
-      hash = (53 * hash) + getExpose();
-      hash = (37 * hash) + APIAUTH_FIELD_NUMBER;
-      hash = (53 * hash) + getApiAuth().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2055,10 +1745,6 @@ public final class ProtoMsg {
 
         info_ = "";
 
-        expose_ = 0;
-
-        apiAuth_ = "";
-
         return this;
       }
 
@@ -2088,8 +1774,6 @@ public final class ProtoMsg {
         result.result_ = result_;
         result.code_ = code_;
         result.info_ = info_;
-        result.expose_ = expose_;
-        result.apiAuth_ = apiAuth_;
         onBuilt();
         return result;
       }
@@ -2146,13 +1830,6 @@ public final class ProtoMsg {
         }
         if (!other.getInfo().isEmpty()) {
           info_ = other.info_;
-          onChanged();
-        }
-        if (other.getExpose() != 0) {
-          setExpose(other.getExpose());
-        }
-        if (!other.getApiAuth().isEmpty()) {
-          apiAuth_ = other.apiAuth_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -2365,145 +2042,6 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-
-      private int expose_ ;
-      /**
-       * <pre>
-       *错误描述是否提示给用户:1 提示;0 不提示
-       * </pre>
-       *
-       * <code>uint32 expose = 4;</code>
-       * @return The expose.
-       */
-      @java.lang.Override
-      public int getExpose() {
-        return expose_;
-      }
-      /**
-       * <pre>
-       *错误描述是否提示给用户:1 提示;0 不提示
-       * </pre>
-       *
-       * <code>uint32 expose = 4;</code>
-       * @param value The expose to set.
-       * @return This builder for chaining.
-       */
-      public Builder setExpose(int value) {
-        
-        expose_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *错误描述是否提示给用户:1 提示;0 不提示
-       * </pre>
-       *
-       * <code>uint32 expose = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearExpose() {
-        
-        expose_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object apiAuth_ = "";
-      /**
-       * <pre>
-       *在web请求接口时的权限验证字段
-       * </pre>
-       *
-       * <code>string apiAuth = 5;</code>
-       * @return The apiAuth.
-       */
-      public java.lang.String getApiAuth() {
-        java.lang.Object ref = apiAuth_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          apiAuth_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       *在web请求接口时的权限验证字段
-       * </pre>
-       *
-       * <code>string apiAuth = 5;</code>
-       * @return The bytes for apiAuth.
-       */
-      public com.google.protobuf.ByteString
-          getApiAuthBytes() {
-        java.lang.Object ref = apiAuth_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          apiAuth_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *在web请求接口时的权限验证字段
-       * </pre>
-       *
-       * <code>string apiAuth = 5;</code>
-       * @param value The apiAuth to set.
-       * @return This builder for chaining.
-       */
-      public Builder setApiAuth(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        apiAuth_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *在web请求接口时的权限验证字段
-       * </pre>
-       *
-       * <code>string apiAuth = 5;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearApiAuth() {
-        
-        apiAuth_ = getDefaultInstance().getApiAuth();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *在web请求接口时的权限验证字段
-       * </pre>
-       *
-       * <code>string apiAuth = 5;</code>
-       * @param value The bytes for apiAuth to set.
-       * @return This builder for chaining.
-       */
-      public Builder setApiAuthBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        apiAuth_ = value;
-        onChanged();
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2630,26 +2168,6 @@ public final class ProtoMsg {
      * @return The platform.
      */
     int getPlatform();
-
-    /**
-     * <pre>
-     * APP版本号
-     * </pre>
-     *
-     * <code>string appVersion = 5;</code>
-     * @return The appVersion.
-     */
-    java.lang.String getAppVersion();
-    /**
-     * <pre>
-     * APP版本号
-     * </pre>
-     *
-     * <code>string appVersion = 5;</code>
-     * @return The bytes for appVersion.
-     */
-    com.google.protobuf.ByteString
-        getAppVersionBytes();
   }
   /**
    * <pre>
@@ -2671,7 +2189,6 @@ public final class ProtoMsg {
       userUid_ = "";
       devId_ = "";
       token_ = "";
-      appVersion_ = "";
     }
 
     @java.lang.Override
@@ -2725,12 +2242,6 @@ public final class ProtoMsg {
             case 32: {
 
               platform_ = input.readUInt32();
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              appVersion_ = s;
               break;
             }
             default: {
@@ -2918,52 +2429,6 @@ public final class ProtoMsg {
       return platform_;
     }
 
-    public static final int APPVERSION_FIELD_NUMBER = 5;
-    private volatile java.lang.Object appVersion_;
-    /**
-     * <pre>
-     * APP版本号
-     * </pre>
-     *
-     * <code>string appVersion = 5;</code>
-     * @return The appVersion.
-     */
-    @java.lang.Override
-    public java.lang.String getAppVersion() {
-      java.lang.Object ref = appVersion_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        appVersion_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * APP版本号
-     * </pre>
-     *
-     * <code>string appVersion = 5;</code>
-     * @return The bytes for appVersion.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getAppVersionBytes() {
-      java.lang.Object ref = appVersion_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        appVersion_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2990,9 +2455,6 @@ public final class ProtoMsg {
       if (platform_ != 0) {
         output.writeUInt32(4, platform_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appVersion_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, appVersion_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -3014,9 +2476,6 @@ public final class ProtoMsg {
       if (platform_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, platform_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appVersion_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, appVersion_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3041,8 +2500,6 @@ public final class ProtoMsg {
           .equals(other.getToken())) return false;
       if (getPlatform()
           != other.getPlatform()) return false;
-      if (!getAppVersion()
-          .equals(other.getAppVersion())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3062,8 +2519,6 @@ public final class ProtoMsg {
       hash = (53 * hash) + getToken().hashCode();
       hash = (37 * hash) + PLATFORM_FIELD_NUMBER;
       hash = (53 * hash) + getPlatform();
-      hash = (37 * hash) + APPVERSION_FIELD_NUMBER;
-      hash = (53 * hash) + getAppVersion().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3209,8 +2664,6 @@ public final class ProtoMsg {
 
         platform_ = 0;
 
-        appVersion_ = "";
-
         return this;
       }
 
@@ -3241,7 +2694,6 @@ public final class ProtoMsg {
         result.devId_ = devId_;
         result.token_ = token_;
         result.platform_ = platform_;
-        result.appVersion_ = appVersion_;
         onBuilt();
         return result;
       }
@@ -3304,10 +2756,6 @@ public final class ProtoMsg {
         }
         if (other.getPlatform() != 0) {
           setPlatform(other.getPlatform());
-        }
-        if (!other.getAppVersion().isEmpty()) {
-          appVersion_ = other.appVersion_;
-          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3668,102 +3116,6 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-
-      private java.lang.Object appVersion_ = "";
-      /**
-       * <pre>
-       * APP版本号
-       * </pre>
-       *
-       * <code>string appVersion = 5;</code>
-       * @return The appVersion.
-       */
-      public java.lang.String getAppVersion() {
-        java.lang.Object ref = appVersion_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          appVersion_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * APP版本号
-       * </pre>
-       *
-       * <code>string appVersion = 5;</code>
-       * @return The bytes for appVersion.
-       */
-      public com.google.protobuf.ByteString
-          getAppVersionBytes() {
-        java.lang.Object ref = appVersion_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          appVersion_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * APP版本号
-       * </pre>
-       *
-       * <code>string appVersion = 5;</code>
-       * @param value The appVersion to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAppVersion(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        appVersion_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * APP版本号
-       * </pre>
-       *
-       * <code>string appVersion = 5;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearAppVersion() {
-        
-        appVersion_ = getDefaultInstance().getAppVersion();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * APP版本号
-       * </pre>
-       *
-       * <code>string appVersion = 5;</code>
-       * @param value The bytes for appVersion to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAppVersionBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        appVersion_ = value;
-        onChanged();
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -3823,39 +3175,29 @@ public final class ProtoMsg {
 
     /**
      * <pre>
-     *true表示发送成功，false表示发送失败
+     *状态码
      * </pre>
      *
-     * <code>bool result = 1;</code>
-     * @return The result.
-     */
-    boolean getResult();
-
-    /**
-     * <pre>
-     *错误码
-     * </pre>
-     *
-     * <code>uint32 code = 2;</code>
+     * <code>uint32 code = 1;</code>
      * @return The code.
      */
     int getCode();
 
     /**
      * <pre>
-     *错误描述
+     *状态描述
      * </pre>
      *
-     * <code>string info = 3;</code>
+     * <code>string info = 2;</code>
      * @return The info.
      */
     java.lang.String getInfo();
     /**
      * <pre>
-     *错误描述
+     *状态描述
      * </pre>
      *
-     * <code>string info = 3;</code>
+     * <code>string info = 2;</code>
      * @return The bytes for info.
      */
     com.google.protobuf.ByteString
@@ -3866,7 +3208,7 @@ public final class ProtoMsg {
      *客户端平台 windows、mac、android、ios、web,退出平台
      * </pre>
      *
-     * <code>uint32 platform = 4;</code>
+     * <code>uint32 platform = 3;</code>
      * @return The platform.
      */
     int getPlatform();
@@ -3876,7 +3218,7 @@ public final class ProtoMsg {
      *true主动退出，false被动退出
      * </pre>
      *
-     * <code>bool initiative = 5;</code>
+     * <code>bool initiative = 4;</code>
      * @return The initiative.
      */
     boolean getInitiative();
@@ -3933,26 +3275,21 @@ public final class ProtoMsg {
               break;
             case 8: {
 
-              result_ = input.readBool();
-              break;
-            }
-            case 16: {
-
               code_ = input.readUInt32();
               break;
             }
-            case 26: {
+            case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
               info_ = s;
               break;
             }
-            case 32: {
+            case 24: {
 
               platform_ = input.readUInt32();
               break;
             }
-            case 40: {
+            case 32: {
 
               initiative_ = input.readBool();
               break;
@@ -3989,29 +3326,14 @@ public final class ProtoMsg {
               com.sxh.protobuf.ProtoMsg.LogoutResponse.class, com.sxh.protobuf.ProtoMsg.LogoutResponse.Builder.class);
     }
 
-    public static final int RESULT_FIELD_NUMBER = 1;
-    private boolean result_;
-    /**
-     * <pre>
-     *true表示发送成功，false表示发送失败
-     * </pre>
-     *
-     * <code>bool result = 1;</code>
-     * @return The result.
-     */
-    @java.lang.Override
-    public boolean getResult() {
-      return result_;
-    }
-
-    public static final int CODE_FIELD_NUMBER = 2;
+    public static final int CODE_FIELD_NUMBER = 1;
     private int code_;
     /**
      * <pre>
-     *错误码
+     *状态码
      * </pre>
      *
-     * <code>uint32 code = 2;</code>
+     * <code>uint32 code = 1;</code>
      * @return The code.
      */
     @java.lang.Override
@@ -4019,14 +3341,14 @@ public final class ProtoMsg {
       return code_;
     }
 
-    public static final int INFO_FIELD_NUMBER = 3;
+    public static final int INFO_FIELD_NUMBER = 2;
     private volatile java.lang.Object info_;
     /**
      * <pre>
-     *错误描述
+     *状态描述
      * </pre>
      *
-     * <code>string info = 3;</code>
+     * <code>string info = 2;</code>
      * @return The info.
      */
     @java.lang.Override
@@ -4044,10 +3366,10 @@ public final class ProtoMsg {
     }
     /**
      * <pre>
-     *错误描述
+     *状态描述
      * </pre>
      *
-     * <code>string info = 3;</code>
+     * <code>string info = 2;</code>
      * @return The bytes for info.
      */
     @java.lang.Override
@@ -4065,14 +3387,14 @@ public final class ProtoMsg {
       }
     }
 
-    public static final int PLATFORM_FIELD_NUMBER = 4;
+    public static final int PLATFORM_FIELD_NUMBER = 3;
     private int platform_;
     /**
      * <pre>
      *客户端平台 windows、mac、android、ios、web,退出平台
      * </pre>
      *
-     * <code>uint32 platform = 4;</code>
+     * <code>uint32 platform = 3;</code>
      * @return The platform.
      */
     @java.lang.Override
@@ -4080,14 +3402,14 @@ public final class ProtoMsg {
       return platform_;
     }
 
-    public static final int INITIATIVE_FIELD_NUMBER = 5;
+    public static final int INITIATIVE_FIELD_NUMBER = 4;
     private boolean initiative_;
     /**
      * <pre>
      *true主动退出，false被动退出
      * </pre>
      *
-     * <code>bool initiative = 5;</code>
+     * <code>bool initiative = 4;</code>
      * @return The initiative.
      */
     @java.lang.Override
@@ -4109,20 +3431,17 @@ public final class ProtoMsg {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (result_ != false) {
-        output.writeBool(1, result_);
-      }
       if (code_ != 0) {
-        output.writeUInt32(2, code_);
+        output.writeUInt32(1, code_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, info_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, info_);
       }
       if (platform_ != 0) {
-        output.writeUInt32(4, platform_);
+        output.writeUInt32(3, platform_);
       }
       if (initiative_ != false) {
-        output.writeBool(5, initiative_);
+        output.writeBool(4, initiative_);
       }
       unknownFields.writeTo(output);
     }
@@ -4133,24 +3452,20 @@ public final class ProtoMsg {
       if (size != -1) return size;
 
       size = 0;
-      if (result_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, result_);
-      }
       if (code_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, code_);
+          .computeUInt32Size(1, code_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, info_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, info_);
       }
       if (platform_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(4, platform_);
+          .computeUInt32Size(3, platform_);
       }
       if (initiative_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, initiative_);
+          .computeBoolSize(4, initiative_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4167,8 +3482,6 @@ public final class ProtoMsg {
       }
       com.sxh.protobuf.ProtoMsg.LogoutResponse other = (com.sxh.protobuf.ProtoMsg.LogoutResponse) obj;
 
-      if (getResult()
-          != other.getResult()) return false;
       if (getCode()
           != other.getCode()) return false;
       if (!getInfo()
@@ -4188,9 +3501,6 @@ public final class ProtoMsg {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + RESULT_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getResult());
       hash = (37 * hash) + CODE_FIELD_NUMBER;
       hash = (53 * hash) + getCode();
       hash = (37 * hash) + INFO_FIELD_NUMBER;
@@ -4337,8 +3647,6 @@ public final class ProtoMsg {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        result_ = false;
-
         code_ = 0;
 
         info_ = "";
@@ -4373,7 +3681,6 @@ public final class ProtoMsg {
       @java.lang.Override
       public com.sxh.protobuf.ProtoMsg.LogoutResponse buildPartial() {
         com.sxh.protobuf.ProtoMsg.LogoutResponse result = new com.sxh.protobuf.ProtoMsg.LogoutResponse(this);
-        result.result_ = result_;
         result.code_ = code_;
         result.info_ = info_;
         result.platform_ = platform_;
@@ -4426,9 +3733,6 @@ public final class ProtoMsg {
 
       public Builder mergeFrom(com.sxh.protobuf.ProtoMsg.LogoutResponse other) {
         if (other == com.sxh.protobuf.ProtoMsg.LogoutResponse.getDefaultInstance()) return this;
-        if (other.getResult() != false) {
-          setResult(other.getResult());
-        }
         if (other.getCode() != 0) {
           setCode(other.getCode());
         }
@@ -4471,56 +3775,13 @@ public final class ProtoMsg {
         return this;
       }
 
-      private boolean result_ ;
-      /**
-       * <pre>
-       *true表示发送成功，false表示发送失败
-       * </pre>
-       *
-       * <code>bool result = 1;</code>
-       * @return The result.
-       */
-      @java.lang.Override
-      public boolean getResult() {
-        return result_;
-      }
-      /**
-       * <pre>
-       *true表示发送成功，false表示发送失败
-       * </pre>
-       *
-       * <code>bool result = 1;</code>
-       * @param value The result to set.
-       * @return This builder for chaining.
-       */
-      public Builder setResult(boolean value) {
-        
-        result_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *true表示发送成功，false表示发送失败
-       * </pre>
-       *
-       * <code>bool result = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearResult() {
-        
-        result_ = false;
-        onChanged();
-        return this;
-      }
-
       private int code_ ;
       /**
        * <pre>
-       *错误码
+       *状态码
        * </pre>
        *
-       * <code>uint32 code = 2;</code>
+       * <code>uint32 code = 1;</code>
        * @return The code.
        */
       @java.lang.Override
@@ -4529,10 +3790,10 @@ public final class ProtoMsg {
       }
       /**
        * <pre>
-       *错误码
+       *状态码
        * </pre>
        *
-       * <code>uint32 code = 2;</code>
+       * <code>uint32 code = 1;</code>
        * @param value The code to set.
        * @return This builder for chaining.
        */
@@ -4544,10 +3805,10 @@ public final class ProtoMsg {
       }
       /**
        * <pre>
-       *错误码
+       *状态码
        * </pre>
        *
-       * <code>uint32 code = 2;</code>
+       * <code>uint32 code = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearCode() {
@@ -4560,10 +3821,10 @@ public final class ProtoMsg {
       private java.lang.Object info_ = "";
       /**
        * <pre>
-       *错误描述
+       *状态描述
        * </pre>
        *
-       * <code>string info = 3;</code>
+       * <code>string info = 2;</code>
        * @return The info.
        */
       public java.lang.String getInfo() {
@@ -4580,10 +3841,10 @@ public final class ProtoMsg {
       }
       /**
        * <pre>
-       *错误描述
+       *状态描述
        * </pre>
        *
-       * <code>string info = 3;</code>
+       * <code>string info = 2;</code>
        * @return The bytes for info.
        */
       public com.google.protobuf.ByteString
@@ -4601,10 +3862,10 @@ public final class ProtoMsg {
       }
       /**
        * <pre>
-       *错误描述
+       *状态描述
        * </pre>
        *
-       * <code>string info = 3;</code>
+       * <code>string info = 2;</code>
        * @param value The info to set.
        * @return This builder for chaining.
        */
@@ -4620,10 +3881,10 @@ public final class ProtoMsg {
       }
       /**
        * <pre>
-       *错误描述
+       *状态描述
        * </pre>
        *
-       * <code>string info = 3;</code>
+       * <code>string info = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearInfo() {
@@ -4634,10 +3895,10 @@ public final class ProtoMsg {
       }
       /**
        * <pre>
-       *错误描述
+       *状态描述
        * </pre>
        *
-       * <code>string info = 3;</code>
+       * <code>string info = 2;</code>
        * @param value The bytes for info to set.
        * @return This builder for chaining.
        */
@@ -4659,7 +3920,7 @@ public final class ProtoMsg {
        *客户端平台 windows、mac、android、ios、web,退出平台
        * </pre>
        *
-       * <code>uint32 platform = 4;</code>
+       * <code>uint32 platform = 3;</code>
        * @return The platform.
        */
       @java.lang.Override
@@ -4671,7 +3932,7 @@ public final class ProtoMsg {
        *客户端平台 windows、mac、android、ios、web,退出平台
        * </pre>
        *
-       * <code>uint32 platform = 4;</code>
+       * <code>uint32 platform = 3;</code>
        * @param value The platform to set.
        * @return This builder for chaining.
        */
@@ -4686,7 +3947,7 @@ public final class ProtoMsg {
        *客户端平台 windows、mac、android、ios、web,退出平台
        * </pre>
        *
-       * <code>uint32 platform = 4;</code>
+       * <code>uint32 platform = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearPlatform() {
@@ -4702,7 +3963,7 @@ public final class ProtoMsg {
        *true主动退出，false被动退出
        * </pre>
        *
-       * <code>bool initiative = 5;</code>
+       * <code>bool initiative = 4;</code>
        * @return The initiative.
        */
       @java.lang.Override
@@ -4714,7 +3975,7 @@ public final class ProtoMsg {
        *true主动退出，false被动退出
        * </pre>
        *
-       * <code>bool initiative = 5;</code>
+       * <code>bool initiative = 4;</code>
        * @param value The initiative to set.
        * @return This builder for chaining.
        */
@@ -4729,7 +3990,7 @@ public final class ProtoMsg {
        *true主动退出，false被动退出
        * </pre>
        *
-       * <code>bool initiative = 5;</code>
+       * <code>bool initiative = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearInitiative() {
@@ -4796,16 +4057,16 @@ public final class ProtoMsg {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string chatting_uid = 1;</code>
-     * @return The chattingUid.
+     * <code>string msg_uid = 1;</code>
+     * @return The msgUid.
      */
-    java.lang.String getChattingUid();
+    java.lang.String getMsgUid();
     /**
-     * <code>string chatting_uid = 1;</code>
-     * @return The bytes for chattingUid.
+     * <code>string msg_uid = 1;</code>
+     * @return The bytes for msgUid.
      */
     com.google.protobuf.ByteString
-        getChattingUidBytes();
+        getMsgUidBytes();
 
     /**
      * <code>string user_uid = 2;</code>
@@ -4844,136 +4105,32 @@ public final class ProtoMsg {
         getContentBytes();
 
     /**
-     * <code>string content_size = 5;</code>
-     * @return The contentSize.
-     */
-    java.lang.String getContentSize();
-    /**
-     * <code>string content_size = 5;</code>
-     * @return The bytes for contentSize.
-     */
-    com.google.protobuf.ByteString
-        getContentSizeBytes();
-
-    /**
-     * <code>string original_path = 6;</code>
-     * @return The originalPath.
-     */
-    java.lang.String getOriginalPath();
-    /**
-     * <code>string original_path = 6;</code>
-     * @return The bytes for originalPath.
-     */
-    com.google.protobuf.ByteString
-        getOriginalPathBytes();
-
-    /**
-     * <code>string content_path = 7;</code>
-     * @return The contentPath.
-     */
-    java.lang.String getContentPath();
-    /**
-     * <code>string content_path = 7;</code>
-     * @return The bytes for contentPath.
-     */
-    com.google.protobuf.ByteString
-        getContentPathBytes();
-
-    /**
-     * <code>uint32 content_type = 8;</code>
+     * <code>uint32 content_type = 5;</code>
      * @return The contentType.
      */
     int getContentType();
 
     /**
-     * <code>uint32 send_type = 9;</code>
-     * @return The sendType.
-     */
-    int getSendType();
-
-    /**
-     * <code>uint32 is_recall = 10;</code>
+     * <code>uint32 is_recall = 6;</code>
      * @return The isRecall.
      */
     int getIsRecall();
 
     /**
-     * <code>uint32 pulling_status = 11;</code>
-     * @return The pullingStatus.
-     */
-    int getPullingStatus();
-
-    /**
-     * <code>string sort_date = 12;</code>
-     * @return The sortDate.
-     */
-    java.lang.String getSortDate();
-    /**
-     * <code>string sort_date = 12;</code>
-     * @return The bytes for sortDate.
-     */
-    com.google.protobuf.ByteString
-        getSortDateBytes();
-
-    /**
-     * <code>string send_time = 13;</code>
+     * <code>string send_time = 7;</code>
      * @return The sendTime.
      */
     java.lang.String getSendTime();
     /**
-     * <code>string send_time = 13;</code>
+     * <code>string send_time = 7;</code>
      * @return The bytes for sendTime.
      */
     com.google.protobuf.ByteString
         getSendTimeBytes();
-
-    /**
-     * <code>string update_date = 14;</code>
-     * @return The updateDate.
-     */
-    java.lang.String getUpdateDate();
-    /**
-     * <code>string update_date = 14;</code>
-     * @return The bytes for updateDate.
-     */
-    com.google.protobuf.ByteString
-        getUpdateDateBytes();
-
-    /**
-     * <code>string create_date = 15;</code>
-     * @return The createDate.
-     */
-    java.lang.String getCreateDate();
-    /**
-     * <code>string create_date = 15;</code>
-     * @return The bytes for createDate.
-     */
-    com.google.protobuf.ByteString
-        getCreateDateBytes();
-
-    /**
-     * <pre>
-     *临时聊天uid
-     * </pre>
-     *
-     * <code>string temp_uid = 16;</code>
-     * @return The tempUid.
-     */
-    java.lang.String getTempUid();
-    /**
-     * <pre>
-     *临时聊天uid
-     * </pre>
-     *
-     * <code>string temp_uid = 16;</code>
-     * @return The bytes for tempUid.
-     */
-    com.google.protobuf.ByteString
-        getTempUidBytes();
   }
   /**
    * <pre>
-   *聊天消息,一对一
+   *单聊消息
    * </pre>
    *
    * Protobuf type {@code com.sxh.protobuf.SingleChatting}
@@ -4988,18 +4145,11 @@ public final class ProtoMsg {
       super(builder);
     }
     private SingleChatting() {
-      chattingUid_ = "";
+      msgUid_ = "";
       userUid_ = "";
       recvUid_ = "";
       content_ = "";
-      contentSize_ = "";
-      originalPath_ = "";
-      contentPath_ = "";
-      sortDate_ = "";
       sendTime_ = "";
-      updateDate_ = "";
-      createDate_ = "";
-      tempUid_ = "";
     }
 
     @java.lang.Override
@@ -5035,7 +4185,7 @@ public final class ProtoMsg {
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              chattingUid_ = s;
+              msgUid_ = s;
               break;
             }
             case 18: {
@@ -5056,72 +4206,20 @@ public final class ProtoMsg {
               content_ = s;
               break;
             }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 40: {
 
-              contentSize_ = s;
+              contentType_ = input.readUInt32();
               break;
             }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 48: {
 
-              originalPath_ = s;
+              isRecall_ = input.readUInt32();
               break;
             }
             case 58: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              contentPath_ = s;
-              break;
-            }
-            case 64: {
-
-              contentType_ = input.readUInt32();
-              break;
-            }
-            case 72: {
-
-              sendType_ = input.readUInt32();
-              break;
-            }
-            case 80: {
-
-              isRecall_ = input.readUInt32();
-              break;
-            }
-            case 88: {
-
-              pullingStatus_ = input.readUInt32();
-              break;
-            }
-            case 98: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              sortDate_ = s;
-              break;
-            }
-            case 106: {
-              java.lang.String s = input.readStringRequireUtf8();
-
               sendTime_ = s;
-              break;
-            }
-            case 114: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              updateDate_ = s;
-              break;
-            }
-            case 122: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              createDate_ = s;
-              break;
-            }
-            case 130: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              tempUid_ = s;
               break;
             }
             default: {
@@ -5156,38 +4254,38 @@ public final class ProtoMsg {
               com.sxh.protobuf.ProtoMsg.SingleChatting.class, com.sxh.protobuf.ProtoMsg.SingleChatting.Builder.class);
     }
 
-    public static final int CHATTING_UID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object chattingUid_;
+    public static final int MSG_UID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object msgUid_;
     /**
-     * <code>string chatting_uid = 1;</code>
-     * @return The chattingUid.
+     * <code>string msg_uid = 1;</code>
+     * @return The msgUid.
      */
     @java.lang.Override
-    public java.lang.String getChattingUid() {
-      java.lang.Object ref = chattingUid_;
+    public java.lang.String getMsgUid() {
+      java.lang.Object ref = msgUid_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        chattingUid_ = s;
+        msgUid_ = s;
         return s;
       }
     }
     /**
-     * <code>string chatting_uid = 1;</code>
-     * @return The bytes for chattingUid.
+     * <code>string msg_uid = 1;</code>
+     * @return The bytes for msgUid.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getChattingUidBytes() {
-      java.lang.Object ref = chattingUid_;
+        getMsgUidBytes() {
+      java.lang.Object ref = msgUid_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        chattingUid_ = b;
+        msgUid_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -5308,124 +4406,10 @@ public final class ProtoMsg {
       }
     }
 
-    public static final int CONTENT_SIZE_FIELD_NUMBER = 5;
-    private volatile java.lang.Object contentSize_;
-    /**
-     * <code>string content_size = 5;</code>
-     * @return The contentSize.
-     */
-    @java.lang.Override
-    public java.lang.String getContentSize() {
-      java.lang.Object ref = contentSize_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        contentSize_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string content_size = 5;</code>
-     * @return The bytes for contentSize.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getContentSizeBytes() {
-      java.lang.Object ref = contentSize_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        contentSize_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int ORIGINAL_PATH_FIELD_NUMBER = 6;
-    private volatile java.lang.Object originalPath_;
-    /**
-     * <code>string original_path = 6;</code>
-     * @return The originalPath.
-     */
-    @java.lang.Override
-    public java.lang.String getOriginalPath() {
-      java.lang.Object ref = originalPath_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        originalPath_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string original_path = 6;</code>
-     * @return The bytes for originalPath.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getOriginalPathBytes() {
-      java.lang.Object ref = originalPath_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        originalPath_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CONTENT_PATH_FIELD_NUMBER = 7;
-    private volatile java.lang.Object contentPath_;
-    /**
-     * <code>string content_path = 7;</code>
-     * @return The contentPath.
-     */
-    @java.lang.Override
-    public java.lang.String getContentPath() {
-      java.lang.Object ref = contentPath_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        contentPath_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string content_path = 7;</code>
-     * @return The bytes for contentPath.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getContentPathBytes() {
-      java.lang.Object ref = contentPath_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        contentPath_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CONTENT_TYPE_FIELD_NUMBER = 8;
+    public static final int CONTENT_TYPE_FIELD_NUMBER = 5;
     private int contentType_;
     /**
-     * <code>uint32 content_type = 8;</code>
+     * <code>uint32 content_type = 5;</code>
      * @return The contentType.
      */
     @java.lang.Override
@@ -5433,21 +4417,10 @@ public final class ProtoMsg {
       return contentType_;
     }
 
-    public static final int SEND_TYPE_FIELD_NUMBER = 9;
-    private int sendType_;
-    /**
-     * <code>uint32 send_type = 9;</code>
-     * @return The sendType.
-     */
-    @java.lang.Override
-    public int getSendType() {
-      return sendType_;
-    }
-
-    public static final int IS_RECALL_FIELD_NUMBER = 10;
+    public static final int IS_RECALL_FIELD_NUMBER = 6;
     private int isRecall_;
     /**
-     * <code>uint32 is_recall = 10;</code>
+     * <code>uint32 is_recall = 6;</code>
      * @return The isRecall.
      */
     @java.lang.Override
@@ -5455,59 +4428,10 @@ public final class ProtoMsg {
       return isRecall_;
     }
 
-    public static final int PULLING_STATUS_FIELD_NUMBER = 11;
-    private int pullingStatus_;
-    /**
-     * <code>uint32 pulling_status = 11;</code>
-     * @return The pullingStatus.
-     */
-    @java.lang.Override
-    public int getPullingStatus() {
-      return pullingStatus_;
-    }
-
-    public static final int SORT_DATE_FIELD_NUMBER = 12;
-    private volatile java.lang.Object sortDate_;
-    /**
-     * <code>string sort_date = 12;</code>
-     * @return The sortDate.
-     */
-    @java.lang.Override
-    public java.lang.String getSortDate() {
-      java.lang.Object ref = sortDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        sortDate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string sort_date = 12;</code>
-     * @return The bytes for sortDate.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getSortDateBytes() {
-      java.lang.Object ref = sortDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        sortDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int SEND_TIME_FIELD_NUMBER = 13;
+    public static final int SEND_TIME_FIELD_NUMBER = 7;
     private volatile java.lang.Object sendTime_;
     /**
-     * <code>string send_time = 13;</code>
+     * <code>string send_time = 7;</code>
      * @return The sendTime.
      */
     @java.lang.Override
@@ -5524,7 +4448,7 @@ public final class ProtoMsg {
       }
     }
     /**
-     * <code>string send_time = 13;</code>
+     * <code>string send_time = 7;</code>
      * @return The bytes for sendTime.
      */
     @java.lang.Override
@@ -5536,128 +4460,6 @@ public final class ProtoMsg {
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         sendTime_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int UPDATE_DATE_FIELD_NUMBER = 14;
-    private volatile java.lang.Object updateDate_;
-    /**
-     * <code>string update_date = 14;</code>
-     * @return The updateDate.
-     */
-    @java.lang.Override
-    public java.lang.String getUpdateDate() {
-      java.lang.Object ref = updateDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        updateDate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string update_date = 14;</code>
-     * @return The bytes for updateDate.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getUpdateDateBytes() {
-      java.lang.Object ref = updateDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        updateDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CREATE_DATE_FIELD_NUMBER = 15;
-    private volatile java.lang.Object createDate_;
-    /**
-     * <code>string create_date = 15;</code>
-     * @return The createDate.
-     */
-    @java.lang.Override
-    public java.lang.String getCreateDate() {
-      java.lang.Object ref = createDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        createDate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string create_date = 15;</code>
-     * @return The bytes for createDate.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getCreateDateBytes() {
-      java.lang.Object ref = createDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        createDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TEMP_UID_FIELD_NUMBER = 16;
-    private volatile java.lang.Object tempUid_;
-    /**
-     * <pre>
-     *临时聊天uid
-     * </pre>
-     *
-     * <code>string temp_uid = 16;</code>
-     * @return The tempUid.
-     */
-    @java.lang.Override
-    public java.lang.String getTempUid() {
-      java.lang.Object ref = tempUid_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        tempUid_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *临时聊天uid
-     * </pre>
-     *
-     * <code>string temp_uid = 16;</code>
-     * @return The bytes for tempUid.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getTempUidBytes() {
-      java.lang.Object ref = tempUid_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        tempUid_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -5678,8 +4480,8 @@ public final class ProtoMsg {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chattingUid_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, chattingUid_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msgUid_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, msgUid_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userUid_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userUid_);
@@ -5690,41 +4492,14 @@ public final class ProtoMsg {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, content_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentSize_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, contentSize_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(originalPath_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, originalPath_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentPath_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, contentPath_);
-      }
       if (contentType_ != 0) {
-        output.writeUInt32(8, contentType_);
-      }
-      if (sendType_ != 0) {
-        output.writeUInt32(9, sendType_);
+        output.writeUInt32(5, contentType_);
       }
       if (isRecall_ != 0) {
-        output.writeUInt32(10, isRecall_);
-      }
-      if (pullingStatus_ != 0) {
-        output.writeUInt32(11, pullingStatus_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sortDate_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, sortDate_);
+        output.writeUInt32(6, isRecall_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sendTime_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 13, sendTime_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(updateDate_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 14, updateDate_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(createDate_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 15, createDate_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tempUid_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 16, tempUid_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, sendTime_);
       }
       unknownFields.writeTo(output);
     }
@@ -5735,8 +4510,8 @@ public final class ProtoMsg {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chattingUid_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, chattingUid_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msgUid_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, msgUid_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userUid_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userUid_);
@@ -5747,45 +4522,16 @@ public final class ProtoMsg {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, content_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentSize_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, contentSize_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(originalPath_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, originalPath_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentPath_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, contentPath_);
-      }
       if (contentType_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(8, contentType_);
-      }
-      if (sendType_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(9, sendType_);
+          .computeUInt32Size(5, contentType_);
       }
       if (isRecall_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(10, isRecall_);
-      }
-      if (pullingStatus_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(11, pullingStatus_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sortDate_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, sortDate_);
+          .computeUInt32Size(6, isRecall_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sendTime_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, sendTime_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(updateDate_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, updateDate_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(createDate_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, createDate_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tempUid_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, tempUid_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, sendTime_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5802,38 +4548,20 @@ public final class ProtoMsg {
       }
       com.sxh.protobuf.ProtoMsg.SingleChatting other = (com.sxh.protobuf.ProtoMsg.SingleChatting) obj;
 
-      if (!getChattingUid()
-          .equals(other.getChattingUid())) return false;
+      if (!getMsgUid()
+          .equals(other.getMsgUid())) return false;
       if (!getUserUid()
           .equals(other.getUserUid())) return false;
       if (!getRecvUid()
           .equals(other.getRecvUid())) return false;
       if (!getContent()
           .equals(other.getContent())) return false;
-      if (!getContentSize()
-          .equals(other.getContentSize())) return false;
-      if (!getOriginalPath()
-          .equals(other.getOriginalPath())) return false;
-      if (!getContentPath()
-          .equals(other.getContentPath())) return false;
       if (getContentType()
           != other.getContentType()) return false;
-      if (getSendType()
-          != other.getSendType()) return false;
       if (getIsRecall()
           != other.getIsRecall()) return false;
-      if (getPullingStatus()
-          != other.getPullingStatus()) return false;
-      if (!getSortDate()
-          .equals(other.getSortDate())) return false;
       if (!getSendTime()
           .equals(other.getSendTime())) return false;
-      if (!getUpdateDate()
-          .equals(other.getUpdateDate())) return false;
-      if (!getCreateDate()
-          .equals(other.getCreateDate())) return false;
-      if (!getTempUid()
-          .equals(other.getTempUid())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5845,38 +4573,20 @@ public final class ProtoMsg {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CHATTING_UID_FIELD_NUMBER;
-      hash = (53 * hash) + getChattingUid().hashCode();
+      hash = (37 * hash) + MSG_UID_FIELD_NUMBER;
+      hash = (53 * hash) + getMsgUid().hashCode();
       hash = (37 * hash) + USER_UID_FIELD_NUMBER;
       hash = (53 * hash) + getUserUid().hashCode();
       hash = (37 * hash) + RECV_UID_FIELD_NUMBER;
       hash = (53 * hash) + getRecvUid().hashCode();
       hash = (37 * hash) + CONTENT_FIELD_NUMBER;
       hash = (53 * hash) + getContent().hashCode();
-      hash = (37 * hash) + CONTENT_SIZE_FIELD_NUMBER;
-      hash = (53 * hash) + getContentSize().hashCode();
-      hash = (37 * hash) + ORIGINAL_PATH_FIELD_NUMBER;
-      hash = (53 * hash) + getOriginalPath().hashCode();
-      hash = (37 * hash) + CONTENT_PATH_FIELD_NUMBER;
-      hash = (53 * hash) + getContentPath().hashCode();
       hash = (37 * hash) + CONTENT_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + getContentType();
-      hash = (37 * hash) + SEND_TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + getSendType();
       hash = (37 * hash) + IS_RECALL_FIELD_NUMBER;
       hash = (53 * hash) + getIsRecall();
-      hash = (37 * hash) + PULLING_STATUS_FIELD_NUMBER;
-      hash = (53 * hash) + getPullingStatus();
-      hash = (37 * hash) + SORT_DATE_FIELD_NUMBER;
-      hash = (53 * hash) + getSortDate().hashCode();
       hash = (37 * hash) + SEND_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getSendTime().hashCode();
-      hash = (37 * hash) + UPDATE_DATE_FIELD_NUMBER;
-      hash = (53 * hash) + getUpdateDate().hashCode();
-      hash = (37 * hash) + CREATE_DATE_FIELD_NUMBER;
-      hash = (53 * hash) + getCreateDate().hashCode();
-      hash = (37 * hash) + TEMP_UID_FIELD_NUMBER;
-      hash = (53 * hash) + getTempUid().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5974,7 +4684,7 @@ public final class ProtoMsg {
     }
     /**
      * <pre>
-     *聊天消息,一对一
+     *单聊消息
      * </pre>
      *
      * Protobuf type {@code com.sxh.protobuf.SingleChatting}
@@ -6014,7 +4724,7 @@ public final class ProtoMsg {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        chattingUid_ = "";
+        msgUid_ = "";
 
         userUid_ = "";
 
@@ -6022,29 +4732,11 @@ public final class ProtoMsg {
 
         content_ = "";
 
-        contentSize_ = "";
-
-        originalPath_ = "";
-
-        contentPath_ = "";
-
         contentType_ = 0;
-
-        sendType_ = 0;
 
         isRecall_ = 0;
 
-        pullingStatus_ = 0;
-
-        sortDate_ = "";
-
         sendTime_ = "";
-
-        updateDate_ = "";
-
-        createDate_ = "";
-
-        tempUid_ = "";
 
         return this;
       }
@@ -6072,22 +4764,13 @@ public final class ProtoMsg {
       @java.lang.Override
       public com.sxh.protobuf.ProtoMsg.SingleChatting buildPartial() {
         com.sxh.protobuf.ProtoMsg.SingleChatting result = new com.sxh.protobuf.ProtoMsg.SingleChatting(this);
-        result.chattingUid_ = chattingUid_;
+        result.msgUid_ = msgUid_;
         result.userUid_ = userUid_;
         result.recvUid_ = recvUid_;
         result.content_ = content_;
-        result.contentSize_ = contentSize_;
-        result.originalPath_ = originalPath_;
-        result.contentPath_ = contentPath_;
         result.contentType_ = contentType_;
-        result.sendType_ = sendType_;
         result.isRecall_ = isRecall_;
-        result.pullingStatus_ = pullingStatus_;
-        result.sortDate_ = sortDate_;
         result.sendTime_ = sendTime_;
-        result.updateDate_ = updateDate_;
-        result.createDate_ = createDate_;
-        result.tempUid_ = tempUid_;
         onBuilt();
         return result;
       }
@@ -6136,8 +4819,8 @@ public final class ProtoMsg {
 
       public Builder mergeFrom(com.sxh.protobuf.ProtoMsg.SingleChatting other) {
         if (other == com.sxh.protobuf.ProtoMsg.SingleChatting.getDefaultInstance()) return this;
-        if (!other.getChattingUid().isEmpty()) {
-          chattingUid_ = other.chattingUid_;
+        if (!other.getMsgUid().isEmpty()) {
+          msgUid_ = other.msgUid_;
           onChanged();
         }
         if (!other.getUserUid().isEmpty()) {
@@ -6152,48 +4835,14 @@ public final class ProtoMsg {
           content_ = other.content_;
           onChanged();
         }
-        if (!other.getContentSize().isEmpty()) {
-          contentSize_ = other.contentSize_;
-          onChanged();
-        }
-        if (!other.getOriginalPath().isEmpty()) {
-          originalPath_ = other.originalPath_;
-          onChanged();
-        }
-        if (!other.getContentPath().isEmpty()) {
-          contentPath_ = other.contentPath_;
-          onChanged();
-        }
         if (other.getContentType() != 0) {
           setContentType(other.getContentType());
-        }
-        if (other.getSendType() != 0) {
-          setSendType(other.getSendType());
         }
         if (other.getIsRecall() != 0) {
           setIsRecall(other.getIsRecall());
         }
-        if (other.getPullingStatus() != 0) {
-          setPullingStatus(other.getPullingStatus());
-        }
-        if (!other.getSortDate().isEmpty()) {
-          sortDate_ = other.sortDate_;
-          onChanged();
-        }
         if (!other.getSendTime().isEmpty()) {
           sendTime_ = other.sendTime_;
-          onChanged();
-        }
-        if (!other.getUpdateDate().isEmpty()) {
-          updateDate_ = other.updateDate_;
-          onChanged();
-        }
-        if (!other.getCreateDate().isEmpty()) {
-          createDate_ = other.createDate_;
-          onChanged();
-        }
-        if (!other.getTempUid().isEmpty()) {
-          tempUid_ = other.tempUid_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -6225,78 +4874,78 @@ public final class ProtoMsg {
         return this;
       }
 
-      private java.lang.Object chattingUid_ = "";
+      private java.lang.Object msgUid_ = "";
       /**
-       * <code>string chatting_uid = 1;</code>
-       * @return The chattingUid.
+       * <code>string msg_uid = 1;</code>
+       * @return The msgUid.
        */
-      public java.lang.String getChattingUid() {
-        java.lang.Object ref = chattingUid_;
+      public java.lang.String getMsgUid() {
+        java.lang.Object ref = msgUid_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          chattingUid_ = s;
+          msgUid_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string chatting_uid = 1;</code>
-       * @return The bytes for chattingUid.
+       * <code>string msg_uid = 1;</code>
+       * @return The bytes for msgUid.
        */
       public com.google.protobuf.ByteString
-          getChattingUidBytes() {
-        java.lang.Object ref = chattingUid_;
+          getMsgUidBytes() {
+        java.lang.Object ref = msgUid_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          chattingUid_ = b;
+          msgUid_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string chatting_uid = 1;</code>
-       * @param value The chattingUid to set.
+       * <code>string msg_uid = 1;</code>
+       * @param value The msgUid to set.
        * @return This builder for chaining.
        */
-      public Builder setChattingUid(
+      public Builder setMsgUid(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        chattingUid_ = value;
+        msgUid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string chatting_uid = 1;</code>
+       * <code>string msg_uid = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearChattingUid() {
+      public Builder clearMsgUid() {
         
-        chattingUid_ = getDefaultInstance().getChattingUid();
+        msgUid_ = getDefaultInstance().getMsgUid();
         onChanged();
         return this;
       }
       /**
-       * <code>string chatting_uid = 1;</code>
-       * @param value The bytes for chattingUid to set.
+       * <code>string msg_uid = 1;</code>
+       * @param value The bytes for msgUid to set.
        * @return This builder for chaining.
        */
-      public Builder setChattingUidBytes(
+      public Builder setMsgUidBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        chattingUid_ = value;
+        msgUid_ = value;
         onChanged();
         return this;
       }
@@ -6529,237 +5178,9 @@ public final class ProtoMsg {
         return this;
       }
 
-      private java.lang.Object contentSize_ = "";
-      /**
-       * <code>string content_size = 5;</code>
-       * @return The contentSize.
-       */
-      public java.lang.String getContentSize() {
-        java.lang.Object ref = contentSize_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          contentSize_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string content_size = 5;</code>
-       * @return The bytes for contentSize.
-       */
-      public com.google.protobuf.ByteString
-          getContentSizeBytes() {
-        java.lang.Object ref = contentSize_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          contentSize_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string content_size = 5;</code>
-       * @param value The contentSize to set.
-       * @return This builder for chaining.
-       */
-      public Builder setContentSize(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        contentSize_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string content_size = 5;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearContentSize() {
-        
-        contentSize_ = getDefaultInstance().getContentSize();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string content_size = 5;</code>
-       * @param value The bytes for contentSize to set.
-       * @return This builder for chaining.
-       */
-      public Builder setContentSizeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        contentSize_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object originalPath_ = "";
-      /**
-       * <code>string original_path = 6;</code>
-       * @return The originalPath.
-       */
-      public java.lang.String getOriginalPath() {
-        java.lang.Object ref = originalPath_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          originalPath_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string original_path = 6;</code>
-       * @return The bytes for originalPath.
-       */
-      public com.google.protobuf.ByteString
-          getOriginalPathBytes() {
-        java.lang.Object ref = originalPath_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          originalPath_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string original_path = 6;</code>
-       * @param value The originalPath to set.
-       * @return This builder for chaining.
-       */
-      public Builder setOriginalPath(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        originalPath_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string original_path = 6;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearOriginalPath() {
-        
-        originalPath_ = getDefaultInstance().getOriginalPath();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string original_path = 6;</code>
-       * @param value The bytes for originalPath to set.
-       * @return This builder for chaining.
-       */
-      public Builder setOriginalPathBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        originalPath_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object contentPath_ = "";
-      /**
-       * <code>string content_path = 7;</code>
-       * @return The contentPath.
-       */
-      public java.lang.String getContentPath() {
-        java.lang.Object ref = contentPath_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          contentPath_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string content_path = 7;</code>
-       * @return The bytes for contentPath.
-       */
-      public com.google.protobuf.ByteString
-          getContentPathBytes() {
-        java.lang.Object ref = contentPath_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          contentPath_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string content_path = 7;</code>
-       * @param value The contentPath to set.
-       * @return This builder for chaining.
-       */
-      public Builder setContentPath(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        contentPath_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string content_path = 7;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearContentPath() {
-        
-        contentPath_ = getDefaultInstance().getContentPath();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string content_path = 7;</code>
-       * @param value The bytes for contentPath to set.
-       * @return This builder for chaining.
-       */
-      public Builder setContentPathBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        contentPath_ = value;
-        onChanged();
-        return this;
-      }
-
       private int contentType_ ;
       /**
-       * <code>uint32 content_type = 8;</code>
+       * <code>uint32 content_type = 5;</code>
        * @return The contentType.
        */
       @java.lang.Override
@@ -6767,7 +5188,7 @@ public final class ProtoMsg {
         return contentType_;
       }
       /**
-       * <code>uint32 content_type = 8;</code>
+       * <code>uint32 content_type = 5;</code>
        * @param value The contentType to set.
        * @return This builder for chaining.
        */
@@ -6778,7 +5199,7 @@ public final class ProtoMsg {
         return this;
       }
       /**
-       * <code>uint32 content_type = 8;</code>
+       * <code>uint32 content_type = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearContentType() {
@@ -6788,40 +5209,9 @@ public final class ProtoMsg {
         return this;
       }
 
-      private int sendType_ ;
-      /**
-       * <code>uint32 send_type = 9;</code>
-       * @return The sendType.
-       */
-      @java.lang.Override
-      public int getSendType() {
-        return sendType_;
-      }
-      /**
-       * <code>uint32 send_type = 9;</code>
-       * @param value The sendType to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSendType(int value) {
-        
-        sendType_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 send_type = 9;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSendType() {
-        
-        sendType_ = 0;
-        onChanged();
-        return this;
-      }
-
       private int isRecall_ ;
       /**
-       * <code>uint32 is_recall = 10;</code>
+       * <code>uint32 is_recall = 6;</code>
        * @return The isRecall.
        */
       @java.lang.Override
@@ -6829,7 +5219,7 @@ public final class ProtoMsg {
         return isRecall_;
       }
       /**
-       * <code>uint32 is_recall = 10;</code>
+       * <code>uint32 is_recall = 6;</code>
        * @param value The isRecall to set.
        * @return This builder for chaining.
        */
@@ -6840,7 +5230,7 @@ public final class ProtoMsg {
         return this;
       }
       /**
-       * <code>uint32 is_recall = 10;</code>
+       * <code>uint32 is_recall = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearIsRecall() {
@@ -6850,116 +5240,9 @@ public final class ProtoMsg {
         return this;
       }
 
-      private int pullingStatus_ ;
-      /**
-       * <code>uint32 pulling_status = 11;</code>
-       * @return The pullingStatus.
-       */
-      @java.lang.Override
-      public int getPullingStatus() {
-        return pullingStatus_;
-      }
-      /**
-       * <code>uint32 pulling_status = 11;</code>
-       * @param value The pullingStatus to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPullingStatus(int value) {
-        
-        pullingStatus_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 pulling_status = 11;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearPullingStatus() {
-        
-        pullingStatus_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object sortDate_ = "";
-      /**
-       * <code>string sort_date = 12;</code>
-       * @return The sortDate.
-       */
-      public java.lang.String getSortDate() {
-        java.lang.Object ref = sortDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          sortDate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string sort_date = 12;</code>
-       * @return The bytes for sortDate.
-       */
-      public com.google.protobuf.ByteString
-          getSortDateBytes() {
-        java.lang.Object ref = sortDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          sortDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string sort_date = 12;</code>
-       * @param value The sortDate to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSortDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        sortDate_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string sort_date = 12;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSortDate() {
-        
-        sortDate_ = getDefaultInstance().getSortDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string sort_date = 12;</code>
-       * @param value The bytes for sortDate to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSortDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        sortDate_ = value;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object sendTime_ = "";
       /**
-       * <code>string send_time = 13;</code>
+       * <code>string send_time = 7;</code>
        * @return The sendTime.
        */
       public java.lang.String getSendTime() {
@@ -6975,7 +5258,7 @@ public final class ProtoMsg {
         }
       }
       /**
-       * <code>string send_time = 13;</code>
+       * <code>string send_time = 7;</code>
        * @return The bytes for sendTime.
        */
       public com.google.protobuf.ByteString
@@ -6992,7 +5275,7 @@ public final class ProtoMsg {
         }
       }
       /**
-       * <code>string send_time = 13;</code>
+       * <code>string send_time = 7;</code>
        * @param value The sendTime to set.
        * @return This builder for chaining.
        */
@@ -7007,7 +5290,7 @@ public final class ProtoMsg {
         return this;
       }
       /**
-       * <code>string send_time = 13;</code>
+       * <code>string send_time = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearSendTime() {
@@ -7017,7 +5300,7 @@ public final class ProtoMsg {
         return this;
       }
       /**
-       * <code>string send_time = 13;</code>
+       * <code>string send_time = 7;</code>
        * @param value The bytes for sendTime to set.
        * @return This builder for chaining.
        */
@@ -7029,254 +5312,6 @@ public final class ProtoMsg {
   checkByteStringIsUtf8(value);
         
         sendTime_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object updateDate_ = "";
-      /**
-       * <code>string update_date = 14;</code>
-       * @return The updateDate.
-       */
-      public java.lang.String getUpdateDate() {
-        java.lang.Object ref = updateDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          updateDate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string update_date = 14;</code>
-       * @return The bytes for updateDate.
-       */
-      public com.google.protobuf.ByteString
-          getUpdateDateBytes() {
-        java.lang.Object ref = updateDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          updateDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string update_date = 14;</code>
-       * @param value The updateDate to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUpdateDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        updateDate_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string update_date = 14;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearUpdateDate() {
-        
-        updateDate_ = getDefaultInstance().getUpdateDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string update_date = 14;</code>
-       * @param value The bytes for updateDate to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUpdateDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        updateDate_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object createDate_ = "";
-      /**
-       * <code>string create_date = 15;</code>
-       * @return The createDate.
-       */
-      public java.lang.String getCreateDate() {
-        java.lang.Object ref = createDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          createDate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string create_date = 15;</code>
-       * @return The bytes for createDate.
-       */
-      public com.google.protobuf.ByteString
-          getCreateDateBytes() {
-        java.lang.Object ref = createDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          createDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string create_date = 15;</code>
-       * @param value The createDate to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCreateDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        createDate_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string create_date = 15;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCreateDate() {
-        
-        createDate_ = getDefaultInstance().getCreateDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string create_date = 15;</code>
-       * @param value The bytes for createDate to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCreateDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        createDate_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object tempUid_ = "";
-      /**
-       * <pre>
-       *临时聊天uid
-       * </pre>
-       *
-       * <code>string temp_uid = 16;</code>
-       * @return The tempUid.
-       */
-      public java.lang.String getTempUid() {
-        java.lang.Object ref = tempUid_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          tempUid_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       *临时聊天uid
-       * </pre>
-       *
-       * <code>string temp_uid = 16;</code>
-       * @return The bytes for tempUid.
-       */
-      public com.google.protobuf.ByteString
-          getTempUidBytes() {
-        java.lang.Object ref = tempUid_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          tempUid_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *临时聊天uid
-       * </pre>
-       *
-       * <code>string temp_uid = 16;</code>
-       * @param value The tempUid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTempUid(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        tempUid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *临时聊天uid
-       * </pre>
-       *
-       * <code>string temp_uid = 16;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearTempUid() {
-        
-        tempUid_ = getDefaultInstance().getTempUid();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *临时聊天uid
-       * </pre>
-       *
-       * <code>string temp_uid = 16;</code>
-       * @param value The bytes for tempUid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTempUidBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        tempUid_ = value;
         onChanged();
         return this;
       }
@@ -7338,16 +5373,16 @@ public final class ProtoMsg {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string chatting_uid = 1;</code>
-     * @return The chattingUid.
+     * <code>string msg_uid = 1;</code>
+     * @return The msgUid.
      */
-    java.lang.String getChattingUid();
+    java.lang.String getMsgUid();
     /**
-     * <code>string chatting_uid = 1;</code>
-     * @return The bytes for chattingUid.
+     * <code>string msg_uid = 1;</code>
+     * @return The bytes for msgUid.
      */
     com.google.protobuf.ByteString
-        getChattingUidBytes();
+        getMsgUidBytes();
 
     /**
      * <code>string cluster_uid = 2;</code>
@@ -7386,172 +5421,40 @@ public final class ProtoMsg {
         getUserUidBytes();
 
     /**
-     * <code>string user_name = 5;</code>
-     * @return The userName.
-     */
-    java.lang.String getUserName();
-    /**
-     * <code>string user_name = 5;</code>
-     * @return The bytes for userName.
-     */
-    com.google.protobuf.ByteString
-        getUserNameBytes();
-
-    /**
-     * <code>string user_logo = 6;</code>
-     * @return The userLogo.
-     */
-    java.lang.String getUserLogo();
-    /**
-     * <code>string user_logo = 6;</code>
-     * @return The bytes for userLogo.
-     */
-    com.google.protobuf.ByteString
-        getUserLogoBytes();
-
-    /**
-     * <code>string user_position = 7;</code>
-     * @return The userPosition.
-     */
-    java.lang.String getUserPosition();
-    /**
-     * <code>string user_position = 7;</code>
-     * @return The bytes for userPosition.
-     */
-    com.google.protobuf.ByteString
-        getUserPositionBytes();
-
-    /**
-     * <code>string user_compy = 8;</code>
-     * @return The userCompy.
-     */
-    java.lang.String getUserCompy();
-    /**
-     * <code>string user_compy = 8;</code>
-     * @return The bytes for userCompy.
-     */
-    com.google.protobuf.ByteString
-        getUserCompyBytes();
-
-    /**
-     * <code>string content = 9;</code>
+     * <code>string content = 5;</code>
      * @return The content.
      */
     java.lang.String getContent();
     /**
-     * <code>string content = 9;</code>
+     * <code>string content = 5;</code>
      * @return The bytes for content.
      */
     com.google.protobuf.ByteString
         getContentBytes();
 
     /**
-     * <code>string content_size = 10;</code>
-     * @return The contentSize.
-     */
-    java.lang.String getContentSize();
-    /**
-     * <code>string content_size = 10;</code>
-     * @return The bytes for contentSize.
-     */
-    com.google.protobuf.ByteString
-        getContentSizeBytes();
-
-    /**
-     * <code>string original_path = 11;</code>
-     * @return The originalPath.
-     */
-    java.lang.String getOriginalPath();
-    /**
-     * <code>string original_path = 11;</code>
-     * @return The bytes for originalPath.
-     */
-    com.google.protobuf.ByteString
-        getOriginalPathBytes();
-
-    /**
-     * <code>string content_path = 12;</code>
-     * @return The contentPath.
-     */
-    java.lang.String getContentPath();
-    /**
-     * <code>string content_path = 12;</code>
-     * @return The bytes for contentPath.
-     */
-    com.google.protobuf.ByteString
-        getContentPathBytes();
-
-    /**
-     * <code>uint32 content_type = 13;</code>
+     * <code>uint32 content_type = 6;</code>
      * @return The contentType.
      */
     int getContentType();
 
     /**
-     * <code>uint32 send_type = 14;</code>
-     * @return The sendType.
-     */
-    int getSendType();
-
-    /**
-     * <code>uint32 is_recall = 15;</code>
+     * <code>uint32 is_recall = 7;</code>
      * @return The isRecall.
      */
     int getIsRecall();
 
     /**
-     * <code>uint32 pulling_status = 16;</code>
-     * @return The pullingStatus.
-     */
-    int getPullingStatus();
-
-    /**
-     * <code>string sort_date = 17;</code>
-     * @return The sortDate.
-     */
-    java.lang.String getSortDate();
-    /**
-     * <code>string sort_date = 17;</code>
-     * @return The bytes for sortDate.
-     */
-    com.google.protobuf.ByteString
-        getSortDateBytes();
-
-    /**
-     * <code>string send_time = 18;</code>
+     * <code>string send_time = 8;</code>
      * @return The sendTime.
      */
     java.lang.String getSendTime();
     /**
-     * <code>string send_time = 18;</code>
+     * <code>string send_time = 8;</code>
      * @return The bytes for sendTime.
      */
     com.google.protobuf.ByteString
         getSendTimeBytes();
-
-    /**
-     * <code>string update_date = 19;</code>
-     * @return The updateDate.
-     */
-    java.lang.String getUpdateDate();
-    /**
-     * <code>string update_date = 19;</code>
-     * @return The bytes for updateDate.
-     */
-    com.google.protobuf.ByteString
-        getUpdateDateBytes();
-
-    /**
-     * <code>string create_date = 20;</code>
-     * @return The createDate.
-     */
-    java.lang.String getCreateDate();
-    /**
-     * <code>string create_date = 20;</code>
-     * @return The bytes for createDate.
-     */
-    com.google.protobuf.ByteString
-        getCreateDateBytes();
   }
   /**
    * <pre>
@@ -7570,22 +5473,12 @@ public final class ProtoMsg {
       super(builder);
     }
     private ClusterChatting() {
-      chattingUid_ = "";
+      msgUid_ = "";
       clusterUid_ = "";
       recvUid_ = "";
       userUid_ = "";
-      userName_ = "";
-      userLogo_ = "";
-      userPosition_ = "";
-      userCompy_ = "";
       content_ = "";
-      contentSize_ = "";
-      originalPath_ = "";
-      contentPath_ = "";
-      sortDate_ = "";
       sendTime_ = "";
-      updateDate_ = "";
-      createDate_ = "";
     }
 
     @java.lang.Override
@@ -7621,7 +5514,7 @@ public final class ProtoMsg {
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              chattingUid_ = s;
+              msgUid_ = s;
               break;
             }
             case 18: {
@@ -7645,93 +5538,23 @@ public final class ProtoMsg {
             case 42: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              userName_ = s;
+              content_ = s;
               break;
             }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 48: {
 
-              userLogo_ = s;
+              contentType_ = input.readUInt32();
               break;
             }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 56: {
 
-              userPosition_ = s;
+              isRecall_ = input.readUInt32();
               break;
             }
             case 66: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              userCompy_ = s;
-              break;
-            }
-            case 74: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              content_ = s;
-              break;
-            }
-            case 82: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              contentSize_ = s;
-              break;
-            }
-            case 90: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              originalPath_ = s;
-              break;
-            }
-            case 98: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              contentPath_ = s;
-              break;
-            }
-            case 104: {
-
-              contentType_ = input.readUInt32();
-              break;
-            }
-            case 112: {
-
-              sendType_ = input.readUInt32();
-              break;
-            }
-            case 120: {
-
-              isRecall_ = input.readUInt32();
-              break;
-            }
-            case 128: {
-
-              pullingStatus_ = input.readUInt32();
-              break;
-            }
-            case 138: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              sortDate_ = s;
-              break;
-            }
-            case 146: {
-              java.lang.String s = input.readStringRequireUtf8();
-
               sendTime_ = s;
-              break;
-            }
-            case 154: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              updateDate_ = s;
-              break;
-            }
-            case 162: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              createDate_ = s;
               break;
             }
             default: {
@@ -7766,38 +5589,38 @@ public final class ProtoMsg {
               com.sxh.protobuf.ProtoMsg.ClusterChatting.class, com.sxh.protobuf.ProtoMsg.ClusterChatting.Builder.class);
     }
 
-    public static final int CHATTING_UID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object chattingUid_;
+    public static final int MSG_UID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object msgUid_;
     /**
-     * <code>string chatting_uid = 1;</code>
-     * @return The chattingUid.
+     * <code>string msg_uid = 1;</code>
+     * @return The msgUid.
      */
     @java.lang.Override
-    public java.lang.String getChattingUid() {
-      java.lang.Object ref = chattingUid_;
+    public java.lang.String getMsgUid() {
+      java.lang.Object ref = msgUid_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        chattingUid_ = s;
+        msgUid_ = s;
         return s;
       }
     }
     /**
-     * <code>string chatting_uid = 1;</code>
-     * @return The bytes for chattingUid.
+     * <code>string msg_uid = 1;</code>
+     * @return The bytes for msgUid.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getChattingUidBytes() {
-      java.lang.Object ref = chattingUid_;
+        getMsgUidBytes() {
+      java.lang.Object ref = msgUid_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        chattingUid_ = b;
+        msgUid_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -7918,162 +5741,10 @@ public final class ProtoMsg {
       }
     }
 
-    public static final int USER_NAME_FIELD_NUMBER = 5;
-    private volatile java.lang.Object userName_;
-    /**
-     * <code>string user_name = 5;</code>
-     * @return The userName.
-     */
-    @java.lang.Override
-    public java.lang.String getUserName() {
-      java.lang.Object ref = userName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        userName_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string user_name = 5;</code>
-     * @return The bytes for userName.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getUserNameBytes() {
-      java.lang.Object ref = userName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        userName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int USER_LOGO_FIELD_NUMBER = 6;
-    private volatile java.lang.Object userLogo_;
-    /**
-     * <code>string user_logo = 6;</code>
-     * @return The userLogo.
-     */
-    @java.lang.Override
-    public java.lang.String getUserLogo() {
-      java.lang.Object ref = userLogo_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        userLogo_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string user_logo = 6;</code>
-     * @return The bytes for userLogo.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getUserLogoBytes() {
-      java.lang.Object ref = userLogo_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        userLogo_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int USER_POSITION_FIELD_NUMBER = 7;
-    private volatile java.lang.Object userPosition_;
-    /**
-     * <code>string user_position = 7;</code>
-     * @return The userPosition.
-     */
-    @java.lang.Override
-    public java.lang.String getUserPosition() {
-      java.lang.Object ref = userPosition_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        userPosition_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string user_position = 7;</code>
-     * @return The bytes for userPosition.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getUserPositionBytes() {
-      java.lang.Object ref = userPosition_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        userPosition_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int USER_COMPY_FIELD_NUMBER = 8;
-    private volatile java.lang.Object userCompy_;
-    /**
-     * <code>string user_compy = 8;</code>
-     * @return The userCompy.
-     */
-    @java.lang.Override
-    public java.lang.String getUserCompy() {
-      java.lang.Object ref = userCompy_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        userCompy_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string user_compy = 8;</code>
-     * @return The bytes for userCompy.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getUserCompyBytes() {
-      java.lang.Object ref = userCompy_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        userCompy_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CONTENT_FIELD_NUMBER = 9;
+    public static final int CONTENT_FIELD_NUMBER = 5;
     private volatile java.lang.Object content_;
     /**
-     * <code>string content = 9;</code>
+     * <code>string content = 5;</code>
      * @return The content.
      */
     @java.lang.Override
@@ -8090,7 +5761,7 @@ public final class ProtoMsg {
       }
     }
     /**
-     * <code>string content = 9;</code>
+     * <code>string content = 5;</code>
      * @return The bytes for content.
      */
     @java.lang.Override
@@ -8108,124 +5779,10 @@ public final class ProtoMsg {
       }
     }
 
-    public static final int CONTENT_SIZE_FIELD_NUMBER = 10;
-    private volatile java.lang.Object contentSize_;
-    /**
-     * <code>string content_size = 10;</code>
-     * @return The contentSize.
-     */
-    @java.lang.Override
-    public java.lang.String getContentSize() {
-      java.lang.Object ref = contentSize_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        contentSize_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string content_size = 10;</code>
-     * @return The bytes for contentSize.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getContentSizeBytes() {
-      java.lang.Object ref = contentSize_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        contentSize_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int ORIGINAL_PATH_FIELD_NUMBER = 11;
-    private volatile java.lang.Object originalPath_;
-    /**
-     * <code>string original_path = 11;</code>
-     * @return The originalPath.
-     */
-    @java.lang.Override
-    public java.lang.String getOriginalPath() {
-      java.lang.Object ref = originalPath_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        originalPath_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string original_path = 11;</code>
-     * @return The bytes for originalPath.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getOriginalPathBytes() {
-      java.lang.Object ref = originalPath_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        originalPath_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CONTENT_PATH_FIELD_NUMBER = 12;
-    private volatile java.lang.Object contentPath_;
-    /**
-     * <code>string content_path = 12;</code>
-     * @return The contentPath.
-     */
-    @java.lang.Override
-    public java.lang.String getContentPath() {
-      java.lang.Object ref = contentPath_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        contentPath_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string content_path = 12;</code>
-     * @return The bytes for contentPath.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getContentPathBytes() {
-      java.lang.Object ref = contentPath_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        contentPath_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CONTENT_TYPE_FIELD_NUMBER = 13;
+    public static final int CONTENT_TYPE_FIELD_NUMBER = 6;
     private int contentType_;
     /**
-     * <code>uint32 content_type = 13;</code>
+     * <code>uint32 content_type = 6;</code>
      * @return The contentType.
      */
     @java.lang.Override
@@ -8233,21 +5790,10 @@ public final class ProtoMsg {
       return contentType_;
     }
 
-    public static final int SEND_TYPE_FIELD_NUMBER = 14;
-    private int sendType_;
-    /**
-     * <code>uint32 send_type = 14;</code>
-     * @return The sendType.
-     */
-    @java.lang.Override
-    public int getSendType() {
-      return sendType_;
-    }
-
-    public static final int IS_RECALL_FIELD_NUMBER = 15;
+    public static final int IS_RECALL_FIELD_NUMBER = 7;
     private int isRecall_;
     /**
-     * <code>uint32 is_recall = 15;</code>
+     * <code>uint32 is_recall = 7;</code>
      * @return The isRecall.
      */
     @java.lang.Override
@@ -8255,59 +5801,10 @@ public final class ProtoMsg {
       return isRecall_;
     }
 
-    public static final int PULLING_STATUS_FIELD_NUMBER = 16;
-    private int pullingStatus_;
-    /**
-     * <code>uint32 pulling_status = 16;</code>
-     * @return The pullingStatus.
-     */
-    @java.lang.Override
-    public int getPullingStatus() {
-      return pullingStatus_;
-    }
-
-    public static final int SORT_DATE_FIELD_NUMBER = 17;
-    private volatile java.lang.Object sortDate_;
-    /**
-     * <code>string sort_date = 17;</code>
-     * @return The sortDate.
-     */
-    @java.lang.Override
-    public java.lang.String getSortDate() {
-      java.lang.Object ref = sortDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        sortDate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string sort_date = 17;</code>
-     * @return The bytes for sortDate.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getSortDateBytes() {
-      java.lang.Object ref = sortDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        sortDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int SEND_TIME_FIELD_NUMBER = 18;
+    public static final int SEND_TIME_FIELD_NUMBER = 8;
     private volatile java.lang.Object sendTime_;
     /**
-     * <code>string send_time = 18;</code>
+     * <code>string send_time = 8;</code>
      * @return The sendTime.
      */
     @java.lang.Override
@@ -8324,7 +5821,7 @@ public final class ProtoMsg {
       }
     }
     /**
-     * <code>string send_time = 18;</code>
+     * <code>string send_time = 8;</code>
      * @return The bytes for sendTime.
      */
     @java.lang.Override
@@ -8336,82 +5833,6 @@ public final class ProtoMsg {
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         sendTime_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int UPDATE_DATE_FIELD_NUMBER = 19;
-    private volatile java.lang.Object updateDate_;
-    /**
-     * <code>string update_date = 19;</code>
-     * @return The updateDate.
-     */
-    @java.lang.Override
-    public java.lang.String getUpdateDate() {
-      java.lang.Object ref = updateDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        updateDate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string update_date = 19;</code>
-     * @return The bytes for updateDate.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getUpdateDateBytes() {
-      java.lang.Object ref = updateDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        updateDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CREATE_DATE_FIELD_NUMBER = 20;
-    private volatile java.lang.Object createDate_;
-    /**
-     * <code>string create_date = 20;</code>
-     * @return The createDate.
-     */
-    @java.lang.Override
-    public java.lang.String getCreateDate() {
-      java.lang.Object ref = createDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        createDate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string create_date = 20;</code>
-     * @return The bytes for createDate.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getCreateDateBytes() {
-      java.lang.Object ref = createDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        createDate_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -8432,8 +5853,8 @@ public final class ProtoMsg {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chattingUid_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, chattingUid_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msgUid_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, msgUid_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clusterUid_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, clusterUid_);
@@ -8444,53 +5865,17 @@ public final class ProtoMsg {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userUid_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, userUid_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, userName_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userLogo_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, userLogo_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userPosition_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, userPosition_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userCompy_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, userCompy_);
-      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, content_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentSize_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, contentSize_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(originalPath_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, originalPath_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentPath_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, contentPath_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, content_);
       }
       if (contentType_ != 0) {
-        output.writeUInt32(13, contentType_);
-      }
-      if (sendType_ != 0) {
-        output.writeUInt32(14, sendType_);
+        output.writeUInt32(6, contentType_);
       }
       if (isRecall_ != 0) {
-        output.writeUInt32(15, isRecall_);
-      }
-      if (pullingStatus_ != 0) {
-        output.writeUInt32(16, pullingStatus_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sortDate_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 17, sortDate_);
+        output.writeUInt32(7, isRecall_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sendTime_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 18, sendTime_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(updateDate_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 19, updateDate_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(createDate_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 20, createDate_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, sendTime_);
       }
       unknownFields.writeTo(output);
     }
@@ -8501,8 +5886,8 @@ public final class ProtoMsg {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chattingUid_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, chattingUid_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msgUid_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, msgUid_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clusterUid_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, clusterUid_);
@@ -8513,57 +5898,19 @@ public final class ProtoMsg {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userUid_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, userUid_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, userName_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userLogo_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, userLogo_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userPosition_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, userPosition_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userCompy_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, userCompy_);
-      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, content_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentSize_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, contentSize_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(originalPath_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, originalPath_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentPath_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, contentPath_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, content_);
       }
       if (contentType_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(13, contentType_);
-      }
-      if (sendType_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(14, sendType_);
+          .computeUInt32Size(6, contentType_);
       }
       if (isRecall_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(15, isRecall_);
-      }
-      if (pullingStatus_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(16, pullingStatus_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sortDate_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, sortDate_);
+          .computeUInt32Size(7, isRecall_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sendTime_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(18, sendTime_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(updateDate_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(19, updateDate_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(createDate_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, createDate_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, sendTime_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8580,46 +5927,22 @@ public final class ProtoMsg {
       }
       com.sxh.protobuf.ProtoMsg.ClusterChatting other = (com.sxh.protobuf.ProtoMsg.ClusterChatting) obj;
 
-      if (!getChattingUid()
-          .equals(other.getChattingUid())) return false;
+      if (!getMsgUid()
+          .equals(other.getMsgUid())) return false;
       if (!getClusterUid()
           .equals(other.getClusterUid())) return false;
       if (!getRecvUid()
           .equals(other.getRecvUid())) return false;
       if (!getUserUid()
           .equals(other.getUserUid())) return false;
-      if (!getUserName()
-          .equals(other.getUserName())) return false;
-      if (!getUserLogo()
-          .equals(other.getUserLogo())) return false;
-      if (!getUserPosition()
-          .equals(other.getUserPosition())) return false;
-      if (!getUserCompy()
-          .equals(other.getUserCompy())) return false;
       if (!getContent()
           .equals(other.getContent())) return false;
-      if (!getContentSize()
-          .equals(other.getContentSize())) return false;
-      if (!getOriginalPath()
-          .equals(other.getOriginalPath())) return false;
-      if (!getContentPath()
-          .equals(other.getContentPath())) return false;
       if (getContentType()
           != other.getContentType()) return false;
-      if (getSendType()
-          != other.getSendType()) return false;
       if (getIsRecall()
           != other.getIsRecall()) return false;
-      if (getPullingStatus()
-          != other.getPullingStatus()) return false;
-      if (!getSortDate()
-          .equals(other.getSortDate())) return false;
       if (!getSendTime()
           .equals(other.getSendTime())) return false;
-      if (!getUpdateDate()
-          .equals(other.getUpdateDate())) return false;
-      if (!getCreateDate()
-          .equals(other.getCreateDate())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -8631,46 +5954,22 @@ public final class ProtoMsg {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CHATTING_UID_FIELD_NUMBER;
-      hash = (53 * hash) + getChattingUid().hashCode();
+      hash = (37 * hash) + MSG_UID_FIELD_NUMBER;
+      hash = (53 * hash) + getMsgUid().hashCode();
       hash = (37 * hash) + CLUSTER_UID_FIELD_NUMBER;
       hash = (53 * hash) + getClusterUid().hashCode();
       hash = (37 * hash) + RECV_UID_FIELD_NUMBER;
       hash = (53 * hash) + getRecvUid().hashCode();
       hash = (37 * hash) + USER_UID_FIELD_NUMBER;
       hash = (53 * hash) + getUserUid().hashCode();
-      hash = (37 * hash) + USER_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getUserName().hashCode();
-      hash = (37 * hash) + USER_LOGO_FIELD_NUMBER;
-      hash = (53 * hash) + getUserLogo().hashCode();
-      hash = (37 * hash) + USER_POSITION_FIELD_NUMBER;
-      hash = (53 * hash) + getUserPosition().hashCode();
-      hash = (37 * hash) + USER_COMPY_FIELD_NUMBER;
-      hash = (53 * hash) + getUserCompy().hashCode();
       hash = (37 * hash) + CONTENT_FIELD_NUMBER;
       hash = (53 * hash) + getContent().hashCode();
-      hash = (37 * hash) + CONTENT_SIZE_FIELD_NUMBER;
-      hash = (53 * hash) + getContentSize().hashCode();
-      hash = (37 * hash) + ORIGINAL_PATH_FIELD_NUMBER;
-      hash = (53 * hash) + getOriginalPath().hashCode();
-      hash = (37 * hash) + CONTENT_PATH_FIELD_NUMBER;
-      hash = (53 * hash) + getContentPath().hashCode();
       hash = (37 * hash) + CONTENT_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + getContentType();
-      hash = (37 * hash) + SEND_TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + getSendType();
       hash = (37 * hash) + IS_RECALL_FIELD_NUMBER;
       hash = (53 * hash) + getIsRecall();
-      hash = (37 * hash) + PULLING_STATUS_FIELD_NUMBER;
-      hash = (53 * hash) + getPullingStatus();
-      hash = (37 * hash) + SORT_DATE_FIELD_NUMBER;
-      hash = (53 * hash) + getSortDate().hashCode();
       hash = (37 * hash) + SEND_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getSendTime().hashCode();
-      hash = (37 * hash) + UPDATE_DATE_FIELD_NUMBER;
-      hash = (53 * hash) + getUpdateDate().hashCode();
-      hash = (37 * hash) + CREATE_DATE_FIELD_NUMBER;
-      hash = (53 * hash) + getCreateDate().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -8808,7 +6107,7 @@ public final class ProtoMsg {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        chattingUid_ = "";
+        msgUid_ = "";
 
         clusterUid_ = "";
 
@@ -8816,37 +6115,13 @@ public final class ProtoMsg {
 
         userUid_ = "";
 
-        userName_ = "";
-
-        userLogo_ = "";
-
-        userPosition_ = "";
-
-        userCompy_ = "";
-
         content_ = "";
-
-        contentSize_ = "";
-
-        originalPath_ = "";
-
-        contentPath_ = "";
 
         contentType_ = 0;
 
-        sendType_ = 0;
-
         isRecall_ = 0;
 
-        pullingStatus_ = 0;
-
-        sortDate_ = "";
-
         sendTime_ = "";
-
-        updateDate_ = "";
-
-        createDate_ = "";
 
         return this;
       }
@@ -8874,26 +6149,14 @@ public final class ProtoMsg {
       @java.lang.Override
       public com.sxh.protobuf.ProtoMsg.ClusterChatting buildPartial() {
         com.sxh.protobuf.ProtoMsg.ClusterChatting result = new com.sxh.protobuf.ProtoMsg.ClusterChatting(this);
-        result.chattingUid_ = chattingUid_;
+        result.msgUid_ = msgUid_;
         result.clusterUid_ = clusterUid_;
         result.recvUid_ = recvUid_;
         result.userUid_ = userUid_;
-        result.userName_ = userName_;
-        result.userLogo_ = userLogo_;
-        result.userPosition_ = userPosition_;
-        result.userCompy_ = userCompy_;
         result.content_ = content_;
-        result.contentSize_ = contentSize_;
-        result.originalPath_ = originalPath_;
-        result.contentPath_ = contentPath_;
         result.contentType_ = contentType_;
-        result.sendType_ = sendType_;
         result.isRecall_ = isRecall_;
-        result.pullingStatus_ = pullingStatus_;
-        result.sortDate_ = sortDate_;
         result.sendTime_ = sendTime_;
-        result.updateDate_ = updateDate_;
-        result.createDate_ = createDate_;
         onBuilt();
         return result;
       }
@@ -8942,8 +6205,8 @@ public final class ProtoMsg {
 
       public Builder mergeFrom(com.sxh.protobuf.ProtoMsg.ClusterChatting other) {
         if (other == com.sxh.protobuf.ProtoMsg.ClusterChatting.getDefaultInstance()) return this;
-        if (!other.getChattingUid().isEmpty()) {
-          chattingUid_ = other.chattingUid_;
+        if (!other.getMsgUid().isEmpty()) {
+          msgUid_ = other.msgUid_;
           onChanged();
         }
         if (!other.getClusterUid().isEmpty()) {
@@ -8958,64 +6221,18 @@ public final class ProtoMsg {
           userUid_ = other.userUid_;
           onChanged();
         }
-        if (!other.getUserName().isEmpty()) {
-          userName_ = other.userName_;
-          onChanged();
-        }
-        if (!other.getUserLogo().isEmpty()) {
-          userLogo_ = other.userLogo_;
-          onChanged();
-        }
-        if (!other.getUserPosition().isEmpty()) {
-          userPosition_ = other.userPosition_;
-          onChanged();
-        }
-        if (!other.getUserCompy().isEmpty()) {
-          userCompy_ = other.userCompy_;
-          onChanged();
-        }
         if (!other.getContent().isEmpty()) {
           content_ = other.content_;
-          onChanged();
-        }
-        if (!other.getContentSize().isEmpty()) {
-          contentSize_ = other.contentSize_;
-          onChanged();
-        }
-        if (!other.getOriginalPath().isEmpty()) {
-          originalPath_ = other.originalPath_;
-          onChanged();
-        }
-        if (!other.getContentPath().isEmpty()) {
-          contentPath_ = other.contentPath_;
           onChanged();
         }
         if (other.getContentType() != 0) {
           setContentType(other.getContentType());
         }
-        if (other.getSendType() != 0) {
-          setSendType(other.getSendType());
-        }
         if (other.getIsRecall() != 0) {
           setIsRecall(other.getIsRecall());
         }
-        if (other.getPullingStatus() != 0) {
-          setPullingStatus(other.getPullingStatus());
-        }
-        if (!other.getSortDate().isEmpty()) {
-          sortDate_ = other.sortDate_;
-          onChanged();
-        }
         if (!other.getSendTime().isEmpty()) {
           sendTime_ = other.sendTime_;
-          onChanged();
-        }
-        if (!other.getUpdateDate().isEmpty()) {
-          updateDate_ = other.updateDate_;
-          onChanged();
-        }
-        if (!other.getCreateDate().isEmpty()) {
-          createDate_ = other.createDate_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -9047,78 +6264,78 @@ public final class ProtoMsg {
         return this;
       }
 
-      private java.lang.Object chattingUid_ = "";
+      private java.lang.Object msgUid_ = "";
       /**
-       * <code>string chatting_uid = 1;</code>
-       * @return The chattingUid.
+       * <code>string msg_uid = 1;</code>
+       * @return The msgUid.
        */
-      public java.lang.String getChattingUid() {
-        java.lang.Object ref = chattingUid_;
+      public java.lang.String getMsgUid() {
+        java.lang.Object ref = msgUid_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          chattingUid_ = s;
+          msgUid_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string chatting_uid = 1;</code>
-       * @return The bytes for chattingUid.
+       * <code>string msg_uid = 1;</code>
+       * @return The bytes for msgUid.
        */
       public com.google.protobuf.ByteString
-          getChattingUidBytes() {
-        java.lang.Object ref = chattingUid_;
+          getMsgUidBytes() {
+        java.lang.Object ref = msgUid_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          chattingUid_ = b;
+          msgUid_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string chatting_uid = 1;</code>
-       * @param value The chattingUid to set.
+       * <code>string msg_uid = 1;</code>
+       * @param value The msgUid to set.
        * @return This builder for chaining.
        */
-      public Builder setChattingUid(
+      public Builder setMsgUid(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        chattingUid_ = value;
+        msgUid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string chatting_uid = 1;</code>
+       * <code>string msg_uid = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearChattingUid() {
+      public Builder clearMsgUid() {
         
-        chattingUid_ = getDefaultInstance().getChattingUid();
+        msgUid_ = getDefaultInstance().getMsgUid();
         onChanged();
         return this;
       }
       /**
-       * <code>string chatting_uid = 1;</code>
-       * @param value The bytes for chattingUid to set.
+       * <code>string msg_uid = 1;</code>
+       * @param value The bytes for msgUid to set.
        * @return This builder for chaining.
        */
-      public Builder setChattingUidBytes(
+      public Builder setMsgUidBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        chattingUid_ = value;
+        msgUid_ = value;
         onChanged();
         return this;
       }
@@ -9351,313 +6568,9 @@ public final class ProtoMsg {
         return this;
       }
 
-      private java.lang.Object userName_ = "";
-      /**
-       * <code>string user_name = 5;</code>
-       * @return The userName.
-       */
-      public java.lang.String getUserName() {
-        java.lang.Object ref = userName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          userName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string user_name = 5;</code>
-       * @return The bytes for userName.
-       */
-      public com.google.protobuf.ByteString
-          getUserNameBytes() {
-        java.lang.Object ref = userName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          userName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string user_name = 5;</code>
-       * @param value The userName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        userName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string user_name = 5;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearUserName() {
-        
-        userName_ = getDefaultInstance().getUserName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string user_name = 5;</code>
-       * @param value The bytes for userName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        userName_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object userLogo_ = "";
-      /**
-       * <code>string user_logo = 6;</code>
-       * @return The userLogo.
-       */
-      public java.lang.String getUserLogo() {
-        java.lang.Object ref = userLogo_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          userLogo_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string user_logo = 6;</code>
-       * @return The bytes for userLogo.
-       */
-      public com.google.protobuf.ByteString
-          getUserLogoBytes() {
-        java.lang.Object ref = userLogo_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          userLogo_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string user_logo = 6;</code>
-       * @param value The userLogo to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserLogo(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        userLogo_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string user_logo = 6;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearUserLogo() {
-        
-        userLogo_ = getDefaultInstance().getUserLogo();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string user_logo = 6;</code>
-       * @param value The bytes for userLogo to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserLogoBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        userLogo_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object userPosition_ = "";
-      /**
-       * <code>string user_position = 7;</code>
-       * @return The userPosition.
-       */
-      public java.lang.String getUserPosition() {
-        java.lang.Object ref = userPosition_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          userPosition_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string user_position = 7;</code>
-       * @return The bytes for userPosition.
-       */
-      public com.google.protobuf.ByteString
-          getUserPositionBytes() {
-        java.lang.Object ref = userPosition_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          userPosition_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string user_position = 7;</code>
-       * @param value The userPosition to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserPosition(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        userPosition_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string user_position = 7;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearUserPosition() {
-        
-        userPosition_ = getDefaultInstance().getUserPosition();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string user_position = 7;</code>
-       * @param value The bytes for userPosition to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserPositionBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        userPosition_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object userCompy_ = "";
-      /**
-       * <code>string user_compy = 8;</code>
-       * @return The userCompy.
-       */
-      public java.lang.String getUserCompy() {
-        java.lang.Object ref = userCompy_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          userCompy_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string user_compy = 8;</code>
-       * @return The bytes for userCompy.
-       */
-      public com.google.protobuf.ByteString
-          getUserCompyBytes() {
-        java.lang.Object ref = userCompy_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          userCompy_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string user_compy = 8;</code>
-       * @param value The userCompy to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserCompy(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        userCompy_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string user_compy = 8;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearUserCompy() {
-        
-        userCompy_ = getDefaultInstance().getUserCompy();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string user_compy = 8;</code>
-       * @param value The bytes for userCompy to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserCompyBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        userCompy_ = value;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object content_ = "";
       /**
-       * <code>string content = 9;</code>
+       * <code>string content = 5;</code>
        * @return The content.
        */
       public java.lang.String getContent() {
@@ -9673,7 +6586,7 @@ public final class ProtoMsg {
         }
       }
       /**
-       * <code>string content = 9;</code>
+       * <code>string content = 5;</code>
        * @return The bytes for content.
        */
       public com.google.protobuf.ByteString
@@ -9690,7 +6603,7 @@ public final class ProtoMsg {
         }
       }
       /**
-       * <code>string content = 9;</code>
+       * <code>string content = 5;</code>
        * @param value The content to set.
        * @return This builder for chaining.
        */
@@ -9705,7 +6618,7 @@ public final class ProtoMsg {
         return this;
       }
       /**
-       * <code>string content = 9;</code>
+       * <code>string content = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearContent() {
@@ -9715,7 +6628,7 @@ public final class ProtoMsg {
         return this;
       }
       /**
-       * <code>string content = 9;</code>
+       * <code>string content = 5;</code>
        * @param value The bytes for content to set.
        * @return This builder for chaining.
        */
@@ -9731,237 +6644,9 @@ public final class ProtoMsg {
         return this;
       }
 
-      private java.lang.Object contentSize_ = "";
-      /**
-       * <code>string content_size = 10;</code>
-       * @return The contentSize.
-       */
-      public java.lang.String getContentSize() {
-        java.lang.Object ref = contentSize_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          contentSize_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string content_size = 10;</code>
-       * @return The bytes for contentSize.
-       */
-      public com.google.protobuf.ByteString
-          getContentSizeBytes() {
-        java.lang.Object ref = contentSize_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          contentSize_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string content_size = 10;</code>
-       * @param value The contentSize to set.
-       * @return This builder for chaining.
-       */
-      public Builder setContentSize(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        contentSize_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string content_size = 10;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearContentSize() {
-        
-        contentSize_ = getDefaultInstance().getContentSize();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string content_size = 10;</code>
-       * @param value The bytes for contentSize to set.
-       * @return This builder for chaining.
-       */
-      public Builder setContentSizeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        contentSize_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object originalPath_ = "";
-      /**
-       * <code>string original_path = 11;</code>
-       * @return The originalPath.
-       */
-      public java.lang.String getOriginalPath() {
-        java.lang.Object ref = originalPath_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          originalPath_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string original_path = 11;</code>
-       * @return The bytes for originalPath.
-       */
-      public com.google.protobuf.ByteString
-          getOriginalPathBytes() {
-        java.lang.Object ref = originalPath_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          originalPath_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string original_path = 11;</code>
-       * @param value The originalPath to set.
-       * @return This builder for chaining.
-       */
-      public Builder setOriginalPath(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        originalPath_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string original_path = 11;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearOriginalPath() {
-        
-        originalPath_ = getDefaultInstance().getOriginalPath();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string original_path = 11;</code>
-       * @param value The bytes for originalPath to set.
-       * @return This builder for chaining.
-       */
-      public Builder setOriginalPathBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        originalPath_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object contentPath_ = "";
-      /**
-       * <code>string content_path = 12;</code>
-       * @return The contentPath.
-       */
-      public java.lang.String getContentPath() {
-        java.lang.Object ref = contentPath_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          contentPath_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string content_path = 12;</code>
-       * @return The bytes for contentPath.
-       */
-      public com.google.protobuf.ByteString
-          getContentPathBytes() {
-        java.lang.Object ref = contentPath_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          contentPath_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string content_path = 12;</code>
-       * @param value The contentPath to set.
-       * @return This builder for chaining.
-       */
-      public Builder setContentPath(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        contentPath_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string content_path = 12;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearContentPath() {
-        
-        contentPath_ = getDefaultInstance().getContentPath();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string content_path = 12;</code>
-       * @param value The bytes for contentPath to set.
-       * @return This builder for chaining.
-       */
-      public Builder setContentPathBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        contentPath_ = value;
-        onChanged();
-        return this;
-      }
-
       private int contentType_ ;
       /**
-       * <code>uint32 content_type = 13;</code>
+       * <code>uint32 content_type = 6;</code>
        * @return The contentType.
        */
       @java.lang.Override
@@ -9969,7 +6654,7 @@ public final class ProtoMsg {
         return contentType_;
       }
       /**
-       * <code>uint32 content_type = 13;</code>
+       * <code>uint32 content_type = 6;</code>
        * @param value The contentType to set.
        * @return This builder for chaining.
        */
@@ -9980,7 +6665,7 @@ public final class ProtoMsg {
         return this;
       }
       /**
-       * <code>uint32 content_type = 13;</code>
+       * <code>uint32 content_type = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearContentType() {
@@ -9990,40 +6675,9 @@ public final class ProtoMsg {
         return this;
       }
 
-      private int sendType_ ;
-      /**
-       * <code>uint32 send_type = 14;</code>
-       * @return The sendType.
-       */
-      @java.lang.Override
-      public int getSendType() {
-        return sendType_;
-      }
-      /**
-       * <code>uint32 send_type = 14;</code>
-       * @param value The sendType to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSendType(int value) {
-        
-        sendType_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 send_type = 14;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSendType() {
-        
-        sendType_ = 0;
-        onChanged();
-        return this;
-      }
-
       private int isRecall_ ;
       /**
-       * <code>uint32 is_recall = 15;</code>
+       * <code>uint32 is_recall = 7;</code>
        * @return The isRecall.
        */
       @java.lang.Override
@@ -10031,7 +6685,7 @@ public final class ProtoMsg {
         return isRecall_;
       }
       /**
-       * <code>uint32 is_recall = 15;</code>
+       * <code>uint32 is_recall = 7;</code>
        * @param value The isRecall to set.
        * @return This builder for chaining.
        */
@@ -10042,7 +6696,7 @@ public final class ProtoMsg {
         return this;
       }
       /**
-       * <code>uint32 is_recall = 15;</code>
+       * <code>uint32 is_recall = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearIsRecall() {
@@ -10052,116 +6706,9 @@ public final class ProtoMsg {
         return this;
       }
 
-      private int pullingStatus_ ;
-      /**
-       * <code>uint32 pulling_status = 16;</code>
-       * @return The pullingStatus.
-       */
-      @java.lang.Override
-      public int getPullingStatus() {
-        return pullingStatus_;
-      }
-      /**
-       * <code>uint32 pulling_status = 16;</code>
-       * @param value The pullingStatus to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPullingStatus(int value) {
-        
-        pullingStatus_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 pulling_status = 16;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearPullingStatus() {
-        
-        pullingStatus_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object sortDate_ = "";
-      /**
-       * <code>string sort_date = 17;</code>
-       * @return The sortDate.
-       */
-      public java.lang.String getSortDate() {
-        java.lang.Object ref = sortDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          sortDate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string sort_date = 17;</code>
-       * @return The bytes for sortDate.
-       */
-      public com.google.protobuf.ByteString
-          getSortDateBytes() {
-        java.lang.Object ref = sortDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          sortDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string sort_date = 17;</code>
-       * @param value The sortDate to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSortDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        sortDate_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string sort_date = 17;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSortDate() {
-        
-        sortDate_ = getDefaultInstance().getSortDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string sort_date = 17;</code>
-       * @param value The bytes for sortDate to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSortDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        sortDate_ = value;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object sendTime_ = "";
       /**
-       * <code>string send_time = 18;</code>
+       * <code>string send_time = 8;</code>
        * @return The sendTime.
        */
       public java.lang.String getSendTime() {
@@ -10177,7 +6724,7 @@ public final class ProtoMsg {
         }
       }
       /**
-       * <code>string send_time = 18;</code>
+       * <code>string send_time = 8;</code>
        * @return The bytes for sendTime.
        */
       public com.google.protobuf.ByteString
@@ -10194,7 +6741,7 @@ public final class ProtoMsg {
         }
       }
       /**
-       * <code>string send_time = 18;</code>
+       * <code>string send_time = 8;</code>
        * @param value The sendTime to set.
        * @return This builder for chaining.
        */
@@ -10209,7 +6756,7 @@ public final class ProtoMsg {
         return this;
       }
       /**
-       * <code>string send_time = 18;</code>
+       * <code>string send_time = 8;</code>
        * @return This builder for chaining.
        */
       public Builder clearSendTime() {
@@ -10219,7 +6766,7 @@ public final class ProtoMsg {
         return this;
       }
       /**
-       * <code>string send_time = 18;</code>
+       * <code>string send_time = 8;</code>
        * @param value The bytes for sendTime to set.
        * @return This builder for chaining.
        */
@@ -10231,158 +6778,6 @@ public final class ProtoMsg {
   checkByteStringIsUtf8(value);
         
         sendTime_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object updateDate_ = "";
-      /**
-       * <code>string update_date = 19;</code>
-       * @return The updateDate.
-       */
-      public java.lang.String getUpdateDate() {
-        java.lang.Object ref = updateDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          updateDate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string update_date = 19;</code>
-       * @return The bytes for updateDate.
-       */
-      public com.google.protobuf.ByteString
-          getUpdateDateBytes() {
-        java.lang.Object ref = updateDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          updateDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string update_date = 19;</code>
-       * @param value The updateDate to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUpdateDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        updateDate_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string update_date = 19;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearUpdateDate() {
-        
-        updateDate_ = getDefaultInstance().getUpdateDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string update_date = 19;</code>
-       * @param value The bytes for updateDate to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUpdateDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        updateDate_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object createDate_ = "";
-      /**
-       * <code>string create_date = 20;</code>
-       * @return The createDate.
-       */
-      public java.lang.String getCreateDate() {
-        java.lang.Object ref = createDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          createDate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string create_date = 20;</code>
-       * @return The bytes for createDate.
-       */
-      public com.google.protobuf.ByteString
-          getCreateDateBytes() {
-        java.lang.Object ref = createDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          createDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string create_date = 20;</code>
-       * @param value The createDate to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCreateDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        createDate_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string create_date = 20;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCreateDate() {
-        
-        createDate_ = getDefaultInstance().getCreateDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string create_date = 20;</code>
-       * @param value The bytes for createDate to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCreateDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        createDate_ = value;
         onChanged();
         return this;
       }
@@ -10444,10 +6839,16 @@ public final class ProtoMsg {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>bool result = 1;</code>
-     * @return The result.
+     * <code>string msg_uid = 1;</code>
+     * @return The msgUid.
      */
-    boolean getResult();
+    java.lang.String getMsgUid();
+    /**
+     * <code>string msg_uid = 1;</code>
+     * @return The bytes for msgUid.
+     */
+    com.google.protobuf.ByteString
+        getMsgUidBytes();
 
     /**
      * <code>uint32 code = 2;</code>
@@ -10466,12 +6867,6 @@ public final class ProtoMsg {
      */
     com.google.protobuf.ByteString
         getInfoBytes();
-
-    /**
-     * <code>uint32 expose = 4;</code>
-     * @return The expose.
-     */
-    int getExpose();
   }
   /**
    * <pre>
@@ -10490,6 +6885,7 @@ public final class ProtoMsg {
       super(builder);
     }
     private MessageResponse() {
+      msgUid_ = "";
       info_ = "";
     }
 
@@ -10523,9 +6919,10 @@ public final class ProtoMsg {
             case 0:
               done = true;
               break;
-            case 8: {
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              result_ = input.readBool();
+              msgUid_ = s;
               break;
             }
             case 16: {
@@ -10537,11 +6934,6 @@ public final class ProtoMsg {
               java.lang.String s = input.readStringRequireUtf8();
 
               info_ = s;
-              break;
-            }
-            case 32: {
-
-              expose_ = input.readUInt32();
               break;
             }
             default: {
@@ -10576,15 +6968,42 @@ public final class ProtoMsg {
               com.sxh.protobuf.ProtoMsg.MessageResponse.class, com.sxh.protobuf.ProtoMsg.MessageResponse.Builder.class);
     }
 
-    public static final int RESULT_FIELD_NUMBER = 1;
-    private boolean result_;
+    public static final int MSG_UID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object msgUid_;
     /**
-     * <code>bool result = 1;</code>
-     * @return The result.
+     * <code>string msg_uid = 1;</code>
+     * @return The msgUid.
      */
     @java.lang.Override
-    public boolean getResult() {
-      return result_;
+    public java.lang.String getMsgUid() {
+      java.lang.Object ref = msgUid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        msgUid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string msg_uid = 1;</code>
+     * @return The bytes for msgUid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMsgUidBytes() {
+      java.lang.Object ref = msgUid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        msgUid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int CODE_FIELD_NUMBER = 2;
@@ -10636,17 +7055,6 @@ public final class ProtoMsg {
       }
     }
 
-    public static final int EXPOSE_FIELD_NUMBER = 4;
-    private int expose_;
-    /**
-     * <code>uint32 expose = 4;</code>
-     * @return The expose.
-     */
-    @java.lang.Override
-    public int getExpose() {
-      return expose_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -10661,17 +7069,14 @@ public final class ProtoMsg {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (result_ != false) {
-        output.writeBool(1, result_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msgUid_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, msgUid_);
       }
       if (code_ != 0) {
         output.writeUInt32(2, code_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, info_);
-      }
-      if (expose_ != 0) {
-        output.writeUInt32(4, expose_);
       }
       unknownFields.writeTo(output);
     }
@@ -10682,9 +7087,8 @@ public final class ProtoMsg {
       if (size != -1) return size;
 
       size = 0;
-      if (result_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, result_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msgUid_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, msgUid_);
       }
       if (code_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -10692,10 +7096,6 @@ public final class ProtoMsg {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, info_);
-      }
-      if (expose_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(4, expose_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -10712,14 +7112,12 @@ public final class ProtoMsg {
       }
       com.sxh.protobuf.ProtoMsg.MessageResponse other = (com.sxh.protobuf.ProtoMsg.MessageResponse) obj;
 
-      if (getResult()
-          != other.getResult()) return false;
+      if (!getMsgUid()
+          .equals(other.getMsgUid())) return false;
       if (getCode()
           != other.getCode()) return false;
       if (!getInfo()
           .equals(other.getInfo())) return false;
-      if (getExpose()
-          != other.getExpose()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -10731,15 +7129,12 @@ public final class ProtoMsg {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + RESULT_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getResult());
+      hash = (37 * hash) + MSG_UID_FIELD_NUMBER;
+      hash = (53 * hash) + getMsgUid().hashCode();
       hash = (37 * hash) + CODE_FIELD_NUMBER;
       hash = (53 * hash) + getCode();
       hash = (37 * hash) + INFO_FIELD_NUMBER;
       hash = (53 * hash) + getInfo().hashCode();
-      hash = (37 * hash) + EXPOSE_FIELD_NUMBER;
-      hash = (53 * hash) + getExpose();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -10877,13 +7272,11 @@ public final class ProtoMsg {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        result_ = false;
+        msgUid_ = "";
 
         code_ = 0;
 
         info_ = "";
-
-        expose_ = 0;
 
         return this;
       }
@@ -10911,10 +7304,9 @@ public final class ProtoMsg {
       @java.lang.Override
       public com.sxh.protobuf.ProtoMsg.MessageResponse buildPartial() {
         com.sxh.protobuf.ProtoMsg.MessageResponse result = new com.sxh.protobuf.ProtoMsg.MessageResponse(this);
-        result.result_ = result_;
+        result.msgUid_ = msgUid_;
         result.code_ = code_;
         result.info_ = info_;
-        result.expose_ = expose_;
         onBuilt();
         return result;
       }
@@ -10963,8 +7355,9 @@ public final class ProtoMsg {
 
       public Builder mergeFrom(com.sxh.protobuf.ProtoMsg.MessageResponse other) {
         if (other == com.sxh.protobuf.ProtoMsg.MessageResponse.getDefaultInstance()) return this;
-        if (other.getResult() != false) {
-          setResult(other.getResult());
+        if (!other.getMsgUid().isEmpty()) {
+          msgUid_ = other.msgUid_;
+          onChanged();
         }
         if (other.getCode() != 0) {
           setCode(other.getCode());
@@ -10972,9 +7365,6 @@ public final class ProtoMsg {
         if (!other.getInfo().isEmpty()) {
           info_ = other.info_;
           onChanged();
-        }
-        if (other.getExpose() != 0) {
-          setExpose(other.getExpose());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -11005,33 +7395,78 @@ public final class ProtoMsg {
         return this;
       }
 
-      private boolean result_ ;
+      private java.lang.Object msgUid_ = "";
       /**
-       * <code>bool result = 1;</code>
-       * @return The result.
+       * <code>string msg_uid = 1;</code>
+       * @return The msgUid.
        */
-      @java.lang.Override
-      public boolean getResult() {
-        return result_;
+      public java.lang.String getMsgUid() {
+        java.lang.Object ref = msgUid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          msgUid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>bool result = 1;</code>
-       * @param value The result to set.
+       * <code>string msg_uid = 1;</code>
+       * @return The bytes for msgUid.
+       */
+      public com.google.protobuf.ByteString
+          getMsgUidBytes() {
+        java.lang.Object ref = msgUid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          msgUid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string msg_uid = 1;</code>
+       * @param value The msgUid to set.
        * @return This builder for chaining.
        */
-      public Builder setResult(boolean value) {
-        
-        result_ = value;
+      public Builder setMsgUid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        msgUid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bool result = 1;</code>
+       * <code>string msg_uid = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearResult() {
+      public Builder clearMsgUid() {
         
-        result_ = false;
+        msgUid_ = getDefaultInstance().getMsgUid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string msg_uid = 1;</code>
+       * @param value The bytes for msgUid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMsgUidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        msgUid_ = value;
         onChanged();
         return this;
       }
@@ -11139,37 +7574,6 @@ public final class ProtoMsg {
   checkByteStringIsUtf8(value);
         
         info_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int expose_ ;
-      /**
-       * <code>uint32 expose = 4;</code>
-       * @return The expose.
-       */
-      @java.lang.Override
-      public int getExpose() {
-        return expose_;
-      }
-      /**
-       * <code>uint32 expose = 4;</code>
-       * @param value The expose to set.
-       * @return This builder for chaining.
-       */
-      public Builder setExpose(int value) {
-        
-        expose_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 expose = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearExpose() {
-        
-        expose_ = 0;
         onChanged();
         return this;
       }
@@ -15028,58 +11432,44 @@ public final class ProtoMsg {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016ProtoMsg.proto\022\020com.sxh.protobuf\"c\n\014Lo" +
+      "\n\016ProtoMsg.proto\022\020com.sxh.protobuf\"O\n\014Lo" +
       "ginRequest\022\017\n\007userUid\030\001 \001(\t\022\r\n\005devId\030\002 \001" +
-      "(\t\022\r\n\005token\030\003 \001(\t\022\020\n\010platform\030\004 \001(\r\022\022\n\na" +
-      "ppVersion\030\005 \001(\t\"\\\n\rLoginResponse\022\016\n\006resu" +
-      "lt\030\001 \001(\010\022\014\n\004code\030\002 \001(\r\022\014\n\004info\030\003 \001(\t\022\016\n\006" +
-      "expose\030\004 \001(\r\022\017\n\007apiAuth\030\005 \001(\t\"d\n\rLogoutR" +
-      "equest\022\017\n\007userUid\030\001 \001(\t\022\r\n\005devId\030\002 \001(\t\022\r" +
-      "\n\005token\030\003 \001(\t\022\020\n\010platform\030\004 \001(\r\022\022\n\nappVe" +
-      "rsion\030\005 \001(\t\"b\n\016LogoutResponse\022\016\n\006result\030" +
-      "\001 \001(\010\022\014\n\004code\030\002 \001(\r\022\014\n\004info\030\003 \001(\t\022\020\n\010pla" +
-      "tform\030\004 \001(\r\022\022\n\ninitiative\030\005 \001(\010\"\324\002\n\016Sing" +
-      "leChatting\022\024\n\014chatting_uid\030\001 \001(\t\022\020\n\010user" +
-      "_uid\030\002 \001(\t\022\020\n\010recv_uid\030\003 \001(\t\022\017\n\007content\030" +
-      "\004 \001(\t\022\024\n\014content_size\030\005 \001(\t\022\025\n\roriginal_" +
-      "path\030\006 \001(\t\022\024\n\014content_path\030\007 \001(\t\022\024\n\014cont" +
-      "ent_type\030\010 \001(\r\022\021\n\tsend_type\030\t \001(\r\022\021\n\tis_" +
-      "recall\030\n \001(\r\022\026\n\016pulling_status\030\013 \001(\r\022\021\n\t" +
-      "sort_date\030\014 \001(\t\022\021\n\tsend_time\030\r \001(\t\022\023\n\013up" +
-      "date_date\030\016 \001(\t\022\023\n\013create_date\030\017 \001(\t\022\020\n\010" +
-      "temp_uid\030\020 \001(\t\"\251\003\n\017ClusterChatting\022\024\n\014ch" +
-      "atting_uid\030\001 \001(\t\022\023\n\013cluster_uid\030\002 \001(\t\022\020\n" +
-      "\010recv_uid\030\003 \001(\t\022\020\n\010user_uid\030\004 \001(\t\022\021\n\tuse" +
-      "r_name\030\005 \001(\t\022\021\n\tuser_logo\030\006 \001(\t\022\025\n\ruser_" +
-      "position\030\007 \001(\t\022\022\n\nuser_compy\030\010 \001(\t\022\017\n\007co" +
-      "ntent\030\t \001(\t\022\024\n\014content_size\030\n \001(\t\022\025\n\rori" +
-      "ginal_path\030\013 \001(\t\022\024\n\014content_path\030\014 \001(\t\022\024" +
-      "\n\014content_type\030\r \001(\r\022\021\n\tsend_type\030\016 \001(\r\022" +
-      "\021\n\tis_recall\030\017 \001(\r\022\026\n\016pulling_status\030\020 \001" +
-      "(\r\022\021\n\tsort_date\030\021 \001(\t\022\021\n\tsend_time\030\022 \001(\t" +
-      "\022\023\n\013update_date\030\023 \001(\t\022\023\n\013create_date\030\024 \001" +
-      "(\t\"M\n\017MessageResponse\022\016\n\006result\030\001 \001(\010\022\014\n" +
-      "\004code\030\002 \001(\r\022\014\n\004info\030\003 \001(\t\022\016\n\006expose\030\004 \001(" +
-      "\r\":\n\020MessageHeartBeat\022\013\n\003seq\030\001 \001(\r\022\013\n\003ui" +
-      "d\030\002 \001(\t\022\014\n\004json\030\003 \001(\t\"\242\004\n\007Message\022(\n\004typ" +
-      "e\030\001 \001(\0162\032.com.sxh.protobuf.HeadType\022\020\n\010s" +
-      "equence\030\002 \001(\004\022\022\n\nsession_id\030\003 \001(\t\0224\n\014log" +
-      "inRequest\030\004 \001(\0132\036.com.sxh.protobuf.Login" +
-      "Request\0226\n\rloginResponse\030\005 \001(\0132\037.com.sxh" +
-      ".protobuf.LoginResponse\0226\n\rlogoutRequest" +
-      "\030\006 \001(\0132\037.com.sxh.protobuf.LogoutRequest\022" +
-      "8\n\016logoutResponse\030\007 \001(\0132 .com.sxh.protob" +
-      "uf.LogoutResponse\0228\n\016singleChatting\030\010 \001(" +
-      "\0132 .com.sxh.protobuf.SingleChatting\022:\n\017c" +
-      "lusterChatting\030\t \001(\0132!.com.sxh.protobuf." +
-      "ClusterChatting\022:\n\017messageResponse\030\n \001(\013" +
-      "2!.com.sxh.protobuf.MessageResponse\0225\n\th" +
-      "eartBeat\030\013 \001(\0132\".com.sxh.protobuf.Messag" +
-      "eHeartBeat*\251\001\n\010HeadType\022\021\n\rLOGIN_REQUEST" +
-      "\020\000\022\022\n\016LOGIN_RESPONSE\020\001\022\022\n\016LOGOUT_REQUEST" +
-      "\020\002\022\023\n\017LOGOUT_RESPONSE\020\003\022\016\n\nHEART_BEAT\020\004\022" +
-      "\022\n\016SINGLE_REQUEST\020\005\022\023\n\017CLUSTER_REQUEST\020\006" +
-      "\022\024\n\020MESSAGE_RESPONSE\020\007b\006proto3"
+      "(\t\022\r\n\005token\030\003 \001(\t\022\020\n\010platform\030\004 \001(\r\";\n\rL" +
+      "oginResponse\022\016\n\006result\030\001 \001(\010\022\014\n\004code\030\002 \001" +
+      "(\r\022\014\n\004info\030\003 \001(\t\"P\n\rLogoutRequest\022\017\n\007use" +
+      "rUid\030\001 \001(\t\022\r\n\005devId\030\002 \001(\t\022\r\n\005token\030\003 \001(\t" +
+      "\022\020\n\010platform\030\004 \001(\r\"R\n\016LogoutResponse\022\014\n\004" +
+      "code\030\001 \001(\r\022\014\n\004info\030\002 \001(\t\022\020\n\010platform\030\003 \001" +
+      "(\r\022\022\n\ninitiative\030\004 \001(\010\"\222\001\n\016SingleChattin" +
+      "g\022\017\n\007msg_uid\030\001 \001(\t\022\020\n\010user_uid\030\002 \001(\t\022\020\n\010" +
+      "recv_uid\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\022\024\n\014conte" +
+      "nt_type\030\005 \001(\r\022\021\n\tis_recall\030\006 \001(\r\022\021\n\tsend" +
+      "_time\030\007 \001(\t\"\250\001\n\017ClusterChatting\022\017\n\007msg_u" +
+      "id\030\001 \001(\t\022\023\n\013cluster_uid\030\002 \001(\t\022\020\n\010recv_ui" +
+      "d\030\003 \001(\t\022\020\n\010user_uid\030\004 \001(\t\022\017\n\007content\030\005 \001" +
+      "(\t\022\024\n\014content_type\030\006 \001(\r\022\021\n\tis_recall\030\007 " +
+      "\001(\r\022\021\n\tsend_time\030\010 \001(\t\">\n\017MessageRespons" +
+      "e\022\017\n\007msg_uid\030\001 \001(\t\022\014\n\004code\030\002 \001(\r\022\014\n\004info" +
+      "\030\003 \001(\t\":\n\020MessageHeartBeat\022\013\n\003seq\030\001 \001(\r\022" +
+      "\013\n\003uid\030\002 \001(\t\022\014\n\004json\030\003 \001(\t\"\242\004\n\007Message\022(" +
+      "\n\004type\030\001 \001(\0162\032.com.sxh.protobuf.HeadType" +
+      "\022\020\n\010sequence\030\002 \001(\004\022\022\n\nsession_id\030\003 \001(\t\0224" +
+      "\n\014loginRequest\030\004 \001(\0132\036.com.sxh.protobuf." +
+      "LoginRequest\0226\n\rloginResponse\030\005 \001(\0132\037.co" +
+      "m.sxh.protobuf.LoginResponse\0226\n\rlogoutRe" +
+      "quest\030\006 \001(\0132\037.com.sxh.protobuf.LogoutReq" +
+      "uest\0228\n\016logoutResponse\030\007 \001(\0132 .com.sxh.p" +
+      "rotobuf.LogoutResponse\0228\n\016singleChatting" +
+      "\030\010 \001(\0132 .com.sxh.protobuf.SingleChatting" +
+      "\022:\n\017clusterChatting\030\t \001(\0132!.com.sxh.prot" +
+      "obuf.ClusterChatting\022:\n\017messageResponse\030" +
+      "\n \001(\0132!.com.sxh.protobuf.MessageResponse" +
+      "\0225\n\theartBeat\030\013 \001(\0132\".com.sxh.protobuf.M" +
+      "essageHeartBeat*\251\001\n\010HeadType\022\021\n\rLOGIN_RE" +
+      "QUEST\020\000\022\022\n\016LOGIN_RESPONSE\020\001\022\022\n\016LOGOUT_RE" +
+      "QUEST\020\002\022\023\n\017LOGOUT_RESPONSE\020\003\022\016\n\nHEART_BE" +
+      "AT\020\004\022\022\n\016SINGLE_REQUEST\020\005\022\023\n\017CLUSTER_REQU" +
+      "EST\020\006\022\024\n\020MESSAGE_RESPONSE\020\007b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -15090,43 +11480,43 @@ public final class ProtoMsg {
     internal_static_com_sxh_protobuf_LoginRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_sxh_protobuf_LoginRequest_descriptor,
-        new java.lang.String[] { "UserUid", "DevId", "Token", "Platform", "AppVersion", });
+        new java.lang.String[] { "UserUid", "DevId", "Token", "Platform", });
     internal_static_com_sxh_protobuf_LoginResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_sxh_protobuf_LoginResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_sxh_protobuf_LoginResponse_descriptor,
-        new java.lang.String[] { "Result", "Code", "Info", "Expose", "ApiAuth", });
+        new java.lang.String[] { "Result", "Code", "Info", });
     internal_static_com_sxh_protobuf_LogoutRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_com_sxh_protobuf_LogoutRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_sxh_protobuf_LogoutRequest_descriptor,
-        new java.lang.String[] { "UserUid", "DevId", "Token", "Platform", "AppVersion", });
+        new java.lang.String[] { "UserUid", "DevId", "Token", "Platform", });
     internal_static_com_sxh_protobuf_LogoutResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_com_sxh_protobuf_LogoutResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_sxh_protobuf_LogoutResponse_descriptor,
-        new java.lang.String[] { "Result", "Code", "Info", "Platform", "Initiative", });
+        new java.lang.String[] { "Code", "Info", "Platform", "Initiative", });
     internal_static_com_sxh_protobuf_SingleChatting_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_com_sxh_protobuf_SingleChatting_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_sxh_protobuf_SingleChatting_descriptor,
-        new java.lang.String[] { "ChattingUid", "UserUid", "RecvUid", "Content", "ContentSize", "OriginalPath", "ContentPath", "ContentType", "SendType", "IsRecall", "PullingStatus", "SortDate", "SendTime", "UpdateDate", "CreateDate", "TempUid", });
+        new java.lang.String[] { "MsgUid", "UserUid", "RecvUid", "Content", "ContentType", "IsRecall", "SendTime", });
     internal_static_com_sxh_protobuf_ClusterChatting_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_com_sxh_protobuf_ClusterChatting_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_sxh_protobuf_ClusterChatting_descriptor,
-        new java.lang.String[] { "ChattingUid", "ClusterUid", "RecvUid", "UserUid", "UserName", "UserLogo", "UserPosition", "UserCompy", "Content", "ContentSize", "OriginalPath", "ContentPath", "ContentType", "SendType", "IsRecall", "PullingStatus", "SortDate", "SendTime", "UpdateDate", "CreateDate", });
+        new java.lang.String[] { "MsgUid", "ClusterUid", "RecvUid", "UserUid", "Content", "ContentType", "IsRecall", "SendTime", });
     internal_static_com_sxh_protobuf_MessageResponse_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_com_sxh_protobuf_MessageResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_sxh_protobuf_MessageResponse_descriptor,
-        new java.lang.String[] { "Result", "Code", "Info", "Expose", });
+        new java.lang.String[] { "MsgUid", "Code", "Info", });
     internal_static_com_sxh_protobuf_MessageHeartBeat_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_com_sxh_protobuf_MessageHeartBeat_fieldAccessorTable = new

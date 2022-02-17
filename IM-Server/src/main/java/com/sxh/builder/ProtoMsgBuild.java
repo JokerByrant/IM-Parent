@@ -16,7 +16,8 @@ public class ProtoMsgBuild {
      */
     public static ProtoMsg.Message heartBeatMsg(String userUid) {
         ProtoMsg.Message.Builder mb = ProtoMsg.Message.newBuilder().setType(ProtoMsg.HeadType.HEART_BEAT);
-        ProtoMsg.MessageHeartBeat heartBeatMsg = ProtoMsg.MessageHeartBeat.newBuilder().setUid(userUid).build();
+        ProtoMsg.MessageHeartBeat heartBeatMsg = ProtoMsg.MessageHeartBeat.newBuilder()
+                .setUid(userUid).build();
         mb.setHeartBeat(heartBeatMsg);
         return mb.build();
     }
@@ -30,7 +31,7 @@ public class ProtoMsgBuild {
      */
     public static ProtoMsg.Message logoutResponseMsg(ResultCodeEnum resultCodeEnum, Boolean initiative, Integer platform) {
         ProtoMsg.Message.Builder mb = ProtoMsg.Message.newBuilder().setType(ProtoMsg.HeadType.LOGOUT_RESPONSE);
-        ProtoMsg.LogoutResponse logoutResponseMsg = ProtoMsg.LogoutResponse.newBuilder().setResult(true)
+        ProtoMsg.LogoutResponse logoutResponseMsg = ProtoMsg.LogoutResponse.newBuilder()
                 .setCode(resultCodeEnum.getCode()).setInfo(resultCodeEnum.getDesc())
                 .setInitiative(initiative).setPlatform(platform).build();
         mb.setLogoutResponse(logoutResponseMsg);
@@ -40,15 +41,26 @@ public class ProtoMsgBuild {
     /**
      * 登录消息响应构造
      * @param resultCodeEnum 响应信息
-     * @param apiAuth 用户登录成功后的token信息
      * @return
      */
-    public static ProtoMsg.Message loginResponseMsg(ResultCodeEnum resultCodeEnum, String apiAuth) {
+    public static ProtoMsg.Message loginResponseMsg(ResultCodeEnum resultCodeEnum) {
         ProtoMsg.Message.Builder mb = ProtoMsg.Message.newBuilder().setType(ProtoMsg.HeadType.LOGIN_RESPONSE);
-        ProtoMsg.LoginResponse loginResponseMsg = ProtoMsg.LoginResponse.newBuilder().setResult(true)
-                .setCode(resultCodeEnum.getCode()).setInfo(resultCodeEnum.getDesc())
-                .setExpose(1).setApiAuth(apiAuth).build();
+        ProtoMsg.LoginResponse loginResponseMsg = ProtoMsg.LoginResponse.newBuilder()
+                .setCode(resultCodeEnum.getCode()).setInfo(resultCodeEnum.getDesc()).build();
         mb.setLoginResponse(loginResponseMsg);
+        return mb.build();
+    }
+
+    /**
+     * 聊天消息响应构造
+     * @param resultCodeEnum 响应信息
+     * @return
+     */
+    public static ProtoMsg.Message messageResponseMsg(ResultCodeEnum resultCodeEnum, String msgUid) {
+        ProtoMsg.Message.Builder mb = ProtoMsg.Message.newBuilder().setType(ProtoMsg.HeadType.MESSAGE_RESPONSE);
+        ProtoMsg.MessageResponse messageResponseMsg = ProtoMsg.MessageResponse.newBuilder()
+                .setMsgUid(msgUid).setCode(resultCodeEnum.getCode()).setInfo(resultCodeEnum.getDesc()).build();
+        mb.setMessageResponse(messageResponseMsg);
         return mb.build();
     }
 }
