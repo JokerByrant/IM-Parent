@@ -1,10 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>主页</title>
+    <link th:href="@{/webjars/css/chatBox.css}" rel="stylesheet">
 </head>
 <body>
-    
+    <div class="container">
+        <!--在线用户列表-->
+        <div class="onlineUsers">
+            <div class="onlineUsers-item active">
+                <div class="avatar-box">
+                    <img src="https://192.168.0.104/images/sys/sysNotice/1638947870618sysNotice.jpg" alt="头像">
+                </div>
+                <div class="card-box">
+                    <div class="card-title">
+                        <div class="card-name">老李</div>
+                        <div class="card-time">2分钟前</div>
+                    </div>
+                    <div class="card-content">
+                        <span>Hello World</span>
+                    </div>
+                </div>
+            </div>
+            <div class="onlineUsers-item">
+                <div class="avatar-box">
+                    <img src="http://192.168.1.129:8001/images/app/me/02bc1fcd63514e80a7ae0a74c19945fa_goodLogo.jpg" alt="头像">
+                </div>
+                <div class="card-box">
+                    <div class="card-title">
+                        <div class="card-name">王伟</div>
+                        <div class="card-time">10:35</div>
+                    </div>
+                    <div class="card-content">
+                        <span>嘻嘻</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--聊天信息框-->
+        <div class="chatBox">
+            <!--头部:用户信息-->
+            <div class="chatBox-header">
+                <div class="left-module">
+                    <span>老李</span>
+                </div>
+                <div class="right-module">
+                    <span>菜单</span>
+                </div>
+            </div>
+            <!--主体:聊天消息-->
+            <div class="chatBox-body">
+                <div class="msg-time">9:01</div>
+                <div class="msg-body">
+                    <div class="msg-logo">
+                        <img src="https://192.168.0.104/images/sys/sysNotice/1638947870618sysNotice.jpg" alt="头像">
+                    </div>
+                    <div class="msg-content">
+                        <span class="word">Hello World</span>
+                    </div>
+                </div>
+                <div class="msg-body me">
+                    <div class="msg-logo">
+                        <img src="http://192.168.1.129:8001/images/app/me/02bc1fcd63514e80a7ae0a74c19945fa_goodLogo.jpg" alt="头像">
+                    </div>
+                    <div class="msg-content">
+                        <span class="word">Hello World</span>
+                    </div>
+                </div>
+                <div class="msg-time">2分钟前</div>
+                <div class="msg-body">
+                    <div class="msg-logo">
+                        <img src="https://192.168.0.104/images/sys/sysNotice/1638947870618sysNotice.jpg" alt="头像">
+                    </div>
+                    <div class="msg-content">
+                        <span class="word">Hello World</span>
+                    </div>
+                </div>
+                <div class="msg-body me">
+                    <div class="msg-logo">
+                        <img src="http://192.168.1.129:8001/images/app/me/02bc1fcd63514e80a7ae0a74c19945fa_goodLogo.jpg" alt="头像">
+                    </div>
+                    <div class="msg-content">
+                        <span class="word">Hello World</span>
+                    </div>
+                </div>
+            </div>
+            <!--底部:消息输入框-->
+            <div class="chatBox-footer">
+                <div class="toolbar">
+                    <ul>
+                        <li>表情</li>
+                        <li>图片</li>
+                        <li>位置</li>
+                        <li>代码片段</li>
+                    </ul>
+                </div>
+                <div class="textarea">
+                    <textarea rows="6" placeholder="人类的悲欢并不相通..."></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+
+    </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package com.sxh.netty;
+package com.sxh.client;
 
 import com.sxh.protobuf.ProtoMsg;
 import io.netty.channel.ChannelFutureListener;

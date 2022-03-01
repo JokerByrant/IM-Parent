@@ -1,0 +1,209 @@
+body, html {
+    height: 100%;
+    overflow: hidden;
+}
+.container {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    display: flex;
+    flex: 1;
+}
+/*===========================左侧用户列表===========================*/
+.onlineUsers {
+    width: 320px;
+    height: 100%;
+    border-right: 1px solid #f5f5f5;
+}
+.onlineUsers .active {
+    background-color: #eff0f1;
+}
+.onlineUsers-item {
+    padding: 8px 10px;
+    height: 50px;
+    border-left: 3px solid transparent;
+    display: flex;
+    flex-direction: row;
+}
+.avatar-box {
+    width: 40px;
+    height: 40px;
+}
+.avatar-box img {
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+}
+.card-box {
+    margin-left: 10px;
+    height: 40px;
+    flex: 1;
+}
+.card-box .card-title {
+    display: flex;
+    align-items: center;
+}
+/*用户名*/
+.card-title .card-name {
+    font-size: 14px;
+    color: #1f2329;
+    line-height: 20px;
+    display: flex;
+    flex: 1 1;
+}
+/*时间*/
+.card-title .card-time {
+    font-size: 12px;
+    color: #8f959e;
+    margin-left: 12px;
+}
+/*消息内容*/
+.card-content {
+    font-size: 13px;
+    color: #527490;
+    line-height: 18px;
+    margin-top: 3px;
+    font-weight: 300;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/*===========================右侧聊天面板===========================*/
+/*----------头部菜单----------*/
+.chatBox {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.chatBox-header {
+    height: 60px;
+    display: flex;
+    border-bottom: 1px solid #f5eeee;
+    padding: 0 20px;
+    font-size: 18px;
+}
+.left-module {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.right-module {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+/*----------中间消息面板----------*/
+.chatBox-body {
+    flex: 1;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 15px 30px;
+}
+/*时间*/
+.msg-time {
+    height: 30px;
+    line-height: 30px;
+    color: #ccc9c9;
+    font-size: 12px;
+    text-align: center;
+    margin: 5px 0;
+}
+.msg-body {
+    display: flex;
+}
+/*logo*/
+.msg-logo {
+    height: 40px;
+    width: 40px;
+}
+.msg-logo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+}
+/*消息内容*/
+.msg-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.msg-content .word {
+    border: 1px solid #f5f5f5;
+    background: #f5f5f5;;
+    padding: 8px 10px;
+    word-break: break-word;
+    border-radius:4px;
+    margin:0 10px;
+    position: relative;
+}
+.msg-content .word:before {
+    right: 100%;
+    content: " ";
+    position: absolute;
+    top: 9px;
+    border: 6px solid transparent;
+    border-right-color: #f5f5f5;
+}
+/*当前用户发送的消息*/
+.me .msg-logo{
+    order: 1;
+}
+.me .msg-content{
+    order: 0;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.me .msg-content .word {
+    border: 1px solid #ADE0FC;
+    background: #ADE0FC;
+}
+.me .msg-content .word:before {
+    border-left-color: #ADE0FC;
+    left: 100%;
+}
+/*----------底部输入框----------*/
+.chatBox-footer {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    padding: 0;
+    border-top: 1px solid #f5f5f5;
+}
+.toolbar {
+    height: 35px;
+    border-bottom: 1px solid #f5f0f0;
+    border-top: 1px solid #f5f0f0;
+    line-height: 35px;
+}
+.toolbar ul {
+    margin: 0;
+    padding: 0;
+}
+.toolbar ul>li {
+    list-style: none;
+    float: left;
+    margin-left: 8px;
+}
+.textarea {
+    overflow: hidden;
+    flex: 1;
+}
+.textarea textarea {
+    padding: 5px;
+    width: -webkit-calc(100% - 10px);
+    border: 0 none;
+    outline: none;
+    resize: none;
+    color: #464545;
+    font-family: Microsoft YaHei;
+    font-size: 16px;
+}

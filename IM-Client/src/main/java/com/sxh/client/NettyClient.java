@@ -1,4 +1,4 @@
-package com.sxh.netty;
+package com.sxh.client;
 
 import com.sxh.codec.ProtobufDecoder;
 import com.sxh.codec.ProtobufEncoder;
